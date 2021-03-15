@@ -6,10 +6,10 @@ package types
 import (
 	fmt "fmt"
 	proto "github.com/gogo/protobuf/proto"
+	nb "gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/onos-ric/nb"
 	io "io"
 	math "math"
 	math_bits "math/bits"
-	nb "onos/onos-ric/nb"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.

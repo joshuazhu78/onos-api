@@ -137,6 +137,7 @@ go_import_paths="${go_import_paths},Monos/onos-ric/sb/e2ap/e2ap.proto=gitlab.dev
 go_import_paths="${go_import_paths},Monos/onos-ric/sb/e2sm/e2sm.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/onos-ric/sb/e2sm"
 go_import_paths="${go_import_paths},Monos/onos-ric/sb/e2ap.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/onos-ric/sb"
 go_import_paths="${go_import_paths},Monos/onos-ric/sb/e2-interface.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/onos-ric/sb"
+go_import_paths="${go_import_paths},Monos/onos-ric/nb/c1-interface.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/onos-ric/nb"
 go_import_paths="${go_import_paths},Monos/onos-ric/nb/a1/a1-p/qos/qos.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/onos-ric/nb/a1/a1-p/qos"
 go_import_paths="${go_import_paths},Monos/onos-ric/nb/a1/a1-p/tsp/tsp.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/onos-ric/nb/a1/a1-p/tsp"
 go_import_paths="${go_import_paths},Monos/onos-ric/nb/a1/types/types.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/onos-ric/nb/a1/types"
