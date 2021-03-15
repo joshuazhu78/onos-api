@@ -137,6 +137,10 @@ go_import_paths="${go_import_paths},Monos/onos-ric/sb/e2ap/e2ap.proto=gitlab.dev
 go_import_paths="${go_import_paths},Monos/onos-ric/sb/e2sm/e2sm.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/onos-ric/sb/e2sm"
 go_import_paths="${go_import_paths},Monos/onos-ric/sb/e2ap.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/onos-ric/sb"
 go_import_paths="${go_import_paths},Monos/onos-ric/sb/e2-interface.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/onos-ric/sb"
+go_import_paths="${go_import_paths},Monos/onos-ric/nb/a1/a1-p/qos/qos.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/onos-ric/nb/a1/a1-p/qos"
+go_import_paths="${go_import_paths},Monos/onos-ric/nb/a1/a1-p/tsp/tsp.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/onos-ric/nb/a1/a1-p/tsp"
+go_import_paths="${go_import_paths},Monos/onos-ric/nb/a1/types/types.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/onos-ric/nb/a1/types"
+go_import_paths="${go_import_paths},Monos/onos-ric/nb/apps/types/types.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/onos-ric/nb/apps/types"
 go_import_paths="${go_import_paths},Monos/ran-simulator/types/types.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/ran-simulator/types"
 # e2sub
 protoc --proto_path=$proto_path \
@@ -226,6 +230,27 @@ protoc --proto_path=$proto_path \
 protoc --proto_path=$proto_path \
     --gogofaster_out=$go_import_paths,import_path=onos/onos-ric/sb/e2sm,plugins=grpc:./go \
     proto/onos/onos-ric/sb/e2sm/*.proto
+protoc --proto_path=$proto_path \
+    --gogofaster_out=$go_import_paths,import_path=onos/onos-ric/nb,plugins=grpc:./go \
+    proto/onos/onos-ric/nb/*.proto
+protoc --proto_path=$proto_path \
+    --gogofaster_out=$go_import_paths,import_path=onos/onos-ric/nb/a1/types,plugins=grpc:./go \
+    proto/onos/onos-ric/nb/a1/types/*.proto
+protoc --proto_path=$proto_path \
+    --gogofaster_out=$go_import_paths,import_path=onos/onos-ric/nb/a1/a1-p/qos,plugins=grpc:./go \
+    proto/onos/onos-ric/nb/a1/a1-p/qos/*.proto
+protoc --proto_path=$proto_path \
+    --gogofaster_out=$go_import_paths,import_path=onos/onos-ric/nb/a1/a1-p/tsp,plugins=grpc:./go \
+    proto/onos/onos-ric/nb/a1/a1-p/tsp/*.proto
+protoc --proto_path=$proto_path \
+    --gogofaster_out=$go_import_paths,import_path=onos/onos-ric/nb/a1,plugins=grpc:./go \
+    proto/onos/onos-ric/nb/a1/*.proto
+protoc --proto_path=$proto_path \
+    --gogofaster_out=$go_import_paths,import_path=onos/onos-ric/nb/apps/types,plugins=grpc:./go \
+    proto/onos/onos-ric/nb/apps/types/*.proto
+protoc --proto_path=$proto_path \
+    --gogofaster_out=$go_import_paths,import_path=onos/onos-ric/nb/apps/ricapps_son,plugins=grpc:./go \
+    proto/onos/onos-ric/nb/apps/*.proto
 
 # ran-simulator
 protoc --proto_path=$proto_path \

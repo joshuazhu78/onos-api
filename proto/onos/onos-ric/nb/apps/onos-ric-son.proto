@@ -1,0 +1,84 @@
+/*
+Copyright 2020-present Open Networking Foundation.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+syntax = "proto3";
+
+package ricapps.son;
+
+import "onos/onos-ric/nb/apps/types/types.proto";
+
+message SetDrlCmdTypeRequest {
+    DrlCmdType type = 1;
+}
+
+message SetDrlCmdTypeResponse {
+    DrlCmdType type = 1;
+}
+
+message RicSonConfigRequest {
+}
+
+message RicSonConfig {
+    // DRL command type
+    DrlCmdType drlCmdType = 1;
+}
+
+message ListCellParamsRequest {
+    // subscribe indicates whether to subscribe to events (e.g. ADD, UPDATE, and REMOVE) that occur
+    // after all cells have been streamed to the client
+    bool subscribe = 1;
+
+    // option to request only changes that happen after the call
+    bool withoutReplay = 2;
+}
+
+message ListCellParamsResponse {
+    // cell is the cell change on which the event occurred
+    ricapps.types.HOParams cellParam = 1;
+
+    // type is a qualification of the type of change being made
+    ricapps.types.Type type = 2;
+}
+
+// RicSon - provides a RIC-SON control interface to GUI
+service RicSon {
+    rpc GetRicSonConfig(RicSonConfigRequest) returns (RicSonConfig);
+
+    rpc SetDrlCmdType(SetDrlCmdTypeRequest) returns (SetDrlCmdTypeResponse);
+
+    rpc ListCellParams(ListCellParamsRequest) returns (stream ListCellParamsResponse);
+}
+
+// Change DRL Command type
+enum DrlCmdType {
+    // NONE indicates no DRL command is generated
+    CMDNONE = 0;
+
+    // TOWER maps DRL commands to tower power adjustment
+    CMDTOWER = 1;
+
+    // HOPARAM maps DRL commands to handover parameter adjustment
+    CMDHOPARAM = 2;
+
+    // HO maps DRL commands to handover command
+    CMDHO = 3;
+
+    // TOWERHOPARAM maps DRL commands to tower power adj and handover parameters
+    CMDTOWERHOPARAM = 4;
+
+    // TOWERHO maps DRL commands to tower power adj and handover
+    CMDTOWERHO = 5;
+}
