@@ -6,7 +6,7 @@ package e2sm
 import (
 	fmt "fmt"
 	proto "github.com/gogo/protobuf/proto"
-	sb "gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/onos-ric/sb/sb"
+	sb "gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/onos-ric/sb"
 	io "io"
 	math "math"
 	math_bits "math/bits"
