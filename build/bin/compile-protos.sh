@@ -133,8 +133,10 @@ go_import_paths="${go_import_paths},Monos/config/change/network/types.proto=gitl
 go_import_paths="${go_import_paths},Monos/config/snapshot/types.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/config/snapshot"
 go_import_paths="${go_import_paths},Monos/config/snapshot/device/types.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/config/snapshot/device"
 go_import_paths="${go_import_paths},Monos/ransim/types/types.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/ransim/types"
-go_import_paths="${go_import_paths},Monos/onos-ric/sb/e2ap/e2ap.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/e2ap/e2ap"
-go_import_paths="${go_import_paths},Monos/onos-ric/sb/e2sm/e2sm.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/e2sm/e2sm"
+go_import_paths="${go_import_paths},Monos/onos-ric/sb/e2ap/e2ap.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/onos-ric/sb/e2ap/e2ap"
+go_import_paths="${go_import_paths},Monos/onos-ric/sb/e2sm/e2sm.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/onos-ric/sb/e2sm/e2sm"
+go_import_paths="${go_import_paths},Monos/onos-ric/sb/e2ap.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/onos-ric/sb/sb"
+go_import_paths="${go_import_paths},Monos/onos-ric/sb/e2-interface.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/onos-ric/sb/sb"
 # e2sub
 protoc --proto_path=$proto_path \
     --gogofaster_out=$go_import_paths,import_path=onos/e2sub/endpoint,plugins=grpc:./go \

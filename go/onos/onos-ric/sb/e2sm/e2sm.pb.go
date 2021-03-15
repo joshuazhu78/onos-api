@@ -6,10 +6,10 @@ package e2sm
 import (
 	fmt "fmt"
 	proto "github.com/gogo/protobuf/proto"
+	sb "gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/onos-ric/sb/sb"
 	io "io"
 	math "math"
 	math_bits "math/bits"
-	sb "onos/onos-ric/sb"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
