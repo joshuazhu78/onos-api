@@ -28,7 +28,7 @@ message PlmnIDRequest {
 }
 
 message PlmnIDResponse {
-    uint32 plmnid = 1 [(gogoproto.customname) = "PlmnID", (gogoproto.casttype) = "github.com/onosproject/onos-api/go/onos/ransim/types.PlmnID"];
+    uint32 plmnid = 1 [(gogoproto.customname) = "PlmnID", (gogoproto.casttype) = "gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/ransim/types.PlmnID"];
 }
 
 
@@ -43,7 +43,7 @@ message CreateNodeResponse {
 
 // GetNodeRequest get a node request
 message GetNodeRequest {
-    uint32 enbid = 1 [(gogoproto.customname) = "EnbID", (gogoproto.casttype) = "github.com/onosproject/onos-api/go/onos/ransim/types.EnbID"];
+    uint32 enbid = 1 [(gogoproto.customname) = "EnbID", (gogoproto.casttype) = "gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/ransim/types.EnbID"];
 }
 
 // GetNodeResponse get a node response
@@ -62,7 +62,7 @@ message UpdateNodeResponse {
 
 // DeleteNodeRequest delete a node request
 message DeleteNodeRequest {
-    uint32 enbid = 1 [(gogoproto.customname) = "EnbID", (gogoproto.casttype) = "github.com/onosproject/onos-api/go/onos/ransim/types.EnbID"];
+    uint32 enbid = 1 [(gogoproto.customname) = "EnbID", (gogoproto.casttype) = "gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/ransim/types.EnbID"];
 }
 
 // DeleteNodeResponse delete a node response
@@ -87,7 +87,7 @@ message WatchNodesResponse {
 }
 
 message AgentControlRequest {
-    uint32 enbid = 1 [(gogoproto.customname) = "EnbID", (gogoproto.casttype) = "github.com/onosproject/onos-api/go/onos/ransim/types.EnbID"];
+    uint32 enbid = 1 [(gogoproto.customname) = "EnbID", (gogoproto.casttype) = "gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/ransim/types.EnbID"];
 
     string command = 2; // start, stop, drop, reconnect, etc.
 
@@ -118,7 +118,7 @@ message CreateCellResponse {
 }
 
 message GetCellRequest {
-    uint32 ecgi = 1 [(gogoproto.customname) = "ECGI", (gogoproto.casttype) = "github.com/onosproject/onos-api/go/onos/ransim/types.ECGI"];
+    uint32 ecgi = 1 [(gogoproto.customname) = "ECGI", (gogoproto.casttype) = "gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/ransim/types.ECGI"];
 }
 
 message GetCellResponse {
@@ -133,7 +133,7 @@ message UpdateCellResponse {
 }
 
 message DeleteCellRequest {
-    uint32 enbid = 1 [(gogoproto.customname) = "ECGI", (gogoproto.casttype) = "github.com/onosproject/onos-api/go/onos/ransim/types.ECGI"];
+    uint32 enbid = 1 [(gogoproto.customname) = "ECGI", (gogoproto.casttype) = "gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/ransim/types.ECGI"];
 }
 
 message DeleteCellResponse {

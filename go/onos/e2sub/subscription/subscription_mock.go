@@ -13,30 +13,30 @@ import (
 	metadata "google.golang.org/grpc/metadata"
 )
 
-// MockE2SubscriptionServiceClient is a mock of E2SubscriptionServiceClient interface
+// MockE2SubscriptionServiceClient is a mock of E2SubscriptionServiceClient interface.
 type MockE2SubscriptionServiceClient struct {
 	ctrl     *gomock.Controller
 	recorder *MockE2SubscriptionServiceClientMockRecorder
 }
 
-// MockE2SubscriptionServiceClientMockRecorder is the mock recorder for MockE2SubscriptionServiceClient
+// MockE2SubscriptionServiceClientMockRecorder is the mock recorder for MockE2SubscriptionServiceClient.
 type MockE2SubscriptionServiceClientMockRecorder struct {
 	mock *MockE2SubscriptionServiceClient
 }
 
-// NewMockE2SubscriptionServiceClient creates a new mock instance
+// NewMockE2SubscriptionServiceClient creates a new mock instance.
 func NewMockE2SubscriptionServiceClient(ctrl *gomock.Controller) *MockE2SubscriptionServiceClient {
 	mock := &MockE2SubscriptionServiceClient{ctrl: ctrl}
 	mock.recorder = &MockE2SubscriptionServiceClientMockRecorder{mock}
 	return mock
 }
 
-// EXPECT returns an object that allows the caller to indicate expected use
+// EXPECT returns an object that allows the caller to indicate expected use.
 func (m *MockE2SubscriptionServiceClient) EXPECT() *MockE2SubscriptionServiceClientMockRecorder {
 	return m.recorder
 }
 
-// AddSubscription mocks base method
+// AddSubscription mocks base method.
 func (m *MockE2SubscriptionServiceClient) AddSubscription(ctx context.Context, in *AddSubscriptionRequest, opts ...grpc.CallOption) (*AddSubscriptionResponse, error) {
 	m.ctrl.T.Helper()
 	varargs := []interface{}{ctx, in}
@@ -49,14 +49,14 @@ func (m *MockE2SubscriptionServiceClient) AddSubscription(ctx context.Context, i
 	return ret0, ret1
 }
 
-// AddSubscription indicates an expected call of AddSubscription
+// AddSubscription indicates an expected call of AddSubscription.
 func (mr *MockE2SubscriptionServiceClientMockRecorder) AddSubscription(ctx, in interface{}, opts ...interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	varargs := append([]interface{}{ctx, in}, opts...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "AddSubscription", reflect.TypeOf((*MockE2SubscriptionServiceClient)(nil).AddSubscription), varargs...)
 }
 
-// RemoveSubscription mocks base method
+// RemoveSubscription mocks base method.
 func (m *MockE2SubscriptionServiceClient) RemoveSubscription(ctx context.Context, in *RemoveSubscriptionRequest, opts ...grpc.CallOption) (*RemoveSubscriptionResponse, error) {
 	m.ctrl.T.Helper()
 	varargs := []interface{}{ctx, in}
@@ -69,14 +69,14 @@ func (m *MockE2SubscriptionServiceClient) RemoveSubscription(ctx context.Context
 	return ret0, ret1
 }
 
-// RemoveSubscription indicates an expected call of RemoveSubscription
+// RemoveSubscription indicates an expected call of RemoveSubscription.
 func (mr *MockE2SubscriptionServiceClientMockRecorder) RemoveSubscription(ctx, in interface{}, opts ...interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	varargs := append([]interface{}{ctx, in}, opts...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "RemoveSubscription", reflect.TypeOf((*MockE2SubscriptionServiceClient)(nil).RemoveSubscription), varargs...)
 }
 
-// GetSubscription mocks base method
+// GetSubscription mocks base method.
 func (m *MockE2SubscriptionServiceClient) GetSubscription(ctx context.Context, in *GetSubscriptionRequest, opts ...grpc.CallOption) (*GetSubscriptionResponse, error) {
 	m.ctrl.T.Helper()
 	varargs := []interface{}{ctx, in}
@@ -89,14 +89,14 @@ func (m *MockE2SubscriptionServiceClient) GetSubscription(ctx context.Context, i
 	return ret0, ret1
 }
 
-// GetSubscription indicates an expected call of GetSubscription
+// GetSubscription indicates an expected call of GetSubscription.
 func (mr *MockE2SubscriptionServiceClientMockRecorder) GetSubscription(ctx, in interface{}, opts ...interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	varargs := append([]interface{}{ctx, in}, opts...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetSubscription", reflect.TypeOf((*MockE2SubscriptionServiceClient)(nil).GetSubscription), varargs...)
 }
 
-// ListSubscriptions mocks base method
+// ListSubscriptions mocks base method.
 func (m *MockE2SubscriptionServiceClient) ListSubscriptions(ctx context.Context, in *ListSubscriptionsRequest, opts ...grpc.CallOption) (*ListSubscriptionsResponse, error) {
 	m.ctrl.T.Helper()
 	varargs := []interface{}{ctx, in}
@@ -109,14 +109,14 @@ func (m *MockE2SubscriptionServiceClient) ListSubscriptions(ctx context.Context,
 	return ret0, ret1
 }
 
-// ListSubscriptions indicates an expected call of ListSubscriptions
+// ListSubscriptions indicates an expected call of ListSubscriptions.
 func (mr *MockE2SubscriptionServiceClientMockRecorder) ListSubscriptions(ctx, in interface{}, opts ...interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	varargs := append([]interface{}{ctx, in}, opts...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ListSubscriptions", reflect.TypeOf((*MockE2SubscriptionServiceClient)(nil).ListSubscriptions), varargs...)
 }
 
-// WatchSubscriptions mocks base method
+// WatchSubscriptions mocks base method.
 func (m *MockE2SubscriptionServiceClient) WatchSubscriptions(ctx context.Context, in *WatchSubscriptionsRequest, opts ...grpc.CallOption) (E2SubscriptionService_WatchSubscriptionsClient, error) {
 	m.ctrl.T.Helper()
 	varargs := []interface{}{ctx, in}
@@ -129,37 +129,37 @@ func (m *MockE2SubscriptionServiceClient) WatchSubscriptions(ctx context.Context
 	return ret0, ret1
 }
 
-// WatchSubscriptions indicates an expected call of WatchSubscriptions
+// WatchSubscriptions indicates an expected call of WatchSubscriptions.
 func (mr *MockE2SubscriptionServiceClientMockRecorder) WatchSubscriptions(ctx, in interface{}, opts ...interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	varargs := append([]interface{}{ctx, in}, opts...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "WatchSubscriptions", reflect.TypeOf((*MockE2SubscriptionServiceClient)(nil).WatchSubscriptions), varargs...)
 }
 
-// MockE2SubscriptionService_WatchSubscriptionsClient is a mock of E2SubscriptionService_WatchSubscriptionsClient interface
+// MockE2SubscriptionService_WatchSubscriptionsClient is a mock of E2SubscriptionService_WatchSubscriptionsClient interface.
 type MockE2SubscriptionService_WatchSubscriptionsClient struct {
 	ctrl     *gomock.Controller
 	recorder *MockE2SubscriptionService_WatchSubscriptionsClientMockRecorder
 }
 
-// MockE2SubscriptionService_WatchSubscriptionsClientMockRecorder is the mock recorder for MockE2SubscriptionService_WatchSubscriptionsClient
+// MockE2SubscriptionService_WatchSubscriptionsClientMockRecorder is the mock recorder for MockE2SubscriptionService_WatchSubscriptionsClient.
 type MockE2SubscriptionService_WatchSubscriptionsClientMockRecorder struct {
 	mock *MockE2SubscriptionService_WatchSubscriptionsClient
 }
 
-// NewMockE2SubscriptionService_WatchSubscriptionsClient creates a new mock instance
+// NewMockE2SubscriptionService_WatchSubscriptionsClient creates a new mock instance.
 func NewMockE2SubscriptionService_WatchSubscriptionsClient(ctrl *gomock.Controller) *MockE2SubscriptionService_WatchSubscriptionsClient {
 	mock := &MockE2SubscriptionService_WatchSubscriptionsClient{ctrl: ctrl}
 	mock.recorder = &MockE2SubscriptionService_WatchSubscriptionsClientMockRecorder{mock}
 	return mock
 }
 
-// EXPECT returns an object that allows the caller to indicate expected use
+// EXPECT returns an object that allows the caller to indicate expected use.
 func (m *MockE2SubscriptionService_WatchSubscriptionsClient) EXPECT() *MockE2SubscriptionService_WatchSubscriptionsClientMockRecorder {
 	return m.recorder
 }
 
-// Recv mocks base method
+// Recv mocks base method.
 func (m *MockE2SubscriptionService_WatchSubscriptionsClient) Recv() (*WatchSubscriptionsResponse, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Recv")
@@ -168,13 +168,13 @@ func (m *MockE2SubscriptionService_WatchSubscriptionsClient) Recv() (*WatchSubsc
 	return ret0, ret1
 }
 
-// Recv indicates an expected call of Recv
+// Recv indicates an expected call of Recv.
 func (mr *MockE2SubscriptionService_WatchSubscriptionsClientMockRecorder) Recv() *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Recv", reflect.TypeOf((*MockE2SubscriptionService_WatchSubscriptionsClient)(nil).Recv))
 }
 
-// Header mocks base method
+// Header mocks base method.
 func (m *MockE2SubscriptionService_WatchSubscriptionsClient) Header() (metadata.MD, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Header")
@@ -183,13 +183,13 @@ func (m *MockE2SubscriptionService_WatchSubscriptionsClient) Header() (metadata.
 	return ret0, ret1
 }
 
-// Header indicates an expected call of Header
+// Header indicates an expected call of Header.
 func (mr *MockE2SubscriptionService_WatchSubscriptionsClientMockRecorder) Header() *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Header", reflect.TypeOf((*MockE2SubscriptionService_WatchSubscriptionsClient)(nil).Header))
 }
 
-// Trailer mocks base method
+// Trailer mocks base method.
 func (m *MockE2SubscriptionService_WatchSubscriptionsClient) Trailer() metadata.MD {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Trailer")
@@ -197,13 +197,13 @@ func (m *MockE2SubscriptionService_WatchSubscriptionsClient) Trailer() metadata.
 	return ret0
 }
 
-// Trailer indicates an expected call of Trailer
+// Trailer indicates an expected call of Trailer.
 func (mr *MockE2SubscriptionService_WatchSubscriptionsClientMockRecorder) Trailer() *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Trailer", reflect.TypeOf((*MockE2SubscriptionService_WatchSubscriptionsClient)(nil).Trailer))
 }
 
-// CloseSend mocks base method
+// CloseSend mocks base method.
 func (m *MockE2SubscriptionService_WatchSubscriptionsClient) CloseSend() error {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "CloseSend")
@@ -211,13 +211,13 @@ func (m *MockE2SubscriptionService_WatchSubscriptionsClient) CloseSend() error {
 	return ret0
 }
 
-// CloseSend indicates an expected call of CloseSend
+// CloseSend indicates an expected call of CloseSend.
 func (mr *MockE2SubscriptionService_WatchSubscriptionsClientMockRecorder) CloseSend() *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "CloseSend", reflect.TypeOf((*MockE2SubscriptionService_WatchSubscriptionsClient)(nil).CloseSend))
 }
 
-// Context mocks base method
+// Context mocks base method.
 func (m *MockE2SubscriptionService_WatchSubscriptionsClient) Context() context.Context {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Context")
@@ -225,13 +225,13 @@ func (m *MockE2SubscriptionService_WatchSubscriptionsClient) Context() context.C
 	return ret0
 }
 
-// Context indicates an expected call of Context
+// Context indicates an expected call of Context.
 func (mr *MockE2SubscriptionService_WatchSubscriptionsClientMockRecorder) Context() *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Context", reflect.TypeOf((*MockE2SubscriptionService_WatchSubscriptionsClient)(nil).Context))
 }
 
-// SendMsg mocks base method
+// SendMsg mocks base method.
 func (m_2 *MockE2SubscriptionService_WatchSubscriptionsClient) SendMsg(m interface{}) error {
 	m_2.ctrl.T.Helper()
 	ret := m_2.ctrl.Call(m_2, "SendMsg", m)
@@ -239,13 +239,13 @@ func (m_2 *MockE2SubscriptionService_WatchSubscriptionsClient) SendMsg(m interfa
 	return ret0
 }
 
-// SendMsg indicates an expected call of SendMsg
+// SendMsg indicates an expected call of SendMsg.
 func (mr *MockE2SubscriptionService_WatchSubscriptionsClientMockRecorder) SendMsg(m interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SendMsg", reflect.TypeOf((*MockE2SubscriptionService_WatchSubscriptionsClient)(nil).SendMsg), m)
 }
 
-// RecvMsg mocks base method
+// RecvMsg mocks base method.
 func (m_2 *MockE2SubscriptionService_WatchSubscriptionsClient) RecvMsg(m interface{}) error {
 	m_2.ctrl.T.Helper()
 	ret := m_2.ctrl.Call(m_2, "RecvMsg", m)
@@ -253,36 +253,36 @@ func (m_2 *MockE2SubscriptionService_WatchSubscriptionsClient) RecvMsg(m interfa
 	return ret0
 }
 
-// RecvMsg indicates an expected call of RecvMsg
+// RecvMsg indicates an expected call of RecvMsg.
 func (mr *MockE2SubscriptionService_WatchSubscriptionsClientMockRecorder) RecvMsg(m interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "RecvMsg", reflect.TypeOf((*MockE2SubscriptionService_WatchSubscriptionsClient)(nil).RecvMsg), m)
 }
 
-// MockE2SubscriptionServiceServer is a mock of E2SubscriptionServiceServer interface
+// MockE2SubscriptionServiceServer is a mock of E2SubscriptionServiceServer interface.
 type MockE2SubscriptionServiceServer struct {
 	ctrl     *gomock.Controller
 	recorder *MockE2SubscriptionServiceServerMockRecorder
 }
 
-// MockE2SubscriptionServiceServerMockRecorder is the mock recorder for MockE2SubscriptionServiceServer
+// MockE2SubscriptionServiceServerMockRecorder is the mock recorder for MockE2SubscriptionServiceServer.
 type MockE2SubscriptionServiceServerMockRecorder struct {
 	mock *MockE2SubscriptionServiceServer
 }
 
-// NewMockE2SubscriptionServiceServer creates a new mock instance
+// NewMockE2SubscriptionServiceServer creates a new mock instance.
 func NewMockE2SubscriptionServiceServer(ctrl *gomock.Controller) *MockE2SubscriptionServiceServer {
 	mock := &MockE2SubscriptionServiceServer{ctrl: ctrl}
 	mock.recorder = &MockE2SubscriptionServiceServerMockRecorder{mock}
 	return mock
 }
 
-// EXPECT returns an object that allows the caller to indicate expected use
+// EXPECT returns an object that allows the caller to indicate expected use.
 func (m *MockE2SubscriptionServiceServer) EXPECT() *MockE2SubscriptionServiceServerMockRecorder {
 	return m.recorder
 }
 
-// AddSubscription mocks base method
+// AddSubscription mocks base method.
 func (m *MockE2SubscriptionServiceServer) AddSubscription(arg0 context.Context, arg1 *AddSubscriptionRequest) (*AddSubscriptionResponse, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "AddSubscription", arg0, arg1)
@@ -291,13 +291,13 @@ func (m *MockE2SubscriptionServiceServer) AddSubscription(arg0 context.Context, 
 	return ret0, ret1
 }
 
-// AddSubscription indicates an expected call of AddSubscription
+// AddSubscription indicates an expected call of AddSubscription.
 func (mr *MockE2SubscriptionServiceServerMockRecorder) AddSubscription(arg0, arg1 interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "AddSubscription", reflect.TypeOf((*MockE2SubscriptionServiceServer)(nil).AddSubscription), arg0, arg1)
 }
 
-// RemoveSubscription mocks base method
+// RemoveSubscription mocks base method.
 func (m *MockE2SubscriptionServiceServer) RemoveSubscription(arg0 context.Context, arg1 *RemoveSubscriptionRequest) (*RemoveSubscriptionResponse, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "RemoveSubscription", arg0, arg1)
@@ -306,13 +306,13 @@ func (m *MockE2SubscriptionServiceServer) RemoveSubscription(arg0 context.Contex
 	return ret0, ret1
 }
 
-// RemoveSubscription indicates an expected call of RemoveSubscription
+// RemoveSubscription indicates an expected call of RemoveSubscription.
 func (mr *MockE2SubscriptionServiceServerMockRecorder) RemoveSubscription(arg0, arg1 interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "RemoveSubscription", reflect.TypeOf((*MockE2SubscriptionServiceServer)(nil).RemoveSubscription), arg0, arg1)
 }
 
-// GetSubscription mocks base method
+// GetSubscription mocks base method.
 func (m *MockE2SubscriptionServiceServer) GetSubscription(arg0 context.Context, arg1 *GetSubscriptionRequest) (*GetSubscriptionResponse, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "GetSubscription", arg0, arg1)
@@ -321,13 +321,13 @@ func (m *MockE2SubscriptionServiceServer) GetSubscription(arg0 context.Context, 
 	return ret0, ret1
 }
 
-// GetSubscription indicates an expected call of GetSubscription
+// GetSubscription indicates an expected call of GetSubscription.
 func (mr *MockE2SubscriptionServiceServerMockRecorder) GetSubscription(arg0, arg1 interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetSubscription", reflect.TypeOf((*MockE2SubscriptionServiceServer)(nil).GetSubscription), arg0, arg1)
 }
 
-// ListSubscriptions mocks base method
+// ListSubscriptions mocks base method.
 func (m *MockE2SubscriptionServiceServer) ListSubscriptions(arg0 context.Context, arg1 *ListSubscriptionsRequest) (*ListSubscriptionsResponse, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "ListSubscriptions", arg0, arg1)
@@ -336,13 +336,13 @@ func (m *MockE2SubscriptionServiceServer) ListSubscriptions(arg0 context.Context
 	return ret0, ret1
 }
 
-// ListSubscriptions indicates an expected call of ListSubscriptions
+// ListSubscriptions indicates an expected call of ListSubscriptions.
 func (mr *MockE2SubscriptionServiceServerMockRecorder) ListSubscriptions(arg0, arg1 interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ListSubscriptions", reflect.TypeOf((*MockE2SubscriptionServiceServer)(nil).ListSubscriptions), arg0, arg1)
 }
 
-// WatchSubscriptions mocks base method
+// WatchSubscriptions mocks base method.
 func (m *MockE2SubscriptionServiceServer) WatchSubscriptions(arg0 *WatchSubscriptionsRequest, arg1 E2SubscriptionService_WatchSubscriptionsServer) error {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "WatchSubscriptions", arg0, arg1)
@@ -350,36 +350,36 @@ func (m *MockE2SubscriptionServiceServer) WatchSubscriptions(arg0 *WatchSubscrip
 	return ret0
 }
 
-// WatchSubscriptions indicates an expected call of WatchSubscriptions
+// WatchSubscriptions indicates an expected call of WatchSubscriptions.
 func (mr *MockE2SubscriptionServiceServerMockRecorder) WatchSubscriptions(arg0, arg1 interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "WatchSubscriptions", reflect.TypeOf((*MockE2SubscriptionServiceServer)(nil).WatchSubscriptions), arg0, arg1)
 }
 
-// MockE2SubscriptionService_WatchSubscriptionsServer is a mock of E2SubscriptionService_WatchSubscriptionsServer interface
+// MockE2SubscriptionService_WatchSubscriptionsServer is a mock of E2SubscriptionService_WatchSubscriptionsServer interface.
 type MockE2SubscriptionService_WatchSubscriptionsServer struct {
 	ctrl     *gomock.Controller
 	recorder *MockE2SubscriptionService_WatchSubscriptionsServerMockRecorder
 }
 
-// MockE2SubscriptionService_WatchSubscriptionsServerMockRecorder is the mock recorder for MockE2SubscriptionService_WatchSubscriptionsServer
+// MockE2SubscriptionService_WatchSubscriptionsServerMockRecorder is the mock recorder for MockE2SubscriptionService_WatchSubscriptionsServer.
 type MockE2SubscriptionService_WatchSubscriptionsServerMockRecorder struct {
 	mock *MockE2SubscriptionService_WatchSubscriptionsServer
 }
 
-// NewMockE2SubscriptionService_WatchSubscriptionsServer creates a new mock instance
+// NewMockE2SubscriptionService_WatchSubscriptionsServer creates a new mock instance.
 func NewMockE2SubscriptionService_WatchSubscriptionsServer(ctrl *gomock.Controller) *MockE2SubscriptionService_WatchSubscriptionsServer {
 	mock := &MockE2SubscriptionService_WatchSubscriptionsServer{ctrl: ctrl}
 	mock.recorder = &MockE2SubscriptionService_WatchSubscriptionsServerMockRecorder{mock}
 	return mock
 }
 
-// EXPECT returns an object that allows the caller to indicate expected use
+// EXPECT returns an object that allows the caller to indicate expected use.
 func (m *MockE2SubscriptionService_WatchSubscriptionsServer) EXPECT() *MockE2SubscriptionService_WatchSubscriptionsServerMockRecorder {
 	return m.recorder
 }
 
-// Send mocks base method
+// Send mocks base method.
 func (m *MockE2SubscriptionService_WatchSubscriptionsServer) Send(arg0 *WatchSubscriptionsResponse) error {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Send", arg0)
@@ -387,13 +387,13 @@ func (m *MockE2SubscriptionService_WatchSubscriptionsServer) Send(arg0 *WatchSub
 	return ret0
 }
 
-// Send indicates an expected call of Send
+// Send indicates an expected call of Send.
 func (mr *MockE2SubscriptionService_WatchSubscriptionsServerMockRecorder) Send(arg0 interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Send", reflect.TypeOf((*MockE2SubscriptionService_WatchSubscriptionsServer)(nil).Send), arg0)
 }
 
-// SetHeader mocks base method
+// SetHeader mocks base method.
 func (m *MockE2SubscriptionService_WatchSubscriptionsServer) SetHeader(arg0 metadata.MD) error {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "SetHeader", arg0)
@@ -401,13 +401,13 @@ func (m *MockE2SubscriptionService_WatchSubscriptionsServer) SetHeader(arg0 meta
 	return ret0
 }
 
-// SetHeader indicates an expected call of SetHeader
+// SetHeader indicates an expected call of SetHeader.
 func (mr *MockE2SubscriptionService_WatchSubscriptionsServerMockRecorder) SetHeader(arg0 interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SetHeader", reflect.TypeOf((*MockE2SubscriptionService_WatchSubscriptionsServer)(nil).SetHeader), arg0)
 }
 
-// SendHeader mocks base method
+// SendHeader mocks base method.
 func (m *MockE2SubscriptionService_WatchSubscriptionsServer) SendHeader(arg0 metadata.MD) error {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "SendHeader", arg0)
@@ -415,25 +415,25 @@ func (m *MockE2SubscriptionService_WatchSubscriptionsServer) SendHeader(arg0 met
 	return ret0
 }
 
-// SendHeader indicates an expected call of SendHeader
+// SendHeader indicates an expected call of SendHeader.
 func (mr *MockE2SubscriptionService_WatchSubscriptionsServerMockRecorder) SendHeader(arg0 interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SendHeader", reflect.TypeOf((*MockE2SubscriptionService_WatchSubscriptionsServer)(nil).SendHeader), arg0)
 }
 
-// SetTrailer mocks base method
+// SetTrailer mocks base method.
 func (m *MockE2SubscriptionService_WatchSubscriptionsServer) SetTrailer(arg0 metadata.MD) {
 	m.ctrl.T.Helper()
 	m.ctrl.Call(m, "SetTrailer", arg0)
 }
 
-// SetTrailer indicates an expected call of SetTrailer
+// SetTrailer indicates an expected call of SetTrailer.
 func (mr *MockE2SubscriptionService_WatchSubscriptionsServerMockRecorder) SetTrailer(arg0 interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SetTrailer", reflect.TypeOf((*MockE2SubscriptionService_WatchSubscriptionsServer)(nil).SetTrailer), arg0)
 }
 
-// Context mocks base method
+// Context mocks base method.
 func (m *MockE2SubscriptionService_WatchSubscriptionsServer) Context() context.Context {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Context")
@@ -441,13 +441,13 @@ func (m *MockE2SubscriptionService_WatchSubscriptionsServer) Context() context.C
 	return ret0
 }
 
-// Context indicates an expected call of Context
+// Context indicates an expected call of Context.
 func (mr *MockE2SubscriptionService_WatchSubscriptionsServerMockRecorder) Context() *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Context", reflect.TypeOf((*MockE2SubscriptionService_WatchSubscriptionsServer)(nil).Context))
 }
 
-// SendMsg mocks base method
+// SendMsg mocks base method.
 func (m_2 *MockE2SubscriptionService_WatchSubscriptionsServer) SendMsg(m interface{}) error {
 	m_2.ctrl.T.Helper()
 	ret := m_2.ctrl.Call(m_2, "SendMsg", m)
@@ -455,13 +455,13 @@ func (m_2 *MockE2SubscriptionService_WatchSubscriptionsServer) SendMsg(m interfa
 	return ret0
 }
 
-// SendMsg indicates an expected call of SendMsg
+// SendMsg indicates an expected call of SendMsg.
 func (mr *MockE2SubscriptionService_WatchSubscriptionsServerMockRecorder) SendMsg(m interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SendMsg", reflect.TypeOf((*MockE2SubscriptionService_WatchSubscriptionsServer)(nil).SendMsg), m)
 }
 
-// RecvMsg mocks base method
+// RecvMsg mocks base method.
 func (m_2 *MockE2SubscriptionService_WatchSubscriptionsServer) RecvMsg(m interface{}) error {
 	m_2.ctrl.T.Helper()
 	ret := m_2.ctrl.Call(m_2, "RecvMsg", m)
@@ -469,7 +469,7 @@ func (m_2 *MockE2SubscriptionService_WatchSubscriptionsServer) RecvMsg(m interfa
 	return ret0
 }
 
-// RecvMsg indicates an expected call of RecvMsg
+// RecvMsg indicates an expected call of RecvMsg.
 func (mr *MockE2SubscriptionService_WatchSubscriptionsServerMockRecorder) RecvMsg(m interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "RecvMsg", reflect.TypeOf((*MockE2SubscriptionService_WatchSubscriptionsServer)(nil).RecvMsg), m)

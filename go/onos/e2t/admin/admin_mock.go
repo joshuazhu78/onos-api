@@ -13,30 +13,30 @@ import (
 	metadata "google.golang.org/grpc/metadata"
 )
 
-// MockE2TAdminServiceClient is a mock of E2TAdminServiceClient interface
+// MockE2TAdminServiceClient is a mock of E2TAdminServiceClient interface.
 type MockE2TAdminServiceClient struct {
 	ctrl     *gomock.Controller
 	recorder *MockE2TAdminServiceClientMockRecorder
 }
 
-// MockE2TAdminServiceClientMockRecorder is the mock recorder for MockE2TAdminServiceClient
+// MockE2TAdminServiceClientMockRecorder is the mock recorder for MockE2TAdminServiceClient.
 type MockE2TAdminServiceClientMockRecorder struct {
 	mock *MockE2TAdminServiceClient
 }
 
-// NewMockE2TAdminServiceClient creates a new mock instance
+// NewMockE2TAdminServiceClient creates a new mock instance.
 func NewMockE2TAdminServiceClient(ctrl *gomock.Controller) *MockE2TAdminServiceClient {
 	mock := &MockE2TAdminServiceClient{ctrl: ctrl}
 	mock.recorder = &MockE2TAdminServiceClientMockRecorder{mock}
 	return mock
 }
 
-// EXPECT returns an object that allows the caller to indicate expected use
+// EXPECT returns an object that allows the caller to indicate expected use.
 func (m *MockE2TAdminServiceClient) EXPECT() *MockE2TAdminServiceClientMockRecorder {
 	return m.recorder
 }
 
-// UploadRegisterServiceModel mocks base method
+// UploadRegisterServiceModel mocks base method.
 func (m *MockE2TAdminServiceClient) UploadRegisterServiceModel(ctx context.Context, opts ...grpc.CallOption) (E2TAdminService_UploadRegisterServiceModelClient, error) {
 	m.ctrl.T.Helper()
 	varargs := []interface{}{ctx}
@@ -49,14 +49,14 @@ func (m *MockE2TAdminServiceClient) UploadRegisterServiceModel(ctx context.Conte
 	return ret0, ret1
 }
 
-// UploadRegisterServiceModel indicates an expected call of UploadRegisterServiceModel
+// UploadRegisterServiceModel indicates an expected call of UploadRegisterServiceModel.
 func (mr *MockE2TAdminServiceClientMockRecorder) UploadRegisterServiceModel(ctx interface{}, opts ...interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	varargs := append([]interface{}{ctx}, opts...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "UploadRegisterServiceModel", reflect.TypeOf((*MockE2TAdminServiceClient)(nil).UploadRegisterServiceModel), varargs...)
 }
 
-// ListRegisteredServiceModels mocks base method
+// ListRegisteredServiceModels mocks base method.
 func (m *MockE2TAdminServiceClient) ListRegisteredServiceModels(ctx context.Context, in *ListRegisteredServiceModelsRequest, opts ...grpc.CallOption) (E2TAdminService_ListRegisteredServiceModelsClient, error) {
 	m.ctrl.T.Helper()
 	varargs := []interface{}{ctx, in}
@@ -69,14 +69,14 @@ func (m *MockE2TAdminServiceClient) ListRegisteredServiceModels(ctx context.Cont
 	return ret0, ret1
 }
 
-// ListRegisteredServiceModels indicates an expected call of ListRegisteredServiceModels
+// ListRegisteredServiceModels indicates an expected call of ListRegisteredServiceModels.
 func (mr *MockE2TAdminServiceClientMockRecorder) ListRegisteredServiceModels(ctx, in interface{}, opts ...interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	varargs := append([]interface{}{ctx, in}, opts...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ListRegisteredServiceModels", reflect.TypeOf((*MockE2TAdminServiceClient)(nil).ListRegisteredServiceModels), varargs...)
 }
 
-// ListE2NodeConnections mocks base method
+// ListE2NodeConnections mocks base method.
 func (m *MockE2TAdminServiceClient) ListE2NodeConnections(ctx context.Context, in *ListE2NodeConnectionsRequest, opts ...grpc.CallOption) (E2TAdminService_ListE2NodeConnectionsClient, error) {
 	m.ctrl.T.Helper()
 	varargs := []interface{}{ctx, in}
@@ -89,14 +89,14 @@ func (m *MockE2TAdminServiceClient) ListE2NodeConnections(ctx context.Context, i
 	return ret0, ret1
 }
 
-// ListE2NodeConnections indicates an expected call of ListE2NodeConnections
+// ListE2NodeConnections indicates an expected call of ListE2NodeConnections.
 func (mr *MockE2TAdminServiceClientMockRecorder) ListE2NodeConnections(ctx, in interface{}, opts ...interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	varargs := append([]interface{}{ctx, in}, opts...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ListE2NodeConnections", reflect.TypeOf((*MockE2TAdminServiceClient)(nil).ListE2NodeConnections), varargs...)
 }
 
-// DropE2NodeConnections mocks base method
+// DropE2NodeConnections mocks base method.
 func (m *MockE2TAdminServiceClient) DropE2NodeConnections(ctx context.Context, in *DropE2NodeConnectionsRequest, opts ...grpc.CallOption) (*DropE2NodeConnectionsResponse, error) {
 	m.ctrl.T.Helper()
 	varargs := []interface{}{ctx, in}
@@ -109,37 +109,37 @@ func (m *MockE2TAdminServiceClient) DropE2NodeConnections(ctx context.Context, i
 	return ret0, ret1
 }
 
-// DropE2NodeConnections indicates an expected call of DropE2NodeConnections
+// DropE2NodeConnections indicates an expected call of DropE2NodeConnections.
 func (mr *MockE2TAdminServiceClientMockRecorder) DropE2NodeConnections(ctx, in interface{}, opts ...interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	varargs := append([]interface{}{ctx, in}, opts...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DropE2NodeConnections", reflect.TypeOf((*MockE2TAdminServiceClient)(nil).DropE2NodeConnections), varargs...)
 }
 
-// MockE2TAdminService_UploadRegisterServiceModelClient is a mock of E2TAdminService_UploadRegisterServiceModelClient interface
+// MockE2TAdminService_UploadRegisterServiceModelClient is a mock of E2TAdminService_UploadRegisterServiceModelClient interface.
 type MockE2TAdminService_UploadRegisterServiceModelClient struct {
 	ctrl     *gomock.Controller
 	recorder *MockE2TAdminService_UploadRegisterServiceModelClientMockRecorder
 }
 
-// MockE2TAdminService_UploadRegisterServiceModelClientMockRecorder is the mock recorder for MockE2TAdminService_UploadRegisterServiceModelClient
+// MockE2TAdminService_UploadRegisterServiceModelClientMockRecorder is the mock recorder for MockE2TAdminService_UploadRegisterServiceModelClient.
 type MockE2TAdminService_UploadRegisterServiceModelClientMockRecorder struct {
 	mock *MockE2TAdminService_UploadRegisterServiceModelClient
 }
 
-// NewMockE2TAdminService_UploadRegisterServiceModelClient creates a new mock instance
+// NewMockE2TAdminService_UploadRegisterServiceModelClient creates a new mock instance.
 func NewMockE2TAdminService_UploadRegisterServiceModelClient(ctrl *gomock.Controller) *MockE2TAdminService_UploadRegisterServiceModelClient {
 	mock := &MockE2TAdminService_UploadRegisterServiceModelClient{ctrl: ctrl}
 	mock.recorder = &MockE2TAdminService_UploadRegisterServiceModelClientMockRecorder{mock}
 	return mock
 }
 
-// EXPECT returns an object that allows the caller to indicate expected use
+// EXPECT returns an object that allows the caller to indicate expected use.
 func (m *MockE2TAdminService_UploadRegisterServiceModelClient) EXPECT() *MockE2TAdminService_UploadRegisterServiceModelClientMockRecorder {
 	return m.recorder
 }
 
-// Send mocks base method
+// Send mocks base method.
 func (m *MockE2TAdminService_UploadRegisterServiceModelClient) Send(arg0 *UploadRegisterServiceModelRequest) error {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Send", arg0)
@@ -147,13 +147,13 @@ func (m *MockE2TAdminService_UploadRegisterServiceModelClient) Send(arg0 *Upload
 	return ret0
 }
 
-// Send indicates an expected call of Send
+// Send indicates an expected call of Send.
 func (mr *MockE2TAdminService_UploadRegisterServiceModelClientMockRecorder) Send(arg0 interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Send", reflect.TypeOf((*MockE2TAdminService_UploadRegisterServiceModelClient)(nil).Send), arg0)
 }
 
-// CloseAndRecv mocks base method
+// CloseAndRecv mocks base method.
 func (m *MockE2TAdminService_UploadRegisterServiceModelClient) CloseAndRecv() (*UploadRegisterServiceModelResponse, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "CloseAndRecv")
@@ -162,13 +162,13 @@ func (m *MockE2TAdminService_UploadRegisterServiceModelClient) CloseAndRecv() (*
 	return ret0, ret1
 }
 
-// CloseAndRecv indicates an expected call of CloseAndRecv
+// CloseAndRecv indicates an expected call of CloseAndRecv.
 func (mr *MockE2TAdminService_UploadRegisterServiceModelClientMockRecorder) CloseAndRecv() *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "CloseAndRecv", reflect.TypeOf((*MockE2TAdminService_UploadRegisterServiceModelClient)(nil).CloseAndRecv))
 }
 
-// Header mocks base method
+// Header mocks base method.
 func (m *MockE2TAdminService_UploadRegisterServiceModelClient) Header() (metadata.MD, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Header")
@@ -177,13 +177,13 @@ func (m *MockE2TAdminService_UploadRegisterServiceModelClient) Header() (metadat
 	return ret0, ret1
 }
 
-// Header indicates an expected call of Header
+// Header indicates an expected call of Header.
 func (mr *MockE2TAdminService_UploadRegisterServiceModelClientMockRecorder) Header() *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Header", reflect.TypeOf((*MockE2TAdminService_UploadRegisterServiceModelClient)(nil).Header))
 }
 
-// Trailer mocks base method
+// Trailer mocks base method.
 func (m *MockE2TAdminService_UploadRegisterServiceModelClient) Trailer() metadata.MD {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Trailer")
@@ -191,13 +191,13 @@ func (m *MockE2TAdminService_UploadRegisterServiceModelClient) Trailer() metadat
 	return ret0
 }
 
-// Trailer indicates an expected call of Trailer
+// Trailer indicates an expected call of Trailer.
 func (mr *MockE2TAdminService_UploadRegisterServiceModelClientMockRecorder) Trailer() *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Trailer", reflect.TypeOf((*MockE2TAdminService_UploadRegisterServiceModelClient)(nil).Trailer))
 }
 
-// CloseSend mocks base method
+// CloseSend mocks base method.
 func (m *MockE2TAdminService_UploadRegisterServiceModelClient) CloseSend() error {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "CloseSend")
@@ -205,13 +205,13 @@ func (m *MockE2TAdminService_UploadRegisterServiceModelClient) CloseSend() error
 	return ret0
 }
 
-// CloseSend indicates an expected call of CloseSend
+// CloseSend indicates an expected call of CloseSend.
 func (mr *MockE2TAdminService_UploadRegisterServiceModelClientMockRecorder) CloseSend() *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "CloseSend", reflect.TypeOf((*MockE2TAdminService_UploadRegisterServiceModelClient)(nil).CloseSend))
 }
 
-// Context mocks base method
+// Context mocks base method.
 func (m *MockE2TAdminService_UploadRegisterServiceModelClient) Context() context.Context {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Context")
@@ -219,13 +219,13 @@ func (m *MockE2TAdminService_UploadRegisterServiceModelClient) Context() context
 	return ret0
 }
 
-// Context indicates an expected call of Context
+// Context indicates an expected call of Context.
 func (mr *MockE2TAdminService_UploadRegisterServiceModelClientMockRecorder) Context() *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Context", reflect.TypeOf((*MockE2TAdminService_UploadRegisterServiceModelClient)(nil).Context))
 }
 
-// SendMsg mocks base method
+// SendMsg mocks base method.
 func (m_2 *MockE2TAdminService_UploadRegisterServiceModelClient) SendMsg(m interface{}) error {
 	m_2.ctrl.T.Helper()
 	ret := m_2.ctrl.Call(m_2, "SendMsg", m)
@@ -233,13 +233,13 @@ func (m_2 *MockE2TAdminService_UploadRegisterServiceModelClient) SendMsg(m inter
 	return ret0
 }
 
-// SendMsg indicates an expected call of SendMsg
+// SendMsg indicates an expected call of SendMsg.
 func (mr *MockE2TAdminService_UploadRegisterServiceModelClientMockRecorder) SendMsg(m interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SendMsg", reflect.TypeOf((*MockE2TAdminService_UploadRegisterServiceModelClient)(nil).SendMsg), m)
 }
 
-// RecvMsg mocks base method
+// RecvMsg mocks base method.
 func (m_2 *MockE2TAdminService_UploadRegisterServiceModelClient) RecvMsg(m interface{}) error {
 	m_2.ctrl.T.Helper()
 	ret := m_2.ctrl.Call(m_2, "RecvMsg", m)
@@ -247,36 +247,36 @@ func (m_2 *MockE2TAdminService_UploadRegisterServiceModelClient) RecvMsg(m inter
 	return ret0
 }
 
-// RecvMsg indicates an expected call of RecvMsg
+// RecvMsg indicates an expected call of RecvMsg.
 func (mr *MockE2TAdminService_UploadRegisterServiceModelClientMockRecorder) RecvMsg(m interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "RecvMsg", reflect.TypeOf((*MockE2TAdminService_UploadRegisterServiceModelClient)(nil).RecvMsg), m)
 }
 
-// MockE2TAdminService_ListRegisteredServiceModelsClient is a mock of E2TAdminService_ListRegisteredServiceModelsClient interface
+// MockE2TAdminService_ListRegisteredServiceModelsClient is a mock of E2TAdminService_ListRegisteredServiceModelsClient interface.
 type MockE2TAdminService_ListRegisteredServiceModelsClient struct {
 	ctrl     *gomock.Controller
 	recorder *MockE2TAdminService_ListRegisteredServiceModelsClientMockRecorder
 }
 
-// MockE2TAdminService_ListRegisteredServiceModelsClientMockRecorder is the mock recorder for MockE2TAdminService_ListRegisteredServiceModelsClient
+// MockE2TAdminService_ListRegisteredServiceModelsClientMockRecorder is the mock recorder for MockE2TAdminService_ListRegisteredServiceModelsClient.
 type MockE2TAdminService_ListRegisteredServiceModelsClientMockRecorder struct {
 	mock *MockE2TAdminService_ListRegisteredServiceModelsClient
 }
 
-// NewMockE2TAdminService_ListRegisteredServiceModelsClient creates a new mock instance
+// NewMockE2TAdminService_ListRegisteredServiceModelsClient creates a new mock instance.
 func NewMockE2TAdminService_ListRegisteredServiceModelsClient(ctrl *gomock.Controller) *MockE2TAdminService_ListRegisteredServiceModelsClient {
 	mock := &MockE2TAdminService_ListRegisteredServiceModelsClient{ctrl: ctrl}
 	mock.recorder = &MockE2TAdminService_ListRegisteredServiceModelsClientMockRecorder{mock}
 	return mock
 }
 
-// EXPECT returns an object that allows the caller to indicate expected use
+// EXPECT returns an object that allows the caller to indicate expected use.
 func (m *MockE2TAdminService_ListRegisteredServiceModelsClient) EXPECT() *MockE2TAdminService_ListRegisteredServiceModelsClientMockRecorder {
 	return m.recorder
 }
 
-// Recv mocks base method
+// Recv mocks base method.
 func (m *MockE2TAdminService_ListRegisteredServiceModelsClient) Recv() (*ListRegisteredServiceModelsResponse, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Recv")
@@ -285,13 +285,13 @@ func (m *MockE2TAdminService_ListRegisteredServiceModelsClient) Recv() (*ListReg
 	return ret0, ret1
 }
 
-// Recv indicates an expected call of Recv
+// Recv indicates an expected call of Recv.
 func (mr *MockE2TAdminService_ListRegisteredServiceModelsClientMockRecorder) Recv() *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Recv", reflect.TypeOf((*MockE2TAdminService_ListRegisteredServiceModelsClient)(nil).Recv))
 }
 
-// Header mocks base method
+// Header mocks base method.
 func (m *MockE2TAdminService_ListRegisteredServiceModelsClient) Header() (metadata.MD, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Header")
@@ -300,13 +300,13 @@ func (m *MockE2TAdminService_ListRegisteredServiceModelsClient) Header() (metada
 	return ret0, ret1
 }
 
-// Header indicates an expected call of Header
+// Header indicates an expected call of Header.
 func (mr *MockE2TAdminService_ListRegisteredServiceModelsClientMockRecorder) Header() *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Header", reflect.TypeOf((*MockE2TAdminService_ListRegisteredServiceModelsClient)(nil).Header))
 }
 
-// Trailer mocks base method
+// Trailer mocks base method.
 func (m *MockE2TAdminService_ListRegisteredServiceModelsClient) Trailer() metadata.MD {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Trailer")
@@ -314,13 +314,13 @@ func (m *MockE2TAdminService_ListRegisteredServiceModelsClient) Trailer() metada
 	return ret0
 }
 
-// Trailer indicates an expected call of Trailer
+// Trailer indicates an expected call of Trailer.
 func (mr *MockE2TAdminService_ListRegisteredServiceModelsClientMockRecorder) Trailer() *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Trailer", reflect.TypeOf((*MockE2TAdminService_ListRegisteredServiceModelsClient)(nil).Trailer))
 }
 
-// CloseSend mocks base method
+// CloseSend mocks base method.
 func (m *MockE2TAdminService_ListRegisteredServiceModelsClient) CloseSend() error {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "CloseSend")
@@ -328,13 +328,13 @@ func (m *MockE2TAdminService_ListRegisteredServiceModelsClient) CloseSend() erro
 	return ret0
 }
 
-// CloseSend indicates an expected call of CloseSend
+// CloseSend indicates an expected call of CloseSend.
 func (mr *MockE2TAdminService_ListRegisteredServiceModelsClientMockRecorder) CloseSend() *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "CloseSend", reflect.TypeOf((*MockE2TAdminService_ListRegisteredServiceModelsClient)(nil).CloseSend))
 }
 
-// Context mocks base method
+// Context mocks base method.
 func (m *MockE2TAdminService_ListRegisteredServiceModelsClient) Context() context.Context {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Context")
@@ -342,13 +342,13 @@ func (m *MockE2TAdminService_ListRegisteredServiceModelsClient) Context() contex
 	return ret0
 }
 
-// Context indicates an expected call of Context
+// Context indicates an expected call of Context.
 func (mr *MockE2TAdminService_ListRegisteredServiceModelsClientMockRecorder) Context() *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Context", reflect.TypeOf((*MockE2TAdminService_ListRegisteredServiceModelsClient)(nil).Context))
 }
 
-// SendMsg mocks base method
+// SendMsg mocks base method.
 func (m_2 *MockE2TAdminService_ListRegisteredServiceModelsClient) SendMsg(m interface{}) error {
 	m_2.ctrl.T.Helper()
 	ret := m_2.ctrl.Call(m_2, "SendMsg", m)
@@ -356,13 +356,13 @@ func (m_2 *MockE2TAdminService_ListRegisteredServiceModelsClient) SendMsg(m inte
 	return ret0
 }
 
-// SendMsg indicates an expected call of SendMsg
+// SendMsg indicates an expected call of SendMsg.
 func (mr *MockE2TAdminService_ListRegisteredServiceModelsClientMockRecorder) SendMsg(m interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SendMsg", reflect.TypeOf((*MockE2TAdminService_ListRegisteredServiceModelsClient)(nil).SendMsg), m)
 }
 
-// RecvMsg mocks base method
+// RecvMsg mocks base method.
 func (m_2 *MockE2TAdminService_ListRegisteredServiceModelsClient) RecvMsg(m interface{}) error {
 	m_2.ctrl.T.Helper()
 	ret := m_2.ctrl.Call(m_2, "RecvMsg", m)
@@ -370,36 +370,36 @@ func (m_2 *MockE2TAdminService_ListRegisteredServiceModelsClient) RecvMsg(m inte
 	return ret0
 }
 
-// RecvMsg indicates an expected call of RecvMsg
+// RecvMsg indicates an expected call of RecvMsg.
 func (mr *MockE2TAdminService_ListRegisteredServiceModelsClientMockRecorder) RecvMsg(m interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "RecvMsg", reflect.TypeOf((*MockE2TAdminService_ListRegisteredServiceModelsClient)(nil).RecvMsg), m)
 }
 
-// MockE2TAdminService_ListE2NodeConnectionsClient is a mock of E2TAdminService_ListE2NodeConnectionsClient interface
+// MockE2TAdminService_ListE2NodeConnectionsClient is a mock of E2TAdminService_ListE2NodeConnectionsClient interface.
 type MockE2TAdminService_ListE2NodeConnectionsClient struct {
 	ctrl     *gomock.Controller
 	recorder *MockE2TAdminService_ListE2NodeConnectionsClientMockRecorder
 }
 
-// MockE2TAdminService_ListE2NodeConnectionsClientMockRecorder is the mock recorder for MockE2TAdminService_ListE2NodeConnectionsClient
+// MockE2TAdminService_ListE2NodeConnectionsClientMockRecorder is the mock recorder for MockE2TAdminService_ListE2NodeConnectionsClient.
 type MockE2TAdminService_ListE2NodeConnectionsClientMockRecorder struct {
 	mock *MockE2TAdminService_ListE2NodeConnectionsClient
 }
 
-// NewMockE2TAdminService_ListE2NodeConnectionsClient creates a new mock instance
+// NewMockE2TAdminService_ListE2NodeConnectionsClient creates a new mock instance.
 func NewMockE2TAdminService_ListE2NodeConnectionsClient(ctrl *gomock.Controller) *MockE2TAdminService_ListE2NodeConnectionsClient {
 	mock := &MockE2TAdminService_ListE2NodeConnectionsClient{ctrl: ctrl}
 	mock.recorder = &MockE2TAdminService_ListE2NodeConnectionsClientMockRecorder{mock}
 	return mock
 }
 
-// EXPECT returns an object that allows the caller to indicate expected use
+// EXPECT returns an object that allows the caller to indicate expected use.
 func (m *MockE2TAdminService_ListE2NodeConnectionsClient) EXPECT() *MockE2TAdminService_ListE2NodeConnectionsClientMockRecorder {
 	return m.recorder
 }
 
-// Recv mocks base method
+// Recv mocks base method.
 func (m *MockE2TAdminService_ListE2NodeConnectionsClient) Recv() (*ListE2NodeConnectionsResponse, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Recv")
@@ -408,13 +408,13 @@ func (m *MockE2TAdminService_ListE2NodeConnectionsClient) Recv() (*ListE2NodeCon
 	return ret0, ret1
 }
 
-// Recv indicates an expected call of Recv
+// Recv indicates an expected call of Recv.
 func (mr *MockE2TAdminService_ListE2NodeConnectionsClientMockRecorder) Recv() *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Recv", reflect.TypeOf((*MockE2TAdminService_ListE2NodeConnectionsClient)(nil).Recv))
 }
 
-// Header mocks base method
+// Header mocks base method.
 func (m *MockE2TAdminService_ListE2NodeConnectionsClient) Header() (metadata.MD, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Header")
@@ -423,13 +423,13 @@ func (m *MockE2TAdminService_ListE2NodeConnectionsClient) Header() (metadata.MD,
 	return ret0, ret1
 }
 
-// Header indicates an expected call of Header
+// Header indicates an expected call of Header.
 func (mr *MockE2TAdminService_ListE2NodeConnectionsClientMockRecorder) Header() *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Header", reflect.TypeOf((*MockE2TAdminService_ListE2NodeConnectionsClient)(nil).Header))
 }
 
-// Trailer mocks base method
+// Trailer mocks base method.
 func (m *MockE2TAdminService_ListE2NodeConnectionsClient) Trailer() metadata.MD {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Trailer")
@@ -437,13 +437,13 @@ func (m *MockE2TAdminService_ListE2NodeConnectionsClient) Trailer() metadata.MD 
 	return ret0
 }
 
-// Trailer indicates an expected call of Trailer
+// Trailer indicates an expected call of Trailer.
 func (mr *MockE2TAdminService_ListE2NodeConnectionsClientMockRecorder) Trailer() *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Trailer", reflect.TypeOf((*MockE2TAdminService_ListE2NodeConnectionsClient)(nil).Trailer))
 }
 
-// CloseSend mocks base method
+// CloseSend mocks base method.
 func (m *MockE2TAdminService_ListE2NodeConnectionsClient) CloseSend() error {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "CloseSend")
@@ -451,13 +451,13 @@ func (m *MockE2TAdminService_ListE2NodeConnectionsClient) CloseSend() error {
 	return ret0
 }
 
-// CloseSend indicates an expected call of CloseSend
+// CloseSend indicates an expected call of CloseSend.
 func (mr *MockE2TAdminService_ListE2NodeConnectionsClientMockRecorder) CloseSend() *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "CloseSend", reflect.TypeOf((*MockE2TAdminService_ListE2NodeConnectionsClient)(nil).CloseSend))
 }
 
-// Context mocks base method
+// Context mocks base method.
 func (m *MockE2TAdminService_ListE2NodeConnectionsClient) Context() context.Context {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Context")
@@ -465,13 +465,13 @@ func (m *MockE2TAdminService_ListE2NodeConnectionsClient) Context() context.Cont
 	return ret0
 }
 
-// Context indicates an expected call of Context
+// Context indicates an expected call of Context.
 func (mr *MockE2TAdminService_ListE2NodeConnectionsClientMockRecorder) Context() *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Context", reflect.TypeOf((*MockE2TAdminService_ListE2NodeConnectionsClient)(nil).Context))
 }
 
-// SendMsg mocks base method
+// SendMsg mocks base method.
 func (m_2 *MockE2TAdminService_ListE2NodeConnectionsClient) SendMsg(m interface{}) error {
 	m_2.ctrl.T.Helper()
 	ret := m_2.ctrl.Call(m_2, "SendMsg", m)
@@ -479,13 +479,13 @@ func (m_2 *MockE2TAdminService_ListE2NodeConnectionsClient) SendMsg(m interface{
 	return ret0
 }
 
-// SendMsg indicates an expected call of SendMsg
+// SendMsg indicates an expected call of SendMsg.
 func (mr *MockE2TAdminService_ListE2NodeConnectionsClientMockRecorder) SendMsg(m interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SendMsg", reflect.TypeOf((*MockE2TAdminService_ListE2NodeConnectionsClient)(nil).SendMsg), m)
 }
 
-// RecvMsg mocks base method
+// RecvMsg mocks base method.
 func (m_2 *MockE2TAdminService_ListE2NodeConnectionsClient) RecvMsg(m interface{}) error {
 	m_2.ctrl.T.Helper()
 	ret := m_2.ctrl.Call(m_2, "RecvMsg", m)
@@ -493,36 +493,36 @@ func (m_2 *MockE2TAdminService_ListE2NodeConnectionsClient) RecvMsg(m interface{
 	return ret0
 }
 
-// RecvMsg indicates an expected call of RecvMsg
+// RecvMsg indicates an expected call of RecvMsg.
 func (mr *MockE2TAdminService_ListE2NodeConnectionsClientMockRecorder) RecvMsg(m interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "RecvMsg", reflect.TypeOf((*MockE2TAdminService_ListE2NodeConnectionsClient)(nil).RecvMsg), m)
 }
 
-// MockE2TAdminServiceServer is a mock of E2TAdminServiceServer interface
+// MockE2TAdminServiceServer is a mock of E2TAdminServiceServer interface.
 type MockE2TAdminServiceServer struct {
 	ctrl     *gomock.Controller
 	recorder *MockE2TAdminServiceServerMockRecorder
 }
 
-// MockE2TAdminServiceServerMockRecorder is the mock recorder for MockE2TAdminServiceServer
+// MockE2TAdminServiceServerMockRecorder is the mock recorder for MockE2TAdminServiceServer.
 type MockE2TAdminServiceServerMockRecorder struct {
 	mock *MockE2TAdminServiceServer
 }
 
-// NewMockE2TAdminServiceServer creates a new mock instance
+// NewMockE2TAdminServiceServer creates a new mock instance.
 func NewMockE2TAdminServiceServer(ctrl *gomock.Controller) *MockE2TAdminServiceServer {
 	mock := &MockE2TAdminServiceServer{ctrl: ctrl}
 	mock.recorder = &MockE2TAdminServiceServerMockRecorder{mock}
 	return mock
 }
 
-// EXPECT returns an object that allows the caller to indicate expected use
+// EXPECT returns an object that allows the caller to indicate expected use.
 func (m *MockE2TAdminServiceServer) EXPECT() *MockE2TAdminServiceServerMockRecorder {
 	return m.recorder
 }
 
-// UploadRegisterServiceModel mocks base method
+// UploadRegisterServiceModel mocks base method.
 func (m *MockE2TAdminServiceServer) UploadRegisterServiceModel(arg0 E2TAdminService_UploadRegisterServiceModelServer) error {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "UploadRegisterServiceModel", arg0)
@@ -530,13 +530,13 @@ func (m *MockE2TAdminServiceServer) UploadRegisterServiceModel(arg0 E2TAdminServ
 	return ret0
 }
 
-// UploadRegisterServiceModel indicates an expected call of UploadRegisterServiceModel
+// UploadRegisterServiceModel indicates an expected call of UploadRegisterServiceModel.
 func (mr *MockE2TAdminServiceServerMockRecorder) UploadRegisterServiceModel(arg0 interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "UploadRegisterServiceModel", reflect.TypeOf((*MockE2TAdminServiceServer)(nil).UploadRegisterServiceModel), arg0)
 }
 
-// ListRegisteredServiceModels mocks base method
+// ListRegisteredServiceModels mocks base method.
 func (m *MockE2TAdminServiceServer) ListRegisteredServiceModels(arg0 *ListRegisteredServiceModelsRequest, arg1 E2TAdminService_ListRegisteredServiceModelsServer) error {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "ListRegisteredServiceModels", arg0, arg1)
@@ -544,13 +544,13 @@ func (m *MockE2TAdminServiceServer) ListRegisteredServiceModels(arg0 *ListRegist
 	return ret0
 }
 
-// ListRegisteredServiceModels indicates an expected call of ListRegisteredServiceModels
+// ListRegisteredServiceModels indicates an expected call of ListRegisteredServiceModels.
 func (mr *MockE2TAdminServiceServerMockRecorder) ListRegisteredServiceModels(arg0, arg1 interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ListRegisteredServiceModels", reflect.TypeOf((*MockE2TAdminServiceServer)(nil).ListRegisteredServiceModels), arg0, arg1)
 }
 
-// ListE2NodeConnections mocks base method
+// ListE2NodeConnections mocks base method.
 func (m *MockE2TAdminServiceServer) ListE2NodeConnections(arg0 *ListE2NodeConnectionsRequest, arg1 E2TAdminService_ListE2NodeConnectionsServer) error {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "ListE2NodeConnections", arg0, arg1)
@@ -558,13 +558,13 @@ func (m *MockE2TAdminServiceServer) ListE2NodeConnections(arg0 *ListE2NodeConnec
 	return ret0
 }
 
-// ListE2NodeConnections indicates an expected call of ListE2NodeConnections
+// ListE2NodeConnections indicates an expected call of ListE2NodeConnections.
 func (mr *MockE2TAdminServiceServerMockRecorder) ListE2NodeConnections(arg0, arg1 interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ListE2NodeConnections", reflect.TypeOf((*MockE2TAdminServiceServer)(nil).ListE2NodeConnections), arg0, arg1)
 }
 
-// DropE2NodeConnections mocks base method
+// DropE2NodeConnections mocks base method.
 func (m *MockE2TAdminServiceServer) DropE2NodeConnections(arg0 context.Context, arg1 *DropE2NodeConnectionsRequest) (*DropE2NodeConnectionsResponse, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "DropE2NodeConnections", arg0, arg1)
@@ -573,36 +573,36 @@ func (m *MockE2TAdminServiceServer) DropE2NodeConnections(arg0 context.Context, 
 	return ret0, ret1
 }
 
-// DropE2NodeConnections indicates an expected call of DropE2NodeConnections
+// DropE2NodeConnections indicates an expected call of DropE2NodeConnections.
 func (mr *MockE2TAdminServiceServerMockRecorder) DropE2NodeConnections(arg0, arg1 interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "DropE2NodeConnections", reflect.TypeOf((*MockE2TAdminServiceServer)(nil).DropE2NodeConnections), arg0, arg1)
 }
 
-// MockE2TAdminService_UploadRegisterServiceModelServer is a mock of E2TAdminService_UploadRegisterServiceModelServer interface
+// MockE2TAdminService_UploadRegisterServiceModelServer is a mock of E2TAdminService_UploadRegisterServiceModelServer interface.
 type MockE2TAdminService_UploadRegisterServiceModelServer struct {
 	ctrl     *gomock.Controller
 	recorder *MockE2TAdminService_UploadRegisterServiceModelServerMockRecorder
 }
 
-// MockE2TAdminService_UploadRegisterServiceModelServerMockRecorder is the mock recorder for MockE2TAdminService_UploadRegisterServiceModelServer
+// MockE2TAdminService_UploadRegisterServiceModelServerMockRecorder is the mock recorder for MockE2TAdminService_UploadRegisterServiceModelServer.
 type MockE2TAdminService_UploadRegisterServiceModelServerMockRecorder struct {
 	mock *MockE2TAdminService_UploadRegisterServiceModelServer
 }
 
-// NewMockE2TAdminService_UploadRegisterServiceModelServer creates a new mock instance
+// NewMockE2TAdminService_UploadRegisterServiceModelServer creates a new mock instance.
 func NewMockE2TAdminService_UploadRegisterServiceModelServer(ctrl *gomock.Controller) *MockE2TAdminService_UploadRegisterServiceModelServer {
 	mock := &MockE2TAdminService_UploadRegisterServiceModelServer{ctrl: ctrl}
 	mock.recorder = &MockE2TAdminService_UploadRegisterServiceModelServerMockRecorder{mock}
 	return mock
 }
 
-// EXPECT returns an object that allows the caller to indicate expected use
+// EXPECT returns an object that allows the caller to indicate expected use.
 func (m *MockE2TAdminService_UploadRegisterServiceModelServer) EXPECT() *MockE2TAdminService_UploadRegisterServiceModelServerMockRecorder {
 	return m.recorder
 }
 
-// SendAndClose mocks base method
+// SendAndClose mocks base method.
 func (m *MockE2TAdminService_UploadRegisterServiceModelServer) SendAndClose(arg0 *UploadRegisterServiceModelResponse) error {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "SendAndClose", arg0)
@@ -610,13 +610,13 @@ func (m *MockE2TAdminService_UploadRegisterServiceModelServer) SendAndClose(arg0
 	return ret0
 }
 
-// SendAndClose indicates an expected call of SendAndClose
+// SendAndClose indicates an expected call of SendAndClose.
 func (mr *MockE2TAdminService_UploadRegisterServiceModelServerMockRecorder) SendAndClose(arg0 interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SendAndClose", reflect.TypeOf((*MockE2TAdminService_UploadRegisterServiceModelServer)(nil).SendAndClose), arg0)
 }
 
-// Recv mocks base method
+// Recv mocks base method.
 func (m *MockE2TAdminService_UploadRegisterServiceModelServer) Recv() (*UploadRegisterServiceModelRequest, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Recv")
@@ -625,13 +625,13 @@ func (m *MockE2TAdminService_UploadRegisterServiceModelServer) Recv() (*UploadRe
 	return ret0, ret1
 }
 
-// Recv indicates an expected call of Recv
+// Recv indicates an expected call of Recv.
 func (mr *MockE2TAdminService_UploadRegisterServiceModelServerMockRecorder) Recv() *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Recv", reflect.TypeOf((*MockE2TAdminService_UploadRegisterServiceModelServer)(nil).Recv))
 }
 
-// SetHeader mocks base method
+// SetHeader mocks base method.
 func (m *MockE2TAdminService_UploadRegisterServiceModelServer) SetHeader(arg0 metadata.MD) error {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "SetHeader", arg0)
@@ -639,13 +639,13 @@ func (m *MockE2TAdminService_UploadRegisterServiceModelServer) SetHeader(arg0 me
 	return ret0
 }
 
-// SetHeader indicates an expected call of SetHeader
+// SetHeader indicates an expected call of SetHeader.
 func (mr *MockE2TAdminService_UploadRegisterServiceModelServerMockRecorder) SetHeader(arg0 interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SetHeader", reflect.TypeOf((*MockE2TAdminService_UploadRegisterServiceModelServer)(nil).SetHeader), arg0)
 }
 
-// SendHeader mocks base method
+// SendHeader mocks base method.
 func (m *MockE2TAdminService_UploadRegisterServiceModelServer) SendHeader(arg0 metadata.MD) error {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "SendHeader", arg0)
@@ -653,25 +653,25 @@ func (m *MockE2TAdminService_UploadRegisterServiceModelServer) SendHeader(arg0 m
 	return ret0
 }
 
-// SendHeader indicates an expected call of SendHeader
+// SendHeader indicates an expected call of SendHeader.
 func (mr *MockE2TAdminService_UploadRegisterServiceModelServerMockRecorder) SendHeader(arg0 interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SendHeader", reflect.TypeOf((*MockE2TAdminService_UploadRegisterServiceModelServer)(nil).SendHeader), arg0)
 }
 
-// SetTrailer mocks base method
+// SetTrailer mocks base method.
 func (m *MockE2TAdminService_UploadRegisterServiceModelServer) SetTrailer(arg0 metadata.MD) {
 	m.ctrl.T.Helper()
 	m.ctrl.Call(m, "SetTrailer", arg0)
 }
 
-// SetTrailer indicates an expected call of SetTrailer
+// SetTrailer indicates an expected call of SetTrailer.
 func (mr *MockE2TAdminService_UploadRegisterServiceModelServerMockRecorder) SetTrailer(arg0 interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SetTrailer", reflect.TypeOf((*MockE2TAdminService_UploadRegisterServiceModelServer)(nil).SetTrailer), arg0)
 }
 
-// Context mocks base method
+// Context mocks base method.
 func (m *MockE2TAdminService_UploadRegisterServiceModelServer) Context() context.Context {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Context")
@@ -679,13 +679,13 @@ func (m *MockE2TAdminService_UploadRegisterServiceModelServer) Context() context
 	return ret0
 }
 
-// Context indicates an expected call of Context
+// Context indicates an expected call of Context.
 func (mr *MockE2TAdminService_UploadRegisterServiceModelServerMockRecorder) Context() *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Context", reflect.TypeOf((*MockE2TAdminService_UploadRegisterServiceModelServer)(nil).Context))
 }
 
-// SendMsg mocks base method
+// SendMsg mocks base method.
 func (m_2 *MockE2TAdminService_UploadRegisterServiceModelServer) SendMsg(m interface{}) error {
 	m_2.ctrl.T.Helper()
 	ret := m_2.ctrl.Call(m_2, "SendMsg", m)
@@ -693,13 +693,13 @@ func (m_2 *MockE2TAdminService_UploadRegisterServiceModelServer) SendMsg(m inter
 	return ret0
 }
 
-// SendMsg indicates an expected call of SendMsg
+// SendMsg indicates an expected call of SendMsg.
 func (mr *MockE2TAdminService_UploadRegisterServiceModelServerMockRecorder) SendMsg(m interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SendMsg", reflect.TypeOf((*MockE2TAdminService_UploadRegisterServiceModelServer)(nil).SendMsg), m)
 }
 
-// RecvMsg mocks base method
+// RecvMsg mocks base method.
 func (m_2 *MockE2TAdminService_UploadRegisterServiceModelServer) RecvMsg(m interface{}) error {
 	m_2.ctrl.T.Helper()
 	ret := m_2.ctrl.Call(m_2, "RecvMsg", m)
@@ -707,36 +707,36 @@ func (m_2 *MockE2TAdminService_UploadRegisterServiceModelServer) RecvMsg(m inter
 	return ret0
 }
 
-// RecvMsg indicates an expected call of RecvMsg
+// RecvMsg indicates an expected call of RecvMsg.
 func (mr *MockE2TAdminService_UploadRegisterServiceModelServerMockRecorder) RecvMsg(m interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "RecvMsg", reflect.TypeOf((*MockE2TAdminService_UploadRegisterServiceModelServer)(nil).RecvMsg), m)
 }
 
-// MockE2TAdminService_ListRegisteredServiceModelsServer is a mock of E2TAdminService_ListRegisteredServiceModelsServer interface
+// MockE2TAdminService_ListRegisteredServiceModelsServer is a mock of E2TAdminService_ListRegisteredServiceModelsServer interface.
 type MockE2TAdminService_ListRegisteredServiceModelsServer struct {
 	ctrl     *gomock.Controller
 	recorder *MockE2TAdminService_ListRegisteredServiceModelsServerMockRecorder
 }
 
-// MockE2TAdminService_ListRegisteredServiceModelsServerMockRecorder is the mock recorder for MockE2TAdminService_ListRegisteredServiceModelsServer
+// MockE2TAdminService_ListRegisteredServiceModelsServerMockRecorder is the mock recorder for MockE2TAdminService_ListRegisteredServiceModelsServer.
 type MockE2TAdminService_ListRegisteredServiceModelsServerMockRecorder struct {
 	mock *MockE2TAdminService_ListRegisteredServiceModelsServer
 }
 
-// NewMockE2TAdminService_ListRegisteredServiceModelsServer creates a new mock instance
+// NewMockE2TAdminService_ListRegisteredServiceModelsServer creates a new mock instance.
 func NewMockE2TAdminService_ListRegisteredServiceModelsServer(ctrl *gomock.Controller) *MockE2TAdminService_ListRegisteredServiceModelsServer {
 	mock := &MockE2TAdminService_ListRegisteredServiceModelsServer{ctrl: ctrl}
 	mock.recorder = &MockE2TAdminService_ListRegisteredServiceModelsServerMockRecorder{mock}
 	return mock
 }
 
-// EXPECT returns an object that allows the caller to indicate expected use
+// EXPECT returns an object that allows the caller to indicate expected use.
 func (m *MockE2TAdminService_ListRegisteredServiceModelsServer) EXPECT() *MockE2TAdminService_ListRegisteredServiceModelsServerMockRecorder {
 	return m.recorder
 }
 
-// Send mocks base method
+// Send mocks base method.
 func (m *MockE2TAdminService_ListRegisteredServiceModelsServer) Send(arg0 *ListRegisteredServiceModelsResponse) error {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Send", arg0)
@@ -744,13 +744,13 @@ func (m *MockE2TAdminService_ListRegisteredServiceModelsServer) Send(arg0 *ListR
 	return ret0
 }
 
-// Send indicates an expected call of Send
+// Send indicates an expected call of Send.
 func (mr *MockE2TAdminService_ListRegisteredServiceModelsServerMockRecorder) Send(arg0 interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Send", reflect.TypeOf((*MockE2TAdminService_ListRegisteredServiceModelsServer)(nil).Send), arg0)
 }
 
-// SetHeader mocks base method
+// SetHeader mocks base method.
 func (m *MockE2TAdminService_ListRegisteredServiceModelsServer) SetHeader(arg0 metadata.MD) error {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "SetHeader", arg0)
@@ -758,13 +758,13 @@ func (m *MockE2TAdminService_ListRegisteredServiceModelsServer) SetHeader(arg0 m
 	return ret0
 }
 
-// SetHeader indicates an expected call of SetHeader
+// SetHeader indicates an expected call of SetHeader.
 func (mr *MockE2TAdminService_ListRegisteredServiceModelsServerMockRecorder) SetHeader(arg0 interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SetHeader", reflect.TypeOf((*MockE2TAdminService_ListRegisteredServiceModelsServer)(nil).SetHeader), arg0)
 }
 
-// SendHeader mocks base method
+// SendHeader mocks base method.
 func (m *MockE2TAdminService_ListRegisteredServiceModelsServer) SendHeader(arg0 metadata.MD) error {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "SendHeader", arg0)
@@ -772,25 +772,25 @@ func (m *MockE2TAdminService_ListRegisteredServiceModelsServer) SendHeader(arg0 
 	return ret0
 }
 
-// SendHeader indicates an expected call of SendHeader
+// SendHeader indicates an expected call of SendHeader.
 func (mr *MockE2TAdminService_ListRegisteredServiceModelsServerMockRecorder) SendHeader(arg0 interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SendHeader", reflect.TypeOf((*MockE2TAdminService_ListRegisteredServiceModelsServer)(nil).SendHeader), arg0)
 }
 
-// SetTrailer mocks base method
+// SetTrailer mocks base method.
 func (m *MockE2TAdminService_ListRegisteredServiceModelsServer) SetTrailer(arg0 metadata.MD) {
 	m.ctrl.T.Helper()
 	m.ctrl.Call(m, "SetTrailer", arg0)
 }
 
-// SetTrailer indicates an expected call of SetTrailer
+// SetTrailer indicates an expected call of SetTrailer.
 func (mr *MockE2TAdminService_ListRegisteredServiceModelsServerMockRecorder) SetTrailer(arg0 interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SetTrailer", reflect.TypeOf((*MockE2TAdminService_ListRegisteredServiceModelsServer)(nil).SetTrailer), arg0)
 }
 
-// Context mocks base method
+// Context mocks base method.
 func (m *MockE2TAdminService_ListRegisteredServiceModelsServer) Context() context.Context {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Context")
@@ -798,13 +798,13 @@ func (m *MockE2TAdminService_ListRegisteredServiceModelsServer) Context() contex
 	return ret0
 }
 
-// Context indicates an expected call of Context
+// Context indicates an expected call of Context.
 func (mr *MockE2TAdminService_ListRegisteredServiceModelsServerMockRecorder) Context() *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Context", reflect.TypeOf((*MockE2TAdminService_ListRegisteredServiceModelsServer)(nil).Context))
 }
 
-// SendMsg mocks base method
+// SendMsg mocks base method.
 func (m_2 *MockE2TAdminService_ListRegisteredServiceModelsServer) SendMsg(m interface{}) error {
 	m_2.ctrl.T.Helper()
 	ret := m_2.ctrl.Call(m_2, "SendMsg", m)
@@ -812,13 +812,13 @@ func (m_2 *MockE2TAdminService_ListRegisteredServiceModelsServer) SendMsg(m inte
 	return ret0
 }
 
-// SendMsg indicates an expected call of SendMsg
+// SendMsg indicates an expected call of SendMsg.
 func (mr *MockE2TAdminService_ListRegisteredServiceModelsServerMockRecorder) SendMsg(m interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SendMsg", reflect.TypeOf((*MockE2TAdminService_ListRegisteredServiceModelsServer)(nil).SendMsg), m)
 }
 
-// RecvMsg mocks base method
+// RecvMsg mocks base method.
 func (m_2 *MockE2TAdminService_ListRegisteredServiceModelsServer) RecvMsg(m interface{}) error {
 	m_2.ctrl.T.Helper()
 	ret := m_2.ctrl.Call(m_2, "RecvMsg", m)
@@ -826,36 +826,36 @@ func (m_2 *MockE2TAdminService_ListRegisteredServiceModelsServer) RecvMsg(m inte
 	return ret0
 }
 
-// RecvMsg indicates an expected call of RecvMsg
+// RecvMsg indicates an expected call of RecvMsg.
 func (mr *MockE2TAdminService_ListRegisteredServiceModelsServerMockRecorder) RecvMsg(m interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "RecvMsg", reflect.TypeOf((*MockE2TAdminService_ListRegisteredServiceModelsServer)(nil).RecvMsg), m)
 }
 
-// MockE2TAdminService_ListE2NodeConnectionsServer is a mock of E2TAdminService_ListE2NodeConnectionsServer interface
+// MockE2TAdminService_ListE2NodeConnectionsServer is a mock of E2TAdminService_ListE2NodeConnectionsServer interface.
 type MockE2TAdminService_ListE2NodeConnectionsServer struct {
 	ctrl     *gomock.Controller
 	recorder *MockE2TAdminService_ListE2NodeConnectionsServerMockRecorder
 }
 
-// MockE2TAdminService_ListE2NodeConnectionsServerMockRecorder is the mock recorder for MockE2TAdminService_ListE2NodeConnectionsServer
+// MockE2TAdminService_ListE2NodeConnectionsServerMockRecorder is the mock recorder for MockE2TAdminService_ListE2NodeConnectionsServer.
 type MockE2TAdminService_ListE2NodeConnectionsServerMockRecorder struct {
 	mock *MockE2TAdminService_ListE2NodeConnectionsServer
 }
 
-// NewMockE2TAdminService_ListE2NodeConnectionsServer creates a new mock instance
+// NewMockE2TAdminService_ListE2NodeConnectionsServer creates a new mock instance.
 func NewMockE2TAdminService_ListE2NodeConnectionsServer(ctrl *gomock.Controller) *MockE2TAdminService_ListE2NodeConnectionsServer {
 	mock := &MockE2TAdminService_ListE2NodeConnectionsServer{ctrl: ctrl}
 	mock.recorder = &MockE2TAdminService_ListE2NodeConnectionsServerMockRecorder{mock}
 	return mock
 }
 
-// EXPECT returns an object that allows the caller to indicate expected use
+// EXPECT returns an object that allows the caller to indicate expected use.
 func (m *MockE2TAdminService_ListE2NodeConnectionsServer) EXPECT() *MockE2TAdminService_ListE2NodeConnectionsServerMockRecorder {
 	return m.recorder
 }
 
-// Send mocks base method
+// Send mocks base method.
 func (m *MockE2TAdminService_ListE2NodeConnectionsServer) Send(arg0 *ListE2NodeConnectionsResponse) error {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Send", arg0)
@@ -863,13 +863,13 @@ func (m *MockE2TAdminService_ListE2NodeConnectionsServer) Send(arg0 *ListE2NodeC
 	return ret0
 }
 
-// Send indicates an expected call of Send
+// Send indicates an expected call of Send.
 func (mr *MockE2TAdminService_ListE2NodeConnectionsServerMockRecorder) Send(arg0 interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Send", reflect.TypeOf((*MockE2TAdminService_ListE2NodeConnectionsServer)(nil).Send), arg0)
 }
 
-// SetHeader mocks base method
+// SetHeader mocks base method.
 func (m *MockE2TAdminService_ListE2NodeConnectionsServer) SetHeader(arg0 metadata.MD) error {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "SetHeader", arg0)
@@ -877,13 +877,13 @@ func (m *MockE2TAdminService_ListE2NodeConnectionsServer) SetHeader(arg0 metadat
 	return ret0
 }
 
-// SetHeader indicates an expected call of SetHeader
+// SetHeader indicates an expected call of SetHeader.
 func (mr *MockE2TAdminService_ListE2NodeConnectionsServerMockRecorder) SetHeader(arg0 interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SetHeader", reflect.TypeOf((*MockE2TAdminService_ListE2NodeConnectionsServer)(nil).SetHeader), arg0)
 }
 
-// SendHeader mocks base method
+// SendHeader mocks base method.
 func (m *MockE2TAdminService_ListE2NodeConnectionsServer) SendHeader(arg0 metadata.MD) error {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "SendHeader", arg0)
@@ -891,25 +891,25 @@ func (m *MockE2TAdminService_ListE2NodeConnectionsServer) SendHeader(arg0 metada
 	return ret0
 }
 
-// SendHeader indicates an expected call of SendHeader
+// SendHeader indicates an expected call of SendHeader.
 func (mr *MockE2TAdminService_ListE2NodeConnectionsServerMockRecorder) SendHeader(arg0 interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SendHeader", reflect.TypeOf((*MockE2TAdminService_ListE2NodeConnectionsServer)(nil).SendHeader), arg0)
 }
 
-// SetTrailer mocks base method
+// SetTrailer mocks base method.
 func (m *MockE2TAdminService_ListE2NodeConnectionsServer) SetTrailer(arg0 metadata.MD) {
 	m.ctrl.T.Helper()
 	m.ctrl.Call(m, "SetTrailer", arg0)
 }
 
-// SetTrailer indicates an expected call of SetTrailer
+// SetTrailer indicates an expected call of SetTrailer.
 func (mr *MockE2TAdminService_ListE2NodeConnectionsServerMockRecorder) SetTrailer(arg0 interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SetTrailer", reflect.TypeOf((*MockE2TAdminService_ListE2NodeConnectionsServer)(nil).SetTrailer), arg0)
 }
 
-// Context mocks base method
+// Context mocks base method.
 func (m *MockE2TAdminService_ListE2NodeConnectionsServer) Context() context.Context {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Context")
@@ -917,13 +917,13 @@ func (m *MockE2TAdminService_ListE2NodeConnectionsServer) Context() context.Cont
 	return ret0
 }
 
-// Context indicates an expected call of Context
+// Context indicates an expected call of Context.
 func (mr *MockE2TAdminService_ListE2NodeConnectionsServerMockRecorder) Context() *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Context", reflect.TypeOf((*MockE2TAdminService_ListE2NodeConnectionsServer)(nil).Context))
 }
 
-// SendMsg mocks base method
+// SendMsg mocks base method.
 func (m_2 *MockE2TAdminService_ListE2NodeConnectionsServer) SendMsg(m interface{}) error {
 	m_2.ctrl.T.Helper()
 	ret := m_2.ctrl.Call(m_2, "SendMsg", m)
@@ -931,13 +931,13 @@ func (m_2 *MockE2TAdminService_ListE2NodeConnectionsServer) SendMsg(m interface{
 	return ret0
 }
 
-// SendMsg indicates an expected call of SendMsg
+// SendMsg indicates an expected call of SendMsg.
 func (mr *MockE2TAdminService_ListE2NodeConnectionsServerMockRecorder) SendMsg(m interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SendMsg", reflect.TypeOf((*MockE2TAdminService_ListE2NodeConnectionsServer)(nil).SendMsg), m)
 }
 
-// RecvMsg mocks base method
+// RecvMsg mocks base method.
 func (m_2 *MockE2TAdminService_ListE2NodeConnectionsServer) RecvMsg(m interface{}) error {
 	m_2.ctrl.T.Helper()
 	ret := m_2.ctrl.Call(m_2, "RecvMsg", m)
@@ -945,7 +945,7 @@ func (m_2 *MockE2TAdminService_ListE2NodeConnectionsServer) RecvMsg(m interface{
 	return ret0
 }
 
-// RecvMsg indicates an expected call of RecvMsg
+// RecvMsg indicates an expected call of RecvMsg.
 func (mr *MockE2TAdminService_ListE2NodeConnectionsServerMockRecorder) RecvMsg(m interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "RecvMsg", reflect.TypeOf((*MockE2TAdminService_ListE2NodeConnectionsServer)(nil).RecvMsg), m)

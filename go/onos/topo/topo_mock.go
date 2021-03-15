@@ -13,42 +13,42 @@ import (
 	metadata "google.golang.org/grpc/metadata"
 )
 
-// MockisObject_Obj is a mock of isObject_Obj interface
+// MockisObject_Obj is a mock of isObject_Obj interface.
 type MockisObject_Obj struct {
 	ctrl     *gomock.Controller
 	recorder *MockisObject_ObjMockRecorder
 }
 
-// MockisObject_ObjMockRecorder is the mock recorder for MockisObject_Obj
+// MockisObject_ObjMockRecorder is the mock recorder for MockisObject_Obj.
 type MockisObject_ObjMockRecorder struct {
 	mock *MockisObject_Obj
 }
 
-// NewMockisObject_Obj creates a new mock instance
+// NewMockisObject_Obj creates a new mock instance.
 func NewMockisObject_Obj(ctrl *gomock.Controller) *MockisObject_Obj {
 	mock := &MockisObject_Obj{ctrl: ctrl}
 	mock.recorder = &MockisObject_ObjMockRecorder{mock}
 	return mock
 }
 
-// EXPECT returns an object that allows the caller to indicate expected use
+// EXPECT returns an object that allows the caller to indicate expected use.
 func (m *MockisObject_Obj) EXPECT() *MockisObject_ObjMockRecorder {
 	return m.recorder
 }
 
-// isObject_Obj mocks base method
+// isObject_Obj mocks base method.
 func (m *MockisObject_Obj) isObject_Obj() {
 	m.ctrl.T.Helper()
 	m.ctrl.Call(m, "isObject_Obj")
 }
 
-// isObject_Obj indicates an expected call of isObject_Obj
+// isObject_Obj indicates an expected call of isObject_Obj.
 func (mr *MockisObject_ObjMockRecorder) isObject_Obj() *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "isObject_Obj", reflect.TypeOf((*MockisObject_Obj)(nil).isObject_Obj))
 }
 
-// MarshalTo mocks base method
+// MarshalTo mocks base method.
 func (m *MockisObject_Obj) MarshalTo(arg0 []byte) (int, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "MarshalTo", arg0)
@@ -57,13 +57,13 @@ func (m *MockisObject_Obj) MarshalTo(arg0 []byte) (int, error) {
 	return ret0, ret1
 }
 
-// MarshalTo indicates an expected call of MarshalTo
+// MarshalTo indicates an expected call of MarshalTo.
 func (mr *MockisObject_ObjMockRecorder) MarshalTo(arg0 interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "MarshalTo", reflect.TypeOf((*MockisObject_Obj)(nil).MarshalTo), arg0)
 }
 
-// Size mocks base method
+// Size mocks base method.
 func (m *MockisObject_Obj) Size() int {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Size")
@@ -71,36 +71,36 @@ func (m *MockisObject_Obj) Size() int {
 	return ret0
 }
 
-// Size indicates an expected call of Size
+// Size indicates an expected call of Size.
 func (mr *MockisObject_ObjMockRecorder) Size() *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Size", reflect.TypeOf((*MockisObject_Obj)(nil).Size))
 }
 
-// MockTopoClient is a mock of TopoClient interface
+// MockTopoClient is a mock of TopoClient interface.
 type MockTopoClient struct {
 	ctrl     *gomock.Controller
 	recorder *MockTopoClientMockRecorder
 }
 
-// MockTopoClientMockRecorder is the mock recorder for MockTopoClient
+// MockTopoClientMockRecorder is the mock recorder for MockTopoClient.
 type MockTopoClientMockRecorder struct {
 	mock *MockTopoClient
 }
 
-// NewMockTopoClient creates a new mock instance
+// NewMockTopoClient creates a new mock instance.
 func NewMockTopoClient(ctrl *gomock.Controller) *MockTopoClient {
 	mock := &MockTopoClient{ctrl: ctrl}
 	mock.recorder = &MockTopoClientMockRecorder{mock}
 	return mock
 }
 
-// EXPECT returns an object that allows the caller to indicate expected use
+// EXPECT returns an object that allows the caller to indicate expected use.
 func (m *MockTopoClient) EXPECT() *MockTopoClientMockRecorder {
 	return m.recorder
 }
 
-// Create mocks base method
+// Create mocks base method.
 func (m *MockTopoClient) Create(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*CreateResponse, error) {
 	m.ctrl.T.Helper()
 	varargs := []interface{}{ctx, in}
@@ -113,14 +113,14 @@ func (m *MockTopoClient) Create(ctx context.Context, in *CreateRequest, opts ...
 	return ret0, ret1
 }
 
-// Create indicates an expected call of Create
+// Create indicates an expected call of Create.
 func (mr *MockTopoClientMockRecorder) Create(ctx, in interface{}, opts ...interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	varargs := append([]interface{}{ctx, in}, opts...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Create", reflect.TypeOf((*MockTopoClient)(nil).Create), varargs...)
 }
 
-// Get mocks base method
+// Get mocks base method.
 func (m *MockTopoClient) Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error) {
 	m.ctrl.T.Helper()
 	varargs := []interface{}{ctx, in}
@@ -133,14 +133,14 @@ func (m *MockTopoClient) Get(ctx context.Context, in *GetRequest, opts ...grpc.C
 	return ret0, ret1
 }
 
-// Get indicates an expected call of Get
+// Get indicates an expected call of Get.
 func (mr *MockTopoClientMockRecorder) Get(ctx, in interface{}, opts ...interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	varargs := append([]interface{}{ctx, in}, opts...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Get", reflect.TypeOf((*MockTopoClient)(nil).Get), varargs...)
 }
 
-// Update mocks base method
+// Update mocks base method.
 func (m *MockTopoClient) Update(ctx context.Context, in *UpdateRequest, opts ...grpc.CallOption) (*UpdateResponse, error) {
 	m.ctrl.T.Helper()
 	varargs := []interface{}{ctx, in}
@@ -153,14 +153,14 @@ func (m *MockTopoClient) Update(ctx context.Context, in *UpdateRequest, opts ...
 	return ret0, ret1
 }
 
-// Update indicates an expected call of Update
+// Update indicates an expected call of Update.
 func (mr *MockTopoClientMockRecorder) Update(ctx, in interface{}, opts ...interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	varargs := append([]interface{}{ctx, in}, opts...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Update", reflect.TypeOf((*MockTopoClient)(nil).Update), varargs...)
 }
 
-// Delete mocks base method
+// Delete mocks base method.
 func (m *MockTopoClient) Delete(ctx context.Context, in *DeleteRequest, opts ...grpc.CallOption) (*DeleteResponse, error) {
 	m.ctrl.T.Helper()
 	varargs := []interface{}{ctx, in}
@@ -173,14 +173,14 @@ func (m *MockTopoClient) Delete(ctx context.Context, in *DeleteRequest, opts ...
 	return ret0, ret1
 }
 
-// Delete indicates an expected call of Delete
+// Delete indicates an expected call of Delete.
 func (mr *MockTopoClientMockRecorder) Delete(ctx, in interface{}, opts ...interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	varargs := append([]interface{}{ctx, in}, opts...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Delete", reflect.TypeOf((*MockTopoClient)(nil).Delete), varargs...)
 }
 
-// List mocks base method
+// List mocks base method.
 func (m *MockTopoClient) List(ctx context.Context, in *ListRequest, opts ...grpc.CallOption) (*ListResponse, error) {
 	m.ctrl.T.Helper()
 	varargs := []interface{}{ctx, in}
@@ -193,14 +193,14 @@ func (m *MockTopoClient) List(ctx context.Context, in *ListRequest, opts ...grpc
 	return ret0, ret1
 }
 
-// List indicates an expected call of List
+// List indicates an expected call of List.
 func (mr *MockTopoClientMockRecorder) List(ctx, in interface{}, opts ...interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	varargs := append([]interface{}{ctx, in}, opts...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "List", reflect.TypeOf((*MockTopoClient)(nil).List), varargs...)
 }
 
-// Watch mocks base method
+// Watch mocks base method.
 func (m *MockTopoClient) Watch(ctx context.Context, in *WatchRequest, opts ...grpc.CallOption) (Topo_WatchClient, error) {
 	m.ctrl.T.Helper()
 	varargs := []interface{}{ctx, in}
@@ -213,37 +213,37 @@ func (m *MockTopoClient) Watch(ctx context.Context, in *WatchRequest, opts ...gr
 	return ret0, ret1
 }
 
-// Watch indicates an expected call of Watch
+// Watch indicates an expected call of Watch.
 func (mr *MockTopoClientMockRecorder) Watch(ctx, in interface{}, opts ...interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	varargs := append([]interface{}{ctx, in}, opts...)
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Watch", reflect.TypeOf((*MockTopoClient)(nil).Watch), varargs...)
 }
 
-// MockTopo_WatchClient is a mock of Topo_WatchClient interface
+// MockTopo_WatchClient is a mock of Topo_WatchClient interface.
 type MockTopo_WatchClient struct {
 	ctrl     *gomock.Controller
 	recorder *MockTopo_WatchClientMockRecorder
 }
 
-// MockTopo_WatchClientMockRecorder is the mock recorder for MockTopo_WatchClient
+// MockTopo_WatchClientMockRecorder is the mock recorder for MockTopo_WatchClient.
 type MockTopo_WatchClientMockRecorder struct {
 	mock *MockTopo_WatchClient
 }
 
-// NewMockTopo_WatchClient creates a new mock instance
+// NewMockTopo_WatchClient creates a new mock instance.
 func NewMockTopo_WatchClient(ctrl *gomock.Controller) *MockTopo_WatchClient {
 	mock := &MockTopo_WatchClient{ctrl: ctrl}
 	mock.recorder = &MockTopo_WatchClientMockRecorder{mock}
 	return mock
 }
 
-// EXPECT returns an object that allows the caller to indicate expected use
+// EXPECT returns an object that allows the caller to indicate expected use.
 func (m *MockTopo_WatchClient) EXPECT() *MockTopo_WatchClientMockRecorder {
 	return m.recorder
 }
 
-// Recv mocks base method
+// Recv mocks base method.
 func (m *MockTopo_WatchClient) Recv() (*WatchResponse, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Recv")
@@ -252,13 +252,13 @@ func (m *MockTopo_WatchClient) Recv() (*WatchResponse, error) {
 	return ret0, ret1
 }
 
-// Recv indicates an expected call of Recv
+// Recv indicates an expected call of Recv.
 func (mr *MockTopo_WatchClientMockRecorder) Recv() *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Recv", reflect.TypeOf((*MockTopo_WatchClient)(nil).Recv))
 }
 
-// Header mocks base method
+// Header mocks base method.
 func (m *MockTopo_WatchClient) Header() (metadata.MD, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Header")
@@ -267,13 +267,13 @@ func (m *MockTopo_WatchClient) Header() (metadata.MD, error) {
 	return ret0, ret1
 }
 
-// Header indicates an expected call of Header
+// Header indicates an expected call of Header.
 func (mr *MockTopo_WatchClientMockRecorder) Header() *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Header", reflect.TypeOf((*MockTopo_WatchClient)(nil).Header))
 }
 
-// Trailer mocks base method
+// Trailer mocks base method.
 func (m *MockTopo_WatchClient) Trailer() metadata.MD {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Trailer")
@@ -281,13 +281,13 @@ func (m *MockTopo_WatchClient) Trailer() metadata.MD {
 	return ret0
 }
 
-// Trailer indicates an expected call of Trailer
+// Trailer indicates an expected call of Trailer.
 func (mr *MockTopo_WatchClientMockRecorder) Trailer() *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Trailer", reflect.TypeOf((*MockTopo_WatchClient)(nil).Trailer))
 }
 
-// CloseSend mocks base method
+// CloseSend mocks base method.
 func (m *MockTopo_WatchClient) CloseSend() error {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "CloseSend")
@@ -295,13 +295,13 @@ func (m *MockTopo_WatchClient) CloseSend() error {
 	return ret0
 }
 
-// CloseSend indicates an expected call of CloseSend
+// CloseSend indicates an expected call of CloseSend.
 func (mr *MockTopo_WatchClientMockRecorder) CloseSend() *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "CloseSend", reflect.TypeOf((*MockTopo_WatchClient)(nil).CloseSend))
 }
 
-// Context mocks base method
+// Context mocks base method.
 func (m *MockTopo_WatchClient) Context() context.Context {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Context")
@@ -309,13 +309,13 @@ func (m *MockTopo_WatchClient) Context() context.Context {
 	return ret0
 }
 
-// Context indicates an expected call of Context
+// Context indicates an expected call of Context.
 func (mr *MockTopo_WatchClientMockRecorder) Context() *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Context", reflect.TypeOf((*MockTopo_WatchClient)(nil).Context))
 }
 
-// SendMsg mocks base method
+// SendMsg mocks base method.
 func (m_2 *MockTopo_WatchClient) SendMsg(m interface{}) error {
 	m_2.ctrl.T.Helper()
 	ret := m_2.ctrl.Call(m_2, "SendMsg", m)
@@ -323,13 +323,13 @@ func (m_2 *MockTopo_WatchClient) SendMsg(m interface{}) error {
 	return ret0
 }
 
-// SendMsg indicates an expected call of SendMsg
+// SendMsg indicates an expected call of SendMsg.
 func (mr *MockTopo_WatchClientMockRecorder) SendMsg(m interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SendMsg", reflect.TypeOf((*MockTopo_WatchClient)(nil).SendMsg), m)
 }
 
-// RecvMsg mocks base method
+// RecvMsg mocks base method.
 func (m_2 *MockTopo_WatchClient) RecvMsg(m interface{}) error {
 	m_2.ctrl.T.Helper()
 	ret := m_2.ctrl.Call(m_2, "RecvMsg", m)
@@ -337,36 +337,36 @@ func (m_2 *MockTopo_WatchClient) RecvMsg(m interface{}) error {
 	return ret0
 }
 
-// RecvMsg indicates an expected call of RecvMsg
+// RecvMsg indicates an expected call of RecvMsg.
 func (mr *MockTopo_WatchClientMockRecorder) RecvMsg(m interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "RecvMsg", reflect.TypeOf((*MockTopo_WatchClient)(nil).RecvMsg), m)
 }
 
-// MockTopoServer is a mock of TopoServer interface
+// MockTopoServer is a mock of TopoServer interface.
 type MockTopoServer struct {
 	ctrl     *gomock.Controller
 	recorder *MockTopoServerMockRecorder
 }
 
-// MockTopoServerMockRecorder is the mock recorder for MockTopoServer
+// MockTopoServerMockRecorder is the mock recorder for MockTopoServer.
 type MockTopoServerMockRecorder struct {
 	mock *MockTopoServer
 }
 
-// NewMockTopoServer creates a new mock instance
+// NewMockTopoServer creates a new mock instance.
 func NewMockTopoServer(ctrl *gomock.Controller) *MockTopoServer {
 	mock := &MockTopoServer{ctrl: ctrl}
 	mock.recorder = &MockTopoServerMockRecorder{mock}
 	return mock
 }
 
-// EXPECT returns an object that allows the caller to indicate expected use
+// EXPECT returns an object that allows the caller to indicate expected use.
 func (m *MockTopoServer) EXPECT() *MockTopoServerMockRecorder {
 	return m.recorder
 }
 
-// Create mocks base method
+// Create mocks base method.
 func (m *MockTopoServer) Create(arg0 context.Context, arg1 *CreateRequest) (*CreateResponse, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Create", arg0, arg1)
@@ -375,13 +375,13 @@ func (m *MockTopoServer) Create(arg0 context.Context, arg1 *CreateRequest) (*Cre
 	return ret0, ret1
 }
 
-// Create indicates an expected call of Create
+// Create indicates an expected call of Create.
 func (mr *MockTopoServerMockRecorder) Create(arg0, arg1 interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Create", reflect.TypeOf((*MockTopoServer)(nil).Create), arg0, arg1)
 }
 
-// Get mocks base method
+// Get mocks base method.
 func (m *MockTopoServer) Get(arg0 context.Context, arg1 *GetRequest) (*GetResponse, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Get", arg0, arg1)
@@ -390,13 +390,13 @@ func (m *MockTopoServer) Get(arg0 context.Context, arg1 *GetRequest) (*GetRespon
 	return ret0, ret1
 }
 
-// Get indicates an expected call of Get
+// Get indicates an expected call of Get.
 func (mr *MockTopoServerMockRecorder) Get(arg0, arg1 interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Get", reflect.TypeOf((*MockTopoServer)(nil).Get), arg0, arg1)
 }
 
-// Update mocks base method
+// Update mocks base method.
 func (m *MockTopoServer) Update(arg0 context.Context, arg1 *UpdateRequest) (*UpdateResponse, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Update", arg0, arg1)
@@ -405,13 +405,13 @@ func (m *MockTopoServer) Update(arg0 context.Context, arg1 *UpdateRequest) (*Upd
 	return ret0, ret1
 }
 
-// Update indicates an expected call of Update
+// Update indicates an expected call of Update.
 func (mr *MockTopoServerMockRecorder) Update(arg0, arg1 interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Update", reflect.TypeOf((*MockTopoServer)(nil).Update), arg0, arg1)
 }
 
-// Delete mocks base method
+// Delete mocks base method.
 func (m *MockTopoServer) Delete(arg0 context.Context, arg1 *DeleteRequest) (*DeleteResponse, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Delete", arg0, arg1)
@@ -420,13 +420,13 @@ func (m *MockTopoServer) Delete(arg0 context.Context, arg1 *DeleteRequest) (*Del
 	return ret0, ret1
 }
 
-// Delete indicates an expected call of Delete
+// Delete indicates an expected call of Delete.
 func (mr *MockTopoServerMockRecorder) Delete(arg0, arg1 interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Delete", reflect.TypeOf((*MockTopoServer)(nil).Delete), arg0, arg1)
 }
 
-// List mocks base method
+// List mocks base method.
 func (m *MockTopoServer) List(arg0 context.Context, arg1 *ListRequest) (*ListResponse, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "List", arg0, arg1)
@@ -435,13 +435,13 @@ func (m *MockTopoServer) List(arg0 context.Context, arg1 *ListRequest) (*ListRes
 	return ret0, ret1
 }
 
-// List indicates an expected call of List
+// List indicates an expected call of List.
 func (mr *MockTopoServerMockRecorder) List(arg0, arg1 interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "List", reflect.TypeOf((*MockTopoServer)(nil).List), arg0, arg1)
 }
 
-// Watch mocks base method
+// Watch mocks base method.
 func (m *MockTopoServer) Watch(arg0 *WatchRequest, arg1 Topo_WatchServer) error {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Watch", arg0, arg1)
@@ -449,36 +449,36 @@ func (m *MockTopoServer) Watch(arg0 *WatchRequest, arg1 Topo_WatchServer) error 
 	return ret0
 }
 
-// Watch indicates an expected call of Watch
+// Watch indicates an expected call of Watch.
 func (mr *MockTopoServerMockRecorder) Watch(arg0, arg1 interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Watch", reflect.TypeOf((*MockTopoServer)(nil).Watch), arg0, arg1)
 }
 
-// MockTopo_WatchServer is a mock of Topo_WatchServer interface
+// MockTopo_WatchServer is a mock of Topo_WatchServer interface.
 type MockTopo_WatchServer struct {
 	ctrl     *gomock.Controller
 	recorder *MockTopo_WatchServerMockRecorder
 }
 
-// MockTopo_WatchServerMockRecorder is the mock recorder for MockTopo_WatchServer
+// MockTopo_WatchServerMockRecorder is the mock recorder for MockTopo_WatchServer.
 type MockTopo_WatchServerMockRecorder struct {
 	mock *MockTopo_WatchServer
 }
 
-// NewMockTopo_WatchServer creates a new mock instance
+// NewMockTopo_WatchServer creates a new mock instance.
 func NewMockTopo_WatchServer(ctrl *gomock.Controller) *MockTopo_WatchServer {
 	mock := &MockTopo_WatchServer{ctrl: ctrl}
 	mock.recorder = &MockTopo_WatchServerMockRecorder{mock}
 	return mock
 }
 
-// EXPECT returns an object that allows the caller to indicate expected use
+// EXPECT returns an object that allows the caller to indicate expected use.
 func (m *MockTopo_WatchServer) EXPECT() *MockTopo_WatchServerMockRecorder {
 	return m.recorder
 }
 
-// Send mocks base method
+// Send mocks base method.
 func (m *MockTopo_WatchServer) Send(arg0 *WatchResponse) error {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Send", arg0)
@@ -486,13 +486,13 @@ func (m *MockTopo_WatchServer) Send(arg0 *WatchResponse) error {
 	return ret0
 }
 
-// Send indicates an expected call of Send
+// Send indicates an expected call of Send.
 func (mr *MockTopo_WatchServerMockRecorder) Send(arg0 interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Send", reflect.TypeOf((*MockTopo_WatchServer)(nil).Send), arg0)
 }
 
-// SetHeader mocks base method
+// SetHeader mocks base method.
 func (m *MockTopo_WatchServer) SetHeader(arg0 metadata.MD) error {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "SetHeader", arg0)
@@ -500,13 +500,13 @@ func (m *MockTopo_WatchServer) SetHeader(arg0 metadata.MD) error {
 	return ret0
 }
 
-// SetHeader indicates an expected call of SetHeader
+// SetHeader indicates an expected call of SetHeader.
 func (mr *MockTopo_WatchServerMockRecorder) SetHeader(arg0 interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SetHeader", reflect.TypeOf((*MockTopo_WatchServer)(nil).SetHeader), arg0)
 }
 
-// SendHeader mocks base method
+// SendHeader mocks base method.
 func (m *MockTopo_WatchServer) SendHeader(arg0 metadata.MD) error {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "SendHeader", arg0)
@@ -514,25 +514,25 @@ func (m *MockTopo_WatchServer) SendHeader(arg0 metadata.MD) error {
 	return ret0
 }
 
-// SendHeader indicates an expected call of SendHeader
+// SendHeader indicates an expected call of SendHeader.
 func (mr *MockTopo_WatchServerMockRecorder) SendHeader(arg0 interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SendHeader", reflect.TypeOf((*MockTopo_WatchServer)(nil).SendHeader), arg0)
 }
 
-// SetTrailer mocks base method
+// SetTrailer mocks base method.
 func (m *MockTopo_WatchServer) SetTrailer(arg0 metadata.MD) {
 	m.ctrl.T.Helper()
 	m.ctrl.Call(m, "SetTrailer", arg0)
 }
 
-// SetTrailer indicates an expected call of SetTrailer
+// SetTrailer indicates an expected call of SetTrailer.
 func (mr *MockTopo_WatchServerMockRecorder) SetTrailer(arg0 interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SetTrailer", reflect.TypeOf((*MockTopo_WatchServer)(nil).SetTrailer), arg0)
 }
 
-// Context mocks base method
+// Context mocks base method.
 func (m *MockTopo_WatchServer) Context() context.Context {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Context")
@@ -540,13 +540,13 @@ func (m *MockTopo_WatchServer) Context() context.Context {
 	return ret0
 }
 
-// Context indicates an expected call of Context
+// Context indicates an expected call of Context.
 func (mr *MockTopo_WatchServerMockRecorder) Context() *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Context", reflect.TypeOf((*MockTopo_WatchServer)(nil).Context))
 }
 
-// SendMsg mocks base method
+// SendMsg mocks base method.
 func (m_2 *MockTopo_WatchServer) SendMsg(m interface{}) error {
 	m_2.ctrl.T.Helper()
 	ret := m_2.ctrl.Call(m_2, "SendMsg", m)
@@ -554,13 +554,13 @@ func (m_2 *MockTopo_WatchServer) SendMsg(m interface{}) error {
 	return ret0
 }
 
-// SendMsg indicates an expected call of SendMsg
+// SendMsg indicates an expected call of SendMsg.
 func (mr *MockTopo_WatchServerMockRecorder) SendMsg(m interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SendMsg", reflect.TypeOf((*MockTopo_WatchServer)(nil).SendMsg), m)
 }
 
-// RecvMsg mocks base method
+// RecvMsg mocks base method.
 func (m_2 *MockTopo_WatchServer) RecvMsg(m interface{}) error {
 	m_2.ctrl.T.Helper()
 	ret := m_2.ctrl.Call(m_2, "RecvMsg", m)
@@ -568,7 +568,7 @@ func (m_2 *MockTopo_WatchServer) RecvMsg(m interface{}) error {
 	return ret0
 }
 
-// RecvMsg indicates an expected call of RecvMsg
+// RecvMsg indicates an expected call of RecvMsg.
 func (mr *MockTopo_WatchServerMockRecorder) RecvMsg(m interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "RecvMsg", reflect.TypeOf((*MockTopo_WatchServer)(nil).RecvMsg), m)
