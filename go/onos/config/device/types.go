@@ -16,7 +16,7 @@ package device
 
 import (
 	"fmt"
-	types "github.com/onosproject/onos-api/go/onos/config"
+	types "gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/config"
 	"strings"
 )
 

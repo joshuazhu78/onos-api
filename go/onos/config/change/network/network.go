@@ -19,8 +19,8 @@ import (
 	"regexp"
 	"time"
 
-	"github.com/onosproject/onos-api/go/onos/config"
-	devicechange "github.com/onosproject/onos-api/go/onos/config/change/device"
+	"gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/config"
+	devicechange "gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/config/change/device"
 )
 
 // NewNetworkChange creates a new network configuration

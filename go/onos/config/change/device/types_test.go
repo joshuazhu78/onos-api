@@ -16,8 +16,8 @@
 package device
 
 import (
-	types "github.com/onosproject/onos-api/go/onos/config"
-	"github.com/onosproject/onos-api/go/onos/config/device"
+	types "gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/config"
+	"gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/config/device"
 	"gotest.tools/assert"
 	"strings"
 	"testing"
