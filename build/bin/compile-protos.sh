@@ -137,6 +137,7 @@ go_import_paths="${go_import_paths},Monos/onos-ric/sb/e2ap/e2ap.proto=gitlab.dev
 go_import_paths="${go_import_paths},Monos/onos-ric/sb/e2sm/e2sm.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/onos-ric/sb/e2sm"
 go_import_paths="${go_import_paths},Monos/onos-ric/sb/e2ap.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/onos-ric/sb"
 go_import_paths="${go_import_paths},Monos/onos-ric/sb/e2-interface.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/onos-ric/sb"
+go_import_paths="${go_import_paths},Monos/ran-simulator/types/types.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/ran-simulator/types"
 # e2sub
 protoc --proto_path=$proto_path \
     --gogofaster_out=$go_import_paths,import_path=onos/e2sub/endpoint,plugins=grpc:./go \
@@ -228,7 +229,7 @@ protoc --proto_path=$proto_path \
 
 # ran-simulator
 protoc --proto_path=$proto_path \
-    --gogofaster_out=$go_import_paths,plugins=grpc:./go \
+    --gogofaster_out=$go_import_paths,import_path=onos/ran-simulator/types,plugins=grpc:./go \
     proto/onos/ran-simulator/types/*.proto
 
 ### Python Protobuf code generation
