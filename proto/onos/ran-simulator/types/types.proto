@@ -1,0 +1,203 @@
+/*
+Copyright 2020-present Open Networking Foundation.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+syntax = "proto3";
+
+package ran.trafficsim.types;
+
+import "gogoproto/gogo.proto";
+
+message Point {
+    double lat = 1;
+
+    double lng = 2;
+}
+
+message Sector {
+    int32 azimuth = 1;
+
+    int32 arc = 2;
+
+    Point centroid = 3;
+}
+
+message Route {
+    uint64 name = 1 [(gogoproto.customname) = "RouteID", (gogoproto.casttype) = "Imsi"];
+
+    repeated Point waypoints = 2;
+
+    string color = 3;
+}
+
+message Ue {
+    uint64 imsi = 1 [(gogoproto.customname) = "Imsi", (gogoproto.casttype) = "Imsi"];
+
+    string type = 2;
+
+    Point position = 4;
+
+    uint32 rotation = 5;
+
+    ECGI serving_tower = 7;
+
+    double serving_tower_strength = 8;
+
+    ECGI tower1 = 9;
+
+    double tower1_strength = 10;
+
+    ECGI tower2 = 11;
+
+    double tower2_strength = 12;
+
+    ECGI tower3 = 13;
+
+    double tower3_strength = 14;
+
+    string crnti = 15 [(gogoproto.customname) = "Crnti", (gogoproto.casttype) = "Crnti"];
+
+    bool admitted = 16;
+
+    UeMetrics metrics = 17;
+}
+
+message UeMetrics {
+    // Latency (in nanoseconds) of the most recent hand-over
+    int64 ho_latency = 1;
+
+    // Handover report timestamp (in nanoseconds since epoch)
+    int64 ho_report_timestamp = 2;
+
+    // flag to indicate the first measurement
+    bool isFirst = 3;
+
+    // Serving cell SINR in dB
+    float serving_sinr = 4;
+
+    // PDCP throughput
+    float pdcp_throughput = 5;
+}
+
+// station's unique ID
+message ECGI {
+    string ecID = 1 [(gogoproto.customname) = "EcID", (gogoproto.casttype) = "EcID"];
+
+    string plmnID = 2 [(gogoproto.customname) = "PlmnID", (gogoproto.casttype) = "PlmnID"];
+}
+
+message Cell {
+    ECGI ecgi = 1;
+
+    Point location = 3;
+
+    Sector sector = 4;
+
+    string color = 5;
+
+    uint32 maxUEs = 6;
+
+    repeated ECGI neighbors = 7;
+
+    // The cell transmit power in decibels
+    double txPowerdB = 8;
+
+    // crntis maps a ue's name to its crnti
+    map<string, uint64> crntiMap = 9 [(gogoproto.castkey) = "Crnti", (gogoproto.castvalue) = "Imsi"];
+
+    uint32 crntiIndex = 10;
+
+    uint32 port = 11;
+
+    CellMetrics metrics = 12;
+
+    double height = 13;
+
+    double frequency = 14;
+
+    double thetadegree = 15;
+
+    uint32 pci = 16;
+
+    // address is the host:port of the topo.device
+    string address = 17;
+
+    // e2taddress is the host:port of ric platform
+    string e2taddress = 18;
+}
+
+message CellMetrics {
+    // Instant cell spectrum efficiency in bps/Hz
+    float instSpecEffi = 1;
+}
+
+message MapLayout {
+    // Map center latitude and longitude
+    ran.trafficsim.types.Point center = 1;
+
+    // The starting Zoom level
+    float zoom = 2;
+
+    // Show map as faded on start
+    bool fade = 3;
+
+    // Show routes on start
+    bool showRoutes = 4;
+
+    // Show power as circle on start
+    bool showPower = 5;
+
+    // Max number of UEs for complete simulation
+    uint32 min_ues = 6;
+
+    // Max number of UEs for complete simulation
+    uint32 max_ues = 7;
+
+    // the current number of routes
+    uint32 current_routes = 8;
+
+    // Ratio of random locations diameter to tower grid width
+    float locationsScale = 9;
+
+    // Pathloss model type
+    PathlossModelType pathlossModel = 10;
+
+    // mean UE move speed in km/h
+    float meanUeSpeed = 11;
+}
+
+// Pathloss model type
+enum PathlossModelType {
+    DEFAULT = 0;
+
+    GPPUMALOS = 1;
+
+    GPPUMANLOS = 2;
+
+    GPPINHLOS = 3;
+
+    GPPINHNLOS = 4;
+
+    GPPUMILOS = 5;
+
+    GPPUMINLOS = 6;
+
+    GPPUMA = 7;
+
+    GPPINH = 8;
+
+    GPPUMI = 9;
+}
+
