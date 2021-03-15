@@ -7,13 +7,13 @@ import (
 	context "context"
 	fmt "fmt"
 	proto "github.com/gogo/protobuf/proto"
+	e2sm "gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/e2sm/e2sm"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
 	io "io"
 	math "math"
 	math_bits "math/bits"
-	e2sm "onos/onos-ric/sb/e2sm"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
