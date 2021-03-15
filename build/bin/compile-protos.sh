@@ -4,6 +4,24 @@ proto_path="./proto:${GOPATH}/src/github.com/gogo/protobuf/protobuf:${GOPATH}/sr
 
 ### Documentation generation
 
+# onos-ric
+protoc --proto_path=$proto_path \
+    --doc_out=docs/onos/onos-ric/sb \
+    --doc_opt=markdown,e2ap.md \
+    proto/onos/onos-ric/sb/e2ap.proto
+protoc --proto_path=$proto_path \
+    --doc_out=docs/onos/onos-ric/sb \
+    --doc_opt=markdown,e2-interface.md \
+    proto/onos/onos-ric/sb/e2-interface.proto
+protoc --proto_path=$proto_path \
+    --doc_out=docs/onos/onos-ric/sb/e2ap \
+    --doc_opt=markdown,e2ap.md \
+    proto/onos/onos-ric/sb/e2ap/e2ap.proto
+protoc --proto_path=$proto_path \
+    --doc_out=docs/onos/onos-ric/sb/e2sm \
+    --doc_opt=markdown,e2sm.md \
+    proto/onos/onos-ric/sb/e2sm/e2sm.proto
+
 # e2sub
 protoc --proto_path=$proto_path \
     --doc_out=docs/onos/e2sub \
@@ -193,6 +211,16 @@ protoc --proto_path=$proto_path \
     --gogofaster_out=$go_import_paths,import_path=onos/ransim/types,plugins=grpc:./go \
     proto/onos/ransim/types/*.proto
 
+# onos-ric
+protoc --proto_path=$proto_path \
+    --gogofaster_out=$go_import_paths,import_path=onos/onos-ric/sb,plugins=grpc:./go \
+    proto/onos/onos-ric/sb/*.proto
+protoc --proto_path=$proto_path \
+    --gogofaster_out=$go_import_paths,import_path=onos/onos-ric/sb/e2ap,plugins=grpc:./go \
+    proto/onos/onos-ric/sb/e2ap/*.proto
+protoc --proto_path=$proto_path \
+    --gogofaster_out=$go_import_paths,import_path=onos/onos-ric/sb/e2sm,plugins=grpc:./go \
+    proto/onos/onos-ric/sb/e2sm/*.proto
 
 ### Python Protobuf code generation
 mkdir -p ./python
