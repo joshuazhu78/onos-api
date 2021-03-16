@@ -257,6 +257,9 @@ protoc --proto_path=$proto_path \
 protoc --proto_path=$proto_path \
     --gogofaster_out=$go_import_paths,import_path=onos/ran-simulator/types,plugins=grpc:./go \
     proto/onos/ran-simulator/types/*.proto
+protoc --proto_path=$proto_path \
+    --gogofaster_out=$go_import_paths,import_path=onos/ran-simulator/trafficsim,plugins=grpc:./go \
+    proto/onos/ran-simulator/trafficsim/*.proto
 
 ### Python Protobuf code generation
 mkdir -p ./python
