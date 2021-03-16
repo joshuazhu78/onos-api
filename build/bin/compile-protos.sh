@@ -52,40 +52,6 @@ protoc --proto_path=$proto_path \
     --doc_opt=markdown,topo.md \
     proto/onos/topo/topo.proto
 
-# config
-protoc --proto_path=$proto_path \
-    --doc_out=docs/onos/config \
-    --doc_opt=markdown,admin.md \
-    proto/onos/config/admin/admin.proto
-protoc --proto_path=$proto_path \
-    --doc_out=docs/onos/config \
-    --doc_opt=markdown,diags.md \
-    proto/onos/config/diags/diags.proto
-protoc --proto_path=$proto_path \
-    --doc_out=docs/onos/config \
-    --doc_opt=markdown,change_types.md \
-    proto/onos/config/change/types.proto
-protoc --proto_path=$proto_path \
-    --doc_out=docs/onos/config \
-    --doc_opt=markdown,device_change.md \
-    proto/onos/config/change/device/types.proto
-protoc --proto_path=$proto_path \
-    --doc_out=docs/onos/config \
-    --doc_opt=markdown,network_change.md \
-    proto/onos/config/change/network/types.proto
-protoc --proto_path=$proto_path \
-    --doc_out=docs/onos/config \
-    --doc_opt=markdown,snapshot_types.md \
-    proto/onos/config/snapshot/types.proto
-protoc --proto_path=$proto_path \
-    --doc_out=docs/onos/config \
-    --doc_opt=markdown,device_snapshot.md \
-    proto/onos/config/snapshot/device/types.proto
-protoc --proto_path=$proto_path \
-    --doc_out=docs/onos/config \
-    --doc_opt=markdown,network_snapshot.md \
-    proto/onos/config/snapshot/network/types.proto
-
 #configmodel
 protoc --proto_path=$proto_path \
     --doc_out=docs/onos/configmodel \
@@ -125,13 +91,6 @@ protoc --proto_path=$proto_path \
 go_import_paths="Mgoogle/protobuf/any.proto=github.com/gogo/protobuf/types"
 go_import_paths="${go_import_paths},Mgoogle/protobuf/timestamp.proto=github.com/gogo/protobuf/types"
 go_import_paths="${go_import_paths},Mgoogle/protobuf/duration.proto=github.com/gogo/protobuf/types"
-go_import_paths="${go_import_paths},Monos/config/device/types.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/config/device"
-go_import_paths="${go_import_paths},Monos/config/admin/admin.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/config/admin"
-go_import_paths="${go_import_paths},Monos/config/change/types.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/config/change"
-go_import_paths="${go_import_paths},Monos/config/change/device/types.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/config/change/device"
-go_import_paths="${go_import_paths},Monos/config/change/network/types.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/config/change/network"
-go_import_paths="${go_import_paths},Monos/config/snapshot/types.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/config/snapshot"
-go_import_paths="${go_import_paths},Monos/config/snapshot/device/types.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/config/snapshot/device"
 go_import_paths="${go_import_paths},Monos/ransim/types/types.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/ransim/types"
 go_import_paths="${go_import_paths},Monos/onos-ric/sb/e2ap/e2ap.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/onos-ric/sb/e2ap"
 go_import_paths="${go_import_paths},Monos/onos-ric/sb/e2sm/e2sm.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/onos-ric/sb/e2sm"
@@ -143,6 +102,15 @@ go_import_paths="${go_import_paths},Monos/onos-ric/nb/a1/a1-p/tsp/tsp.proto=gitl
 go_import_paths="${go_import_paths},Monos/onos-ric/nb/a1/types/types.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/onos-ric/nb/a1/types"
 go_import_paths="${go_import_paths},Monos/onos-ric/nb/apps/types/types.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/onos-ric/nb/apps/types"
 go_import_paths="${go_import_paths},Monos/ran-simulator/types/types.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/ran-simulator/types"
+go_import_paths="${go_import_paths},Monos/gnmi/gnmi_ext/gnmi_ext.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/gnmi/gnmi_ext"
+go_import_paths="${go_import_paths},Monos/gnmi/gnmi/gnmi.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/gnmi/gnmi"
+go_import_paths="${go_import_paths},Monos/onos-config/types/change/types.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/onos-config/types/change"
+go_import_paths="${go_import_paths},Monos/onos-config/types/change/device/types.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/onos-config/types/change/device"
+go_import_paths="${go_import_paths},Monos/onos-config/types/change/network/types.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/onos-config/types/change/network"
+go_import_paths="${go_import_paths},Monos/onos-config/types/snapshot/types.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/onos-config/types/snapshot"
+go_import_paths="${go_import_paths},Monos/onos-config/types/snapshot/device/types.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/onos-config/types/snapshot/device"
+go_import_paths="${go_import_paths},Monos/onos-config/types/snapshot/network/types.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/onos-config/types/snapshot/network"
+go_import_paths="${go_import_paths},Monos/onos-config/admin.proto=gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/onos-config/admin"
 # e2sub
 protoc --proto_path=$proto_path \
     --gogofaster_out=$go_import_paths,import_path=onos/e2sub/endpoint,plugins=grpc:./go \
@@ -165,39 +133,10 @@ protoc --proto_path=$proto_path \
     --gogofaster_out=$go_import_paths,import_path=onos/topo,plugins=grpc:./go \
     proto/onos/topo/*.proto
 
-# config
-protoc --proto_path=$proto_path \
-    --gogofaster_out=$go_import_paths,import_path=onos/config/change,plugins=grpc:./go \
-    proto/onos/config/change/*.proto
-protoc --proto_path=$proto_path \
-    --gogofaster_out=$go_import_paths,import_path=onos/config/change/device,plugins=grpc:./go \
-    proto/onos/config/change/device/*.proto
-protoc --proto_path=$proto_path \
-    --gogofaster_out=$go_import_paths,import_path=onos/config/change/network,plugins=grpc:./go \
-    proto/onos/config/change/network/*.proto
-protoc --proto_path=$proto_path \
-    --gogofaster_out=$go_import_paths,import_path=onos/config/snapshot,plugins=grpc:./go \
-    proto/onos/config/snapshot/*.proto
-protoc --proto_path=$proto_path \
-    --gogofaster_out=$go_import_paths,import_path=onos/config/snapshot/device,plugins=grpc:./go \
-    proto/onos/config/snapshot/device/*.proto
-protoc --proto_path=$proto_path \
-    --gogofaster_out=$go_import_paths,import_path=onos/config/snapshot/network,plugins=grpc:./go \
-    proto/onos/config/snapshot/network/*.proto
-protoc --proto_path=$proto_path \
-    --gogofaster_out=$go_import_paths,import_path=onos/config/diags,plugins=grpc:./go \
-    proto/onos/config/diags/*.proto
-
 #configmodel
 protoc --proto_path=$proto_path \
     --gogofaster_out=$go_import_paths,import_path=onos/configmodel,plugins=grpc:./go \
     proto/onos/configmodel/*.proto
-
-# admin.proto cannot be generated with fast marshaler/unmarshaler because it uses gnmi.ModelData
-protoc --proto_path=$proto_path \
-    --gogo_out=$go_import_paths,import_path=onos/config/admin,plugins=grpc:./go \
-    proto/onos/config/admin/*.proto
-
 
 # kpimon
 protoc --proto_path=$proto_path \
@@ -261,8 +200,61 @@ protoc --proto_path=$proto_path \
     --gogofaster_out=$go_import_paths,import_path=onos/ran-simulator/trafficsim,plugins=grpc:./go \
     proto/onos/ran-simulator/trafficsim/*.proto
 
-### Python Protobuf code generation
-mkdir -p ./python
+# gnmi
 protoc --proto_path=$proto_path \
-    --python_betterproto_out=./python \
-    $(find proto -name "*.proto")
+    --gogofaster_out=$go_import_paths,import_path=onos/gnmi/gnmi_ext,plugins=grpc:./go \
+    proto/onos/gnmi/gnmi_ext/*.proto
+protoc --proto_path=$proto_path \
+    --gogofaster_out=$go_import_paths,import_path=onos/gnmi/gnmi,plugins=grpc:./go \
+    proto/onos/gnmi/gnmi/*.proto
+protoc --proto_path=$proto_path \
+    --gogofaster_out=$go_import_paths,import_path=onos/gnmi/target,plugins=grpc:./go \
+    proto/onos/gnmi/target/*.proto
+
+# onos-config
+protoc --proto_path=$proto_path \
+    --gogofaster_out=$go_import_paths,import_path=onos/onos-config/types/change/types,plugins=grpc:./go \
+    proto/onos/onos-config/types/change/*.proto
+protoc --proto_path=$proto_path \
+    --gogofaster_out=$go_import_paths,import_path=onos/onos-config/types/change/device,plugins=grpc:./go \
+    proto/onos/onos-config/types/change/device/*.proto
+protoc --proto_path=$proto_path \
+    --gogofaster_out=$go_import_paths,import_path=onos/onos-config/types/change/network,plugins=grpc:./go \
+    proto/onos/onos-config/types/change/network/*.proto
+protoc --proto_path=$proto_path \
+    --gogofaster_out=$go_import_paths,import_path=onos/onos-config/types/snapshot/types,plugins=grpc:./go \
+    proto/onos/onos-config/types/snapshot/*.proto
+protoc --proto_path=$proto_path \
+    --gogofaster_out=$go_import_paths,import_path=onos/onos-config/types/snapshot/device,plugins=grpc:./go \
+    proto/onos/onos-config/types/snapshot/device/*.proto
+protoc --proto_path=$proto_path \
+    --gogofaster_out=$go_import_paths,import_path=onos/onos-config/types/snapshot/network,plugins=grpc:./go \
+    proto/onos/onos-config/types/snapshot/network/*.proto
+protoc --proto_path=$proto_path \
+    --gogofaster_out=$go_import_paths,import_path=onos/onos-config/admin,plugins=grpc:./go \
+    proto/onos/onos-config/admin/*.proto
+protoc --proto_path=$proto_path \
+    --gogofaster_out=$go_import_paths,import_path=onos/onos-config/diags,plugins=grpc:./go \
+    proto/onos/onos-config/diags/*.proto
+
+# onos-topo
+protoc --proto_path=$proto_path \
+    --gogofaster_out=$go_import_paths,import_path=onos/onos-topo/admin,plugins=grpc:./go \
+    proto/onos/onos-topo/admin/*.proto
+protoc --proto_path=$proto_path \
+    --gogofaster_out=$go_import_paths,import_path=onos/onos-topo/device,plugins=grpc:./go \
+    proto/onos/onos-topo/device/*.proto
+protoc --proto_path=$proto_path \
+    --gogofaster_out=$go_import_paths,import_path=onos/onos-topo/diags,plugins=grpc:./go \
+    proto/onos/onos-topo/diags/*.proto
+
+# onos-ztp
+protoc --proto_path=$proto_path \
+    --gogofaster_out=$go_import_paths,import_path=onos/onos-atp/admin,plugins=grpc:./go \
+    proto/onos/onos-ztp/admin/*.proto
+
+### Python Protobuf code generation
+# mkdir -p ./python
+# protoc --proto_path=$proto_path \
+#     --python_betterproto_out=./python \
+#     $(find proto -name "*.proto")

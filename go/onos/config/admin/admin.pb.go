@@ -12,13 +12,13 @@ import (
 	proto "github.com/gogo/protobuf/proto"
 	_ "github.com/gogo/protobuf/types"
 	gnmi "github.com/openconfig/gnmi/proto/gnmi"
-	device "gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/config/change/device"
-	device1 "gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/config/snapshot/device"
 	gitlab_devtools_intel_com_ngs_syseng_onosproject_onos_api_go_onos_config_snapshot_device "gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/config/snapshot/device"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
 	math "math"
+	device "onos/config/change/device"
+	device1 "onos/config/snapshot/device"
 	time "time"
 )
 
