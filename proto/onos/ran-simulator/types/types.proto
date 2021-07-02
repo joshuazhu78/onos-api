@@ -84,11 +84,17 @@ message UeMetrics {
     // flag to indicate the first measurement
     bool isFirst = 3;
 
-    // Serving cell SINR in dB
-    float serving_sinr = 4;
+    // DL serving cell SINR in dB
+    float serving_sinr_dl = 4;
 
-    // PDCP throughput
-    float pdcp_throughput = 5;
+    // DL PDCP throughput
+    float pdcp_throughput_dl = 5;
+
+    // UL serving cell SINR in dB
+    float serving_sinr_ul = 6;
+
+    // UL PDCP throughput
+    float pdcp_throughput_ul = 7;
 }
 
 // station's unique ID
