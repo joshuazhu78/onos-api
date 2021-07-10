@@ -713,4 +713,9 @@ message TrafficSplitConfig {
     repeated TrafficSplitPercentage trafficSplitPercentage = 3;
 }
 
-// To be extended for other  message types
+// RANfunctionID...
+enum RANfunctionID {
+    ORAN_KPM = 0;
+    ONOS_IND = 1;
+    ONOS_CTL = 2;
+}

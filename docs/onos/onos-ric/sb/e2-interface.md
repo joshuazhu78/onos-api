@@ -84,6 +84,7 @@
     - [MeasIdActionPR](#interface.e2.MeasIdActionPR)
     - [MessageType](#interface.e2.MessageType)
     - [PerParamReportIntervalMs](#interface.e2.PerParamReportIntervalMs)
+    - [RANfunctionID](#interface.e2.RANfunctionID)
     - [ReconfigCause](#interface.e2.ReconfigCause)
     - [ReleaseCause](#interface.e2.ReleaseCause)
     - [ReportParamPR](#interface.e2.ReportParamPR)
@@ -1511,6 +1512,19 @@ Definition of all message types in E2 interface
 | PER_PARAM_MIN_12 | 10 |  |
 | PER_PARAM_MIN_30 | 11 |  |
 | PER_PARAM_MIN_60 | 12 |  |
+
+
+
+<a name="interface.e2.RANfunctionID"></a>
+
+### RANfunctionID
+RANfunctionID...
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| ORAN_KPM | 0 |  |
+| ONOS_IND | 1 |  |
+| ONOS_CTL | 2 |  |
 
 
 
