@@ -65,6 +65,9 @@ const (
 
 	// E2TKey - used in topo device attributes
 	E2TKey = "e2taddress"
+
+	// RANfunctionsKey - used in topo device attributes
+	RANfunctionsKey = "ranfunctions"
 )
 
 const (
