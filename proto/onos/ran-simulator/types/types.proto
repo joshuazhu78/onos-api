@@ -142,6 +142,9 @@ message Cell {
 
     // e2taddress is the host:port of ric platform
     string e2taddress = 18;
+
+    // ranfunctions is the supported run functions of a gNB
+    repeated int32 ranfunctions = 19;
 }
 
 message CellMetrics {
