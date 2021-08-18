@@ -1522,9 +1522,8 @@ RANfunctionID...
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
-| ORAN_KPM | 0 |  |
-| ONOS_IND | 1 |  |
-| ONOS_CTL | 2 |  |
+| INTERNAL | 0 |  |
+| ORAN_KPM | 1 |  |
 
 
 
