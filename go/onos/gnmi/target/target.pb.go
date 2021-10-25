@@ -9,7 +9,7 @@ package target
 import (
 	fmt "fmt"
 	proto "github.com/gogo/protobuf/proto"
-	gnmi "gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/gnmi/gnmi"
+	gnmi "gitlab.devtools.intel.com/ric-sdk/onos-api/go/onos/gnmi/gnmi"
 	io "io"
 	math "math"
 	math_bits "math/bits"

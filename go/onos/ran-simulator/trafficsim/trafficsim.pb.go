@@ -8,7 +8,7 @@ import (
 	encoding_binary "encoding/binary"
 	fmt "fmt"
 	proto "github.com/gogo/protobuf/proto"
-	types "gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/ran-simulator/types"
+	types "gitlab.devtools.intel.com/ric-sdk/onos-api/go/onos/ran-simulator/types"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"

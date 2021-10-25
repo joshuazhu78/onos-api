@@ -1,4 +1,4 @@
-module gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go
+module gitlab.devtools.intel.com/ric-sdk/onos-api/go
 
 go 1.15
 

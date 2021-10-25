@@ -6,7 +6,7 @@ package tsp
 import (
 	fmt "fmt"
 	proto "github.com/gogo/protobuf/proto"
-	types "gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/onos-ric/nb/a1/types"
+	types "gitlab.devtools.intel.com/ric-sdk/onos-api/go/onos/onos-ric/nb/a1/types"
 	io "io"
 	math "math"
 	math_bits "math/bits"

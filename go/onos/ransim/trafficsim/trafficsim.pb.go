@@ -7,7 +7,7 @@ import (
 	context "context"
 	fmt "fmt"
 	proto "github.com/gogo/protobuf/proto"
-	types "gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/ransim/types"
+	types "gitlab.devtools.intel.com/ric-sdk/onos-api/go/onos/ransim/types"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"

@@ -6,7 +6,7 @@ package types
 import (
 	fmt "fmt"
 	proto "github.com/gogo/protobuf/proto"
-	nb "gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/onos-ric/nb"
+	nb "gitlab.devtools.intel.com/ric-sdk/onos-api/go/onos/onos-ric/nb"
 	io "io"
 	math "math"
 	math_bits "math/bits"

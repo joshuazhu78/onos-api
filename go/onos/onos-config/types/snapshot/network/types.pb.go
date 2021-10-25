@@ -9,7 +9,7 @@ import (
 	proto "github.com/gogo/protobuf/proto"
 	_ "github.com/gogo/protobuf/types"
 	github_com_gogo_protobuf_types "github.com/gogo/protobuf/types"
-	snapshot "gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/onos-config/types/snapshot"
+	snapshot "gitlab.devtools.intel.com/ric-sdk/onos-api/go/onos/onos-config/types/snapshot"
 	io "io"
 	math "math"
 	math_bits "math/bits"

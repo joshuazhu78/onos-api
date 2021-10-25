@@ -11,7 +11,7 @@ import (
 	github_com_gogo_protobuf_types "github.com/gogo/protobuf/types"
 	github_com_onosproject_onos_config_api_types "github.com/onosproject/onos-config/api/types"
 	github_com_onosproject_onos_config_api_types_device "github.com/onosproject/onos-config/api/types/device"
-	change "gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/onos-config/types/change"
+	change "gitlab.devtools.intel.com/ric-sdk/onos-api/go/onos/onos-config/types/change"
 	io "io"
 	math "math"
 	math_bits "math/bits"

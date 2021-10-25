@@ -18,7 +18,7 @@ import (
 	fmt "fmt"
 	proto "github.com/gogo/protobuf/proto"
 	types "github.com/gogo/protobuf/types"
-	gnmi_ext "gitlab.devtools.intel.com/ngs-syseng/onosproject/onos-api/go/onos/gnmi/gnmi_ext"
+	gnmi_ext "gitlab.devtools.intel.com/ric-sdk/onos-api/go/onos/gnmi/gnmi_ext"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
