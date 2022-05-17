@@ -63,6 +63,13 @@ publish: twine # @HELP publish version on github, dockerhub, abd PyPI
 jenkins-publish: jenkins-tools # @HELP Jenkins calls this to publish artifacts
 	./build/build-tools/release-merge-commit
 
+protos-cpp:
+	$(eval GOPATH=${HOME}/go)
+	$(eval proto_path="./proto:${GOPATH}/src/github.com/gogo/protobuf/gogoproto:${GOPATH}/src/github.com/openconfig/gnmi/proto/gnmi:${GOPATH}/src")
+	find . -type f -name "*.proto" -exec sed -i 's/gogoproto\///g' {} \;
+	find . -type f -name "*.proto" -exec sed -i 's/github.com\/openconfig\/gnmi\/proto\/gnmi\///g' {} \;
+	protoc --proto_path=${proto_path} --cpp_out=./cpp --grpc_out=./cpp --plugin=protoc-gen-grpc=$(shell which grpc_cpp_plugin) $(shell find proto -name "*.proto" | sort)
+
 clean:: # @HELP remove all the build artifacts
 	rm -rf ./build/_output ./vendor
 
