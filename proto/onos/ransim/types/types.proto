@@ -76,6 +76,8 @@ message Ue {
     uint32 rrc_state = 18;
 
     int32 five_qi = 19;
+
+    double serving_tower_geometry = 20;
 }
 
 message UeMetrics {
