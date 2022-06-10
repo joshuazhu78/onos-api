@@ -65,9 +65,9 @@ jenkins-publish: jenkins-tools # @HELP Jenkins calls this to publish artifacts
 
 protos-cpp:
 	$(eval GOPATH=${HOME}/go)
-	$(eval proto_path="./proto:${GOPATH}/src/github.com/gogo/protobuf/gogoproto:${GOPATH}/src/github.com/openconfig/gnmi/proto/gnmi:${GOPATH}/src")
-	find . -type f -name "*.proto" -exec sed -i 's/gogoproto\///g' {} \;
-	find . -type f -name "*.proto" -exec sed -i 's/github.com\/openconfig\/gnmi\/proto\/gnmi\///g' {} \;
+	$(eval proto_path="./proto:${GOPATH}/src/github.com/gogo/protobuf/gogoproto:${GOPATH}/src/github.com/gogo/protobuf:${GOPATH}/src/github.com/openconfig/gnmi/proto/gnmi:${GOPATH}/src")
+	if [ ! -d ${GOPATH}/src/github.com/openconfig ]; then mkdir -p ${GOPATH}/src/github.com/openconfig; cd ${GOPATH}/src/github.com/openconfig; git clone https://github.com/openconfig/gnmi.git; fi
+	if [ ! -d ${GOPATH}/src/github.com/gogo ]; then mkdir -p ${GOPATH}/src/github.com/gogo; cd ${GOPATH}/src/github.com/gogo; git clone https://github.com/gogo/protobuf.git; fi
 	mkdir -p cpp;
 	protoc --proto_path=${proto_path} --cpp_out=./cpp --grpc_out=./cpp --plugin=protoc-gen-grpc=$(shell which grpc_cpp_plugin) $(shell find proto -name "*.proto" | sort)
 
