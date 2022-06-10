@@ -343,7 +343,7 @@ class GetRouteResponse(betterproto.Message):
 
 @dataclass(eq=False, repr=False)
 class DeleteRouteRequest(betterproto.Message):
-    imsi: int = betterproto.uint64_field(1)
+    enbid: int = betterproto.uint64_field(1)
 
     def __post_init__(self) -> None:
         super().__post_init__()
@@ -741,10 +741,10 @@ class RouteModelStub(betterproto.ServiceStub):
             "/onos.ransim.model.RouteModel/CreateRoute", request, CreateRouteResponse
         )
 
-    async def delete_route(self, *, imsi: int = 0) -> "DeleteRouteResponse":
+    async def delete_route(self, *, enbid: int = 0) -> "DeleteRouteResponse":
 
         request = DeleteRouteRequest()
-        request.imsi = imsi
+        request.enbid = enbid
 
         return await self._unary_unary(
             "/onos.ransim.model.RouteModel/DeleteRoute", request, DeleteRouteResponse

@@ -289,7 +289,7 @@ DeleteNodeResponse delete a node response
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| imsi | [uint64](#uint64) |  |  |
+| enbid | [uint64](#uint64) |  |  |
 
 
 

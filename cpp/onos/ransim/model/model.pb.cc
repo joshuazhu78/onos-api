@@ -463,7 +463,7 @@ struct GetRouteResponseDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT GetRouteResponseDefaultTypeInternal _GetRouteResponse_default_instance_;
 constexpr DeleteRouteRequest::DeleteRouteRequest(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : imsi_(uint64_t{0u}){}
+  : enbid_(uint64_t{0u}){}
 struct DeleteRouteRequestDefaultTypeInternal {
   constexpr DeleteRouteRequestDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -995,7 +995,7 @@ const uint32_t TableStruct_onos_2fransim_2fmodel_2fmodel_2eproto::offsets[] PROT
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::onos::ransim::model::DeleteRouteRequest, imsi_),
+  PROTOBUF_FIELD_OFFSET(::onos::ransim::model::DeleteRouteRequest, enbid_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::onos::ransim::model::DeleteRouteResponse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1320,104 +1320,115 @@ const char descriptor_table_protodef_onos_2fransim_2fmodel_2fmodel_2eproto[] PRO
   "st\":\n\021ListCellsResponse\022%\n\004Cell\030\001 \001(\0132\027."
   "onos.ransim.types.Cell\"=\n\022CreateRouteReq"
   "uest\022\'\n\005route\030\001 \001(\0132\030.onos.ransim.types."
-  "Route\"\025\n\023CreateRouteResponse\"\037\n\017GetRoute"
-  "Request\022\014\n\004imsi\030\001 \001(\r\";\n\020GetRouteRespons"
-  "e\022\'\n\005route\030\001 \001(\0132\030.onos.ransim.types.Rou"
-  "te\"\"\n\022DeleteRouteRequest\022\014\n\004imsi\030\001 \001(\004\"\025"
-  "\n\023DeleteRouteResponse\"=\n\022WatchRoutesRequ"
-  "est\022\021\n\tno_replay\030\001 \001(\010\022\024\n\014no_subscribe\030\002"
-  " \001(\010\"j\n\023WatchRoutesResponse\022\'\n\005route\030\001 \001"
-  "(\0132\030.onos.ransim.types.Route\022*\n\004type\030\002 \001"
-  "(\0162\034.onos.ransim.model.EventType\"\023\n\021List"
-  "RoutesRequest\"=\n\022ListRoutesResponse\022\'\n\005r"
-  "oute\030\001 \001(\0132\030.onos.ransim.types.Route\"\034\n\014"
-  "GetUERequest\022\014\n\004imsi\030\001 \001(\r\"2\n\rGetUERespo"
-  "nse\022!\n\002ue\030\001 \001(\0132\025.onos.ransim.types.Ue\"v"
-  "\n\021MoveToCellRequest\022\014\n\004imsi\030\001 \001(\r\022S\n\004ecg"
-  "i\030\002 \001(\rBE\342\336\037\004NCGI\372\336\0379github.com/onosproj"
-  "ect/onos-api/go/onos/ransim/types.NCGI\"\024"
-  "\n\022MoveToCellResponse\"b\n\025MoveToLocationRe"
-  "quest\022\014\n\004imsi\030\001 \001(\r\022*\n\010location\030\002 \001(\0132\030."
-  "onos.ransim.types.Point\022\017\n\007heading\030\003 \001(\r"
-  "\"\030\n\026MoveToLocationResponse\"\037\n\017DeleteUERe"
-  "quest\022\014\n\004imsi\030\001 \001(\r\"\022\n\020DeleteUEResponse\""
-  ":\n\017WatchUEsRequest\022\021\n\tno_replay\030\001 \001(\010\022\024\n"
-  "\014no_subscribe\030\002 \001(\010\"a\n\020WatchUEsResponse\022"
-  "!\n\002ue\030\001 \001(\0132\025.onos.ransim.types.Ue\022*\n\004ty"
-  "pe\030\002 \001(\0162\034.onos.ransim.model.EventType\"\020"
-  "\n\016ListUEsRequest\"4\n\017ListUEsResponse\022!\n\002u"
-  "e\030\001 \001(\0132\025.onos.ransim.types.Ue\"\023\n\021GetUEC"
-  "ountRequest\"#\n\022GetUECountResponse\022\r\n\005cou"
-  "nt\030\001 \001(\r\"\"\n\021SetUECountRequest\022\r\n\005count\030\001"
-  " \001(\r\"\024\n\022SetUECountResponse*<\n\tEventType\022"
-  "\010\n\004NONE\020\000\022\013\n\007CREATED\020\001\022\013\n\007UPDATED\020\002\022\013\n\007D"
-  "ELETED\020\0032\243\001\n\014ModelService\022G\n\004Load\022\036.onos"
-  ".ransim.model.LoadRequest\032\037.onos.ransim."
-  "model.LoadResponse\022J\n\005Clear\022\037.onos.ransi"
-  "m.model.ClearRequest\032 .onos.ransim.model"
-  ".ClearResponse2\330\005\n\tNodeModel\022P\n\tGetPlmnI"
-  "D\022 .onos.ransim.model.PlmnIDRequest\032!.on"
-  "os.ransim.model.PlmnIDResponse\022Y\n\nCreate"
-  "Node\022$.onos.ransim.model.CreateNodeReque"
-  "st\032%.onos.ransim.model.CreateNodeRespons"
-  "e\022P\n\007GetNode\022!.onos.ransim.model.GetNode"
-  "Request\032\".onos.ransim.model.GetNodeRespo"
-  "nse\022Y\n\nUpdateNode\022$.onos.ransim.model.Up"
-  "dateNodeRequest\032%.onos.ransim.model.Upda"
-  "teNodeResponse\022Y\n\nDeleteNode\022$.onos.rans"
-  "im.model.DeleteNodeRequest\032%.onos.ransim"
-  ".model.DeleteNodeResponse\022[\n\nWatchNodes\022"
-  "$.onos.ransim.model.WatchNodesRequest\032%."
-  "onos.ransim.model.WatchNodesResponse0\001\022X"
-  "\n\tListNodes\022#.onos.ransim.model.ListNode"
-  "sRequest\032$.onos.ransim.model.ListNodesRe"
-  "sponse0\001\022_\n\014AgentControl\022&.onos.ransim.m"
-  "odel.AgentControlRequest\032\'.onos.ransim.m"
-  "odel.AgentControlResponse2\245\004\n\tCellModel\022"
-  "Y\n\nCreateCell\022$.onos.ransim.model.Create"
-  "CellRequest\032%.onos.ransim.model.CreateCe"
-  "llResponse\022Y\n\nDeleteCell\022$.onos.ransim.m"
-  "odel.DeleteCellRequest\032%.onos.ransim.mod"
-  "el.DeleteCellResponse\022Y\n\nUpdateCell\022$.on"
-  "os.ransim.model.UpdateCellRequest\032%.onos"
-  ".ransim.model.UpdateCellResponse\022P\n\007GetC"
-  "ell\022!.onos.ransim.model.GetCellRequest\032\""
-  ".onos.ransim.model.GetCellResponse\022[\n\nWa"
-  "tchCells\022$.onos.ransim.model.WatchCellsR"
-  "equest\032%.onos.ransim.model.WatchCellsRes"
-  "ponse0\001\022X\n\tListCells\022#.onos.ransim.model"
-  ".ListCellsRequest\032$.onos.ransim.model.Li"
-  "stCellsResponse0\0012\332\003\n\nRouteModel\022\\\n\013Crea"
-  "teRoute\022%.onos.ransim.model.CreateRouteR"
-  "equest\032&.onos.ransim.model.CreateRouteRe"
-  "sponse\022\\\n\013DeleteRoute\022%.onos.ransim.mode"
-  "l.DeleteRouteRequest\032&.onos.ransim.model"
-  ".DeleteRouteResponse\022S\n\010GetRoute\022\".onos."
-  "ransim.model.GetRouteRequest\032#.onos.rans"
-  "im.model.GetRouteResponse\022^\n\013WatchRoutes"
-  "\022%.onos.ransim.model.WatchRoutesRequest\032"
-  "&.onos.ransim.model.WatchRoutesResponse0"
-  "\001\022[\n\nListRoutes\022$.onos.ransim.model.List"
-  "RoutesRequest\032%.onos.ransim.model.ListRo"
-  "utesResponse0\0012\315\005\n\007UEModel\022J\n\005GetUE\022\037.on"
-  "os.ransim.model.GetUERequest\032 .onos.rans"
-  "im.model.GetUEResponse\022Y\n\nMoveToCell\022$.o"
-  "nos.ransim.model.MoveToCellRequest\032%.ono"
-  "s.ransim.model.MoveToCellResponse\022e\n\016Mov"
-  "eToLocation\022(.onos.ransim.model.MoveToLo"
-  "cationRequest\032).onos.ransim.model.MoveTo"
-  "LocationResponse\022S\n\010DeleteUE\022\".onos.rans"
-  "im.model.DeleteUERequest\032#.onos.ransim.m"
-  "odel.DeleteUEResponse\022U\n\010WatchUEs\022\".onos"
-  ".ransim.model.WatchUEsRequest\032#.onos.ran"
-  "sim.model.WatchUEsResponse0\001\022R\n\007ListUEs\022"
-  "!.onos.ransim.model.ListUEsRequest\032\".ono"
-  "s.ransim.model.ListUEsResponse0\001\022Y\n\nGetU"
-  "ECount\022$.onos.ransim.model.GetUECountReq"
-  "uest\032%.onos.ransim.model.GetUECountRespo"
-  "nse\022Y\n\nSetUECount\022$.onos.ransim.model.Se"
-  "tUECountRequest\032%.onos.ransim.model.SetU"
-  "ECountResponseb\006proto3"
+  "Route\"\025\n\023CreateRouteResponse\"f\n\017GetRoute"
+  "Request\022S\n\004imsi\030\001 \001(\rBE\342\336\037\004IMSI\372\336\0379githu"
+  "b.com/onosproject/onos-api/go/onos/ransi"
+  "m/types.IMSI\";\n\020GetRouteResponse\022\'\n\005rout"
+  "e\030\001 \001(\0132\030.onos.ransim.types.Route\"j\n\022Del"
+  "eteRouteRequest\022T\n\005enbid\030\001 \001(\004BE\342\336\037\004IMSI"
+  "\372\336\0379github.com/onosproject/onos-api/go/o"
+  "nos/ransim/types.IMSI\"\025\n\023DeleteRouteResp"
+  "onse\"=\n\022WatchRoutesRequest\022\021\n\tno_replay\030"
+  "\001 \001(\010\022\024\n\014no_subscribe\030\002 \001(\010\"j\n\023WatchRout"
+  "esResponse\022\'\n\005route\030\001 \001(\0132\030.onos.ransim."
+  "types.Route\022*\n\004type\030\002 \001(\0162\034.onos.ransim."
+  "model.EventType\"\023\n\021ListRoutesRequest\"=\n\022"
+  "ListRoutesResponse\022\'\n\005route\030\001 \001(\0132\030.onos"
+  ".ransim.types.Route\"c\n\014GetUERequest\022S\n\004i"
+  "msi\030\001 \001(\rBE\342\336\037\004IMSI\372\336\0379github.com/onospr"
+  "oject/onos-api/go/onos/ransim/types.IMSI"
+  "\"2\n\rGetUEResponse\022!\n\002ue\030\001 \001(\0132\025.onos.ran"
+  "sim.types.Ue\"\275\001\n\021MoveToCellRequest\022S\n\004im"
+  "si\030\001 \001(\rBE\342\336\037\004IMSI\372\336\0379github.com/onospro"
+  "ject/onos-api/go/onos/ransim/types.IMSI\022"
+  "S\n\004ecgi\030\002 \001(\rBE\342\336\037\004NCGI\372\336\0379github.com/on"
+  "osproject/onos-api/go/onos/ransim/types."
+  "NCGI\"\024\n\022MoveToCellResponse\"\251\001\n\025MoveToLoc"
+  "ationRequest\022S\n\004imsi\030\001 \001(\rBE\342\336\037\004IMSI\372\336\0379"
+  "github.com/onosproject/onos-api/go/onos/"
+  "ransim/types.IMSI\022*\n\010location\030\002 \001(\0132\030.on"
+  "os.ransim.types.Point\022\017\n\007heading\030\003 \001(\r\"\030"
+  "\n\026MoveToLocationResponse\"f\n\017DeleteUERequ"
+  "est\022S\n\004imsi\030\001 \001(\rBE\342\336\037\004IMSI\372\336\0379github.co"
+  "m/onosproject/onos-api/go/onos/ransim/ty"
+  "pes.IMSI\"\022\n\020DeleteUEResponse\":\n\017WatchUEs"
+  "Request\022\021\n\tno_replay\030\001 \001(\010\022\024\n\014no_subscri"
+  "be\030\002 \001(\010\"a\n\020WatchUEsResponse\022!\n\002ue\030\001 \001(\013"
+  "2\025.onos.ransim.types.Ue\022*\n\004type\030\002 \001(\0162\034."
+  "onos.ransim.model.EventType\"\020\n\016ListUEsRe"
+  "quest\"4\n\017ListUEsResponse\022!\n\002ue\030\001 \001(\0132\025.o"
+  "nos.ransim.types.Ue\"\023\n\021GetUECountRequest"
+  "\"#\n\022GetUECountResponse\022\r\n\005count\030\001 \001(\r\"\"\n"
+  "\021SetUECountRequest\022\r\n\005count\030\001 \001(\r\"\024\n\022Set"
+  "UECountResponse*<\n\tEventType\022\010\n\004NONE\020\000\022\013"
+  "\n\007CREATED\020\001\022\013\n\007UPDATED\020\002\022\013\n\007DELETED\020\0032\243\001"
+  "\n\014ModelService\022G\n\004Load\022\036.onos.ransim.mod"
+  "el.LoadRequest\032\037.onos.ransim.model.LoadR"
+  "esponse\022J\n\005Clear\022\037.onos.ransim.model.Cle"
+  "arRequest\032 .onos.ransim.model.ClearRespo"
+  "nse2\330\005\n\tNodeModel\022P\n\tGetPlmnID\022 .onos.ra"
+  "nsim.model.PlmnIDRequest\032!.onos.ransim.m"
+  "odel.PlmnIDResponse\022Y\n\nCreateNode\022$.onos"
+  ".ransim.model.CreateNodeRequest\032%.onos.r"
+  "ansim.model.CreateNodeResponse\022P\n\007GetNod"
+  "e\022!.onos.ransim.model.GetNodeRequest\032\".o"
+  "nos.ransim.model.GetNodeResponse\022Y\n\nUpda"
+  "teNode\022$.onos.ransim.model.UpdateNodeReq"
+  "uest\032%.onos.ransim.model.UpdateNodeRespo"
+  "nse\022Y\n\nDeleteNode\022$.onos.ransim.model.De"
+  "leteNodeRequest\032%.onos.ransim.model.Dele"
+  "teNodeResponse\022[\n\nWatchNodes\022$.onos.rans"
+  "im.model.WatchNodesRequest\032%.onos.ransim"
+  ".model.WatchNodesResponse0\001\022X\n\tListNodes"
+  "\022#.onos.ransim.model.ListNodesRequest\032$."
+  "onos.ransim.model.ListNodesResponse0\001\022_\n"
+  "\014AgentControl\022&.onos.ransim.model.AgentC"
+  "ontrolRequest\032\'.onos.ransim.model.AgentC"
+  "ontrolResponse2\245\004\n\tCellModel\022Y\n\nCreateCe"
+  "ll\022$.onos.ransim.model.CreateCellRequest"
+  "\032%.onos.ransim.model.CreateCellResponse\022"
+  "Y\n\nDeleteCell\022$.onos.ransim.model.Delete"
+  "CellRequest\032%.onos.ransim.model.DeleteCe"
+  "llResponse\022Y\n\nUpdateCell\022$.onos.ransim.m"
+  "odel.UpdateCellRequest\032%.onos.ransim.mod"
+  "el.UpdateCellResponse\022P\n\007GetCell\022!.onos."
+  "ransim.model.GetCellRequest\032\".onos.ransi"
+  "m.model.GetCellResponse\022[\n\nWatchCells\022$."
+  "onos.ransim.model.WatchCellsRequest\032%.on"
+  "os.ransim.model.WatchCellsResponse0\001\022X\n\t"
+  "ListCells\022#.onos.ransim.model.ListCellsR"
+  "equest\032$.onos.ransim.model.ListCellsResp"
+  "onse0\0012\332\003\n\nRouteModel\022\\\n\013CreateRoute\022%.o"
+  "nos.ransim.model.CreateRouteRequest\032&.on"
+  "os.ransim.model.CreateRouteResponse\022\\\n\013D"
+  "eleteRoute\022%.onos.ransim.model.DeleteRou"
+  "teRequest\032&.onos.ransim.model.DeleteRout"
+  "eResponse\022S\n\010GetRoute\022\".onos.ransim.mode"
+  "l.GetRouteRequest\032#.onos.ransim.model.Ge"
+  "tRouteResponse\022^\n\013WatchRoutes\022%.onos.ran"
+  "sim.model.WatchRoutesRequest\032&.onos.rans"
+  "im.model.WatchRoutesResponse0\001\022[\n\nListRo"
+  "utes\022$.onos.ransim.model.ListRoutesReque"
+  "st\032%.onos.ransim.model.ListRoutesRespons"
+  "e0\0012\315\005\n\007UEModel\022J\n\005GetUE\022\037.onos.ransim.m"
+  "odel.GetUERequest\032 .onos.ransim.model.Ge"
+  "tUEResponse\022Y\n\nMoveToCell\022$.onos.ransim."
+  "model.MoveToCellRequest\032%.onos.ransim.mo"
+  "del.MoveToCellResponse\022e\n\016MoveToLocation"
+  "\022(.onos.ransim.model.MoveToLocationReque"
+  "st\032).onos.ransim.model.MoveToLocationRes"
+  "ponse\022S\n\010DeleteUE\022\".onos.ransim.model.De"
+  "leteUERequest\032#.onos.ransim.model.Delete"
+  "UEResponse\022U\n\010WatchUEs\022\".onos.ransim.mod"
+  "el.WatchUEsRequest\032#.onos.ransim.model.W"
+  "atchUEsResponse0\001\022R\n\007ListUEs\022!.onos.rans"
+  "im.model.ListUEsRequest\032\".onos.ransim.mo"
+  "del.ListUEsResponse0\001\022Y\n\nGetUECount\022$.on"
+  "os.ransim.model.GetUECountRequest\032%.onos"
+  ".ransim.model.GetUECountResponse\022Y\n\nSetU"
+  "ECount\022$.onos.ransim.model.SetUECountReq"
+  "uest\032%.onos.ransim.model.SetUECountRespo"
+  "nseb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_onos_2fransim_2fmodel_2fmodel_2eproto_deps[2] = {
   &::descriptor_table_gogoproto_2fgogo_2eproto,
@@ -1425,7 +1436,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_onos_2fransim_2fmodel_2fmodel_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_onos_2fransim_2fmodel_2fmodel_2eproto = {
-  false, false, 5982, descriptor_table_protodef_onos_2fransim_2fmodel_2fmodel_2eproto, "onos/ransim/model/model.proto", 
+  false, false, 6411, descriptor_table_protodef_onos_2fransim_2fmodel_2fmodel_2eproto, "onos/ransim/model/model.proto", 
   &descriptor_table_onos_2fransim_2fmodel_2fmodel_2eproto_once, descriptor_table_onos_2fransim_2fmodel_2fmodel_2eproto_deps, 2, 59,
   schemas, file_default_instances, TableStruct_onos_2fransim_2fmodel_2fmodel_2eproto::offsets,
   file_level_metadata_onos_2fransim_2fmodel_2fmodel_2eproto, file_level_enum_descriptors_onos_2fransim_2fmodel_2fmodel_2eproto, file_level_service_descriptors_onos_2fransim_2fmodel_2fmodel_2eproto,
@@ -6686,7 +6697,7 @@ const char* GetRouteRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPAC
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // uint32 imsi = 1;
+      // uint32 imsi = 1 [(.gogoproto.customname) = "IMSI", (.gogoproto.casttype) = "github.com/onosproject/onos-api/go/onos/ransim/types.IMSI"];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           imsi_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
@@ -6723,7 +6734,7 @@ uint8_t* GetRouteRequest::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint32 imsi = 1;
+  // uint32 imsi = 1 [(.gogoproto.customname) = "IMSI", (.gogoproto.casttype) = "github.com/onosproject/onos-api/go/onos/ransim/types.IMSI"];
   if (this->_internal_imsi() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_imsi(), target);
@@ -6745,7 +6756,7 @@ size_t GetRouteRequest::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // uint32 imsi = 1;
+  // uint32 imsi = 1 [(.gogoproto.customname) = "IMSI", (.gogoproto.casttype) = "github.com/onosproject/onos-api/go/onos/ransim/types.IMSI"];
   if (this->_internal_imsi() != 0) {
     total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_imsi());
   }
@@ -7020,12 +7031,12 @@ DeleteRouteRequest::DeleteRouteRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
 DeleteRouteRequest::DeleteRouteRequest(const DeleteRouteRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  imsi_ = from.imsi_;
+  enbid_ = from.enbid_;
   // @@protoc_insertion_point(copy_constructor:onos.ransim.model.DeleteRouteRequest)
 }
 
 inline void DeleteRouteRequest::SharedCtor() {
-imsi_ = uint64_t{0u};
+enbid_ = uint64_t{0u};
 }
 
 DeleteRouteRequest::~DeleteRouteRequest() {
@@ -7055,7 +7066,7 @@ void DeleteRouteRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  imsi_ = uint64_t{0u};
+  enbid_ = uint64_t{0u};
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -7065,10 +7076,10 @@ const char* DeleteRouteRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // uint64 imsi = 1;
+      // uint64 enbid = 1 [(.gogoproto.customname) = "IMSI", (.gogoproto.casttype) = "github.com/onosproject/onos-api/go/onos/ransim/types.IMSI"];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          imsi_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          enbid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -7102,10 +7113,10 @@ uint8_t* DeleteRouteRequest::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint64 imsi = 1;
-  if (this->_internal_imsi() != 0) {
+  // uint64 enbid = 1 [(.gogoproto.customname) = "IMSI", (.gogoproto.casttype) = "github.com/onosproject/onos-api/go/onos/ransim/types.IMSI"];
+  if (this->_internal_enbid() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_imsi(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_enbid(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -7124,9 +7135,9 @@ size_t DeleteRouteRequest::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // uint64 imsi = 1;
-  if (this->_internal_imsi() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_imsi());
+  // uint64 enbid = 1 [(.gogoproto.customname) = "IMSI", (.gogoproto.casttype) = "github.com/onosproject/onos-api/go/onos/ransim/types.IMSI"];
+  if (this->_internal_enbid() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_enbid());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
@@ -7151,8 +7162,8 @@ void DeleteRouteRequest::MergeFrom(const DeleteRouteRequest& from) {
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from._internal_imsi() != 0) {
-    _internal_set_imsi(from._internal_imsi());
+  if (from._internal_enbid() != 0) {
+    _internal_set_enbid(from._internal_enbid());
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -7171,7 +7182,7 @@ bool DeleteRouteRequest::IsInitialized() const {
 void DeleteRouteRequest::InternalSwap(DeleteRouteRequest* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(imsi_, other->imsi_);
+  swap(enbid_, other->enbid_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata DeleteRouteRequest::GetMetadata() const {
@@ -7970,7 +7981,7 @@ const char* GetUERequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_I
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // uint32 imsi = 1;
+      // uint32 imsi = 1 [(.gogoproto.customname) = "IMSI", (.gogoproto.casttype) = "github.com/onosproject/onos-api/go/onos/ransim/types.IMSI"];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           imsi_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
@@ -8007,7 +8018,7 @@ uint8_t* GetUERequest::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint32 imsi = 1;
+  // uint32 imsi = 1 [(.gogoproto.customname) = "IMSI", (.gogoproto.casttype) = "github.com/onosproject/onos-api/go/onos/ransim/types.IMSI"];
   if (this->_internal_imsi() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_imsi(), target);
@@ -8029,7 +8040,7 @@ size_t GetUERequest::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // uint32 imsi = 1;
+  // uint32 imsi = 1 [(.gogoproto.customname) = "IMSI", (.gogoproto.casttype) = "github.com/onosproject/onos-api/go/onos/ransim/types.IMSI"];
   if (this->_internal_imsi() != 0) {
     total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_imsi());
   }
@@ -8356,7 +8367,7 @@ const char* MoveToCellRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESP
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // uint32 imsi = 1;
+      // uint32 imsi = 1 [(.gogoproto.customname) = "IMSI", (.gogoproto.casttype) = "github.com/onosproject/onos-api/go/onos/ransim/types.IMSI"];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           imsi_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
@@ -8401,7 +8412,7 @@ uint8_t* MoveToCellRequest::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint32 imsi = 1;
+  // uint32 imsi = 1 [(.gogoproto.customname) = "IMSI", (.gogoproto.casttype) = "github.com/onosproject/onos-api/go/onos/ransim/types.IMSI"];
   if (this->_internal_imsi() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_imsi(), target);
@@ -8429,7 +8440,7 @@ size_t MoveToCellRequest::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // uint32 imsi = 1;
+  // uint32 imsi = 1 [(.gogoproto.customname) = "IMSI", (.gogoproto.casttype) = "github.com/onosproject/onos-api/go/onos/ransim/types.IMSI"];
   if (this->_internal_imsi() != 0) {
     total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_imsi());
   }
@@ -8628,7 +8639,7 @@ const char* MoveToLocationRequest::_InternalParse(const char* ptr, ::PROTOBUF_NA
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // uint32 imsi = 1;
+      // uint32 imsi = 1 [(.gogoproto.customname) = "IMSI", (.gogoproto.casttype) = "github.com/onosproject/onos-api/go/onos/ransim/types.IMSI"];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           imsi_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
@@ -8681,7 +8692,7 @@ uint8_t* MoveToLocationRequest::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint32 imsi = 1;
+  // uint32 imsi = 1 [(.gogoproto.customname) = "IMSI", (.gogoproto.casttype) = "github.com/onosproject/onos-api/go/onos/ransim/types.IMSI"];
   if (this->_internal_imsi() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_imsi(), target);
@@ -8724,7 +8735,7 @@ size_t MoveToLocationRequest::ByteSizeLong() const {
         *location_);
   }
 
-  // uint32 imsi = 1;
+  // uint32 imsi = 1 [(.gogoproto.customname) = "IMSI", (.gogoproto.casttype) = "github.com/onosproject/onos-api/go/onos/ransim/types.IMSI"];
   if (this->_internal_imsi() != 0) {
     total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_imsi());
   }
@@ -8898,7 +8909,7 @@ const char* DeleteUERequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPAC
     uint32_t tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // uint32 imsi = 1;
+      // uint32 imsi = 1 [(.gogoproto.customname) = "IMSI", (.gogoproto.casttype) = "github.com/onosproject/onos-api/go/onos/ransim/types.IMSI"];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           imsi_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
@@ -8935,7 +8946,7 @@ uint8_t* DeleteUERequest::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint32 imsi = 1;
+  // uint32 imsi = 1 [(.gogoproto.customname) = "IMSI", (.gogoproto.casttype) = "github.com/onosproject/onos-api/go/onos/ransim/types.IMSI"];
   if (this->_internal_imsi() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_imsi(), target);
@@ -8957,7 +8968,7 @@ size_t DeleteUERequest::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // uint32 imsi = 1;
+  // uint32 imsi = 1 [(.gogoproto.customname) = "IMSI", (.gogoproto.casttype) = "github.com/onosproject/onos-api/go/onos/ransim/types.IMSI"];
   if (this->_internal_imsi() != 0) {
     total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_imsi());
   }
