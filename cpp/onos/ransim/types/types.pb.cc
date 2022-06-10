@@ -71,6 +71,7 @@ constexpr Ue::Ue(
   : type_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , position_(nullptr)
   , metrics_(nullptr)
+  , ueid_(nullptr)
   , imsi_(uint64_t{0u})
   , serving_tower_(uint64_t{0u})
   , serving_tower_strength_(0)
@@ -84,7 +85,8 @@ constexpr Ue::Ue(
   , tower3_strength_(0)
   , admitted_(false)
   , rrc_state_(0u)
-  , five_qi_(0){}
+  , five_qi_(0)
+  , serving_tower_geometry_(0){}
 struct UeDefaultTypeInternal {
   constexpr UeDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -94,6 +96,34 @@ struct UeDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT UeDefaultTypeInternal _Ue_default_instance_;
+constexpr UeIdentity::UeIdentity(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : guami_(nullptr)
+  , amf_ue_ngap_id_(uint64_t{0u}){}
+struct UeIdentityDefaultTypeInternal {
+  constexpr UeIdentityDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~UeIdentityDefaultTypeInternal() {}
+  union {
+    UeIdentity _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT UeIdentityDefaultTypeInternal _UeIdentity_default_instance_;
+constexpr Guami::Guami(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : plmnid_(0u)
+  , amf_region_id_(0u)
+  , amf_set_id_(0u)
+  , amf_pointer_(0u){}
+struct GuamiDefaultTypeInternal {
+  constexpr GuamiDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~GuamiDefaultTypeInternal() {}
+  union {
+    Guami _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT GuamiDefaultTypeInternal _Guami_default_instance_;
 constexpr UeMetrics::UeMetrics(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : ho_latency_(int64_t{0})
@@ -229,7 +259,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT MapLayoutDefaultTypeInternal _M
 }  // namespace types
 }  // namespace ransim
 }  // namespace onos
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_onos_2fransim_2ftypes_2ftypes_2eproto[12];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_onos_2fransim_2ftypes_2ftypes_2eproto[14];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_onos_2fransim_2ftypes_2ftypes_2eproto[1];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_onos_2fransim_2ftypes_2ftypes_2eproto = nullptr;
 
@@ -289,6 +319,26 @@ const uint32_t TableStruct_onos_2fransim_2ftypes_2ftypes_2eproto::offsets[] PROT
   PROTOBUF_FIELD_OFFSET(::onos::ransim::types::Ue, metrics_),
   PROTOBUF_FIELD_OFFSET(::onos::ransim::types::Ue, rrc_state_),
   PROTOBUF_FIELD_OFFSET(::onos::ransim::types::Ue, five_qi_),
+  PROTOBUF_FIELD_OFFSET(::onos::ransim::types::Ue, ueid_),
+  PROTOBUF_FIELD_OFFSET(::onos::ransim::types::Ue, serving_tower_geometry_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::onos::ransim::types::UeIdentity, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::onos::ransim::types::UeIdentity, guami_),
+  PROTOBUF_FIELD_OFFSET(::onos::ransim::types::UeIdentity, amf_ue_ngap_id_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::onos::ransim::types::Guami, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::onos::ransim::types::Guami, plmnid_),
+  PROTOBUF_FIELD_OFFSET(::onos::ransim::types::Guami, amf_region_id_),
+  PROTOBUF_FIELD_OFFSET(::onos::ransim::types::Guami, amf_set_id_),
+  PROTOBUF_FIELD_OFFSET(::onos::ransim::types::Guami, amf_pointer_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::onos::ransim::types::UeMetrics, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -392,14 +442,16 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 8, -1, -1, sizeof(::onos::ransim::types::Sector)},
   { 19, -1, -1, sizeof(::onos::ransim::types::Route)},
   { 32, -1, -1, sizeof(::onos::ransim::types::Ue)},
-  { 55, -1, -1, sizeof(::onos::ransim::types::UeMetrics)},
-  { 64, 72, -1, sizeof(::onos::ransim::types::Cell_CrntiMapEntry_DoNotUse)},
-  { 74, -1, -1, sizeof(::onos::ransim::types::Cell)},
-  { 96, 104, -1, sizeof(::onos::ransim::types::MeasurementParams_NcellIndividualOffsetsEntry_DoNotUse)},
-  { 106, -1, -1, sizeof(::onos::ransim::types::MeasurementParams)},
-  { 118, -1, -1, sizeof(::onos::ransim::types::EventA3Params)},
-  { 126, -1, -1, sizeof(::onos::ransim::types::Node)},
-  { 137, -1, -1, sizeof(::onos::ransim::types::MapLayout)},
+  { 57, -1, -1, sizeof(::onos::ransim::types::UeIdentity)},
+  { 65, -1, -1, sizeof(::onos::ransim::types::Guami)},
+  { 75, -1, -1, sizeof(::onos::ransim::types::UeMetrics)},
+  { 84, 92, -1, sizeof(::onos::ransim::types::Cell_CrntiMapEntry_DoNotUse)},
+  { 94, -1, -1, sizeof(::onos::ransim::types::Cell)},
+  { 116, 124, -1, sizeof(::onos::ransim::types::MeasurementParams_NcellIndividualOffsetsEntry_DoNotUse)},
+  { 126, -1, -1, sizeof(::onos::ransim::types::MeasurementParams)},
+  { 138, -1, -1, sizeof(::onos::ransim::types::EventA3Params)},
+  { 146, -1, -1, sizeof(::onos::ransim::types::Node)},
+  { 157, -1, -1, sizeof(::onos::ransim::types::MapLayout)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -407,6 +459,8 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::onos::ransim::types::_Sector_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::onos::ransim::types::_Route_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::onos::ransim::types::_Ue_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::onos::ransim::types::_UeIdentity_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::onos::ransim::types::_Guami_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::onos::ransim::types::_UeMetrics_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::onos::ransim::types::_Cell_CrntiMapEntry_DoNotUse_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::onos::ransim::types::_Cell_default_instance_),
@@ -428,7 +482,7 @@ const char descriptor_table_protodef_onos_2fransim_2ftypes_2ftypes_2eproto[] PRO
   "\002 \003(\0132\030.onos.ransim.types.Point\022\r\n\005color"
   "\030\003 \001(\t\022\021\n\tspeed_avg\030\004 \001(\r\022\023\n\013speed_stdev"
   "\030\005 \001(\r\022\017\n\007reverse\030\006 \001(\010\022\022\n\nnext_point\030\007 "
-  "\001(\r\"\322\003\n\002Ue\022\036\n\004imsi\030\001 \001(\004B\020\342\336\037\004IMSI\372\336\037\004IM"
+  "\001(\r\"\237\004\n\002Ue\022\036\n\004imsi\030\001 \001(\004B\020\342\336\037\004IMSI\372\336\037\004IM"
   "SI\022\014\n\004type\030\002 \001(\t\022*\n\010position\030\004 \001(\0132\030.ono"
   "s.ransim.types.Point\022\020\n\010rotation\030\005 \001(\r\022\037"
   "\n\rserving_tower\030\007 \001(\004B\010\372\336\037\004NCGI\022\036\n\026servi"
@@ -439,53 +493,60 @@ const char descriptor_table_protodef_onos_2fransim_2ftypes_2ftypes_2eproto[] PRO
   "3_strength\030\016 \001(\001\022!\n\005crnti\030\017 \001(\rB\022\342\336\037\005CRN"
   "TI\372\336\037\005CRNTI\022\020\n\010admitted\030\020 \001(\010\022-\n\007metrics"
   "\030\021 \001(\0132\034.onos.ransim.types.UeMetrics\022\021\n\t"
-  "rrc_state\030\022 \001(\r\022\017\n\007five_qi\030\023 \001(\005\"N\n\tUeMe"
-  "trics\022\022\n\nho_latency\030\001 \001(\003\022\033\n\023ho_report_t"
-  "imestamp\030\002 \001(\003\022\020\n\010is_first\030\003 \001(\010\"\317\004\n\004Cel"
-  "l\022\036\n\004ecgi\030\001 \001(\004B\020\342\336\037\004NCGI\372\336\037\004NCGI\022*\n\010loc"
-  "ation\030\003 \001(\0132\030.onos.ransim.types.Point\022)\n"
-  "\006sector\030\004 \001(\0132\031.onos.ransim.types.Sector"
-  "\022\r\n\005color\030\005 \001(\t\022\033\n\007max_ues\030\006 \001(\rB\n\342\336\037\006Ma"
-  "xUEs\022\033\n\tneighbors\030\007 \003(\004B\010\372\336\037\004NCGI\022\"\n\013tx_"
-  "power_db\030\010 \001(\001B\r\342\336\037\tTxPowerdB\022@\n\022measure"
-  "ment_params\030\t \001(\0132$.onos.ransim.types.Me"
-  "asurementParams\022K\n\tcrnti_map\030\n \003(\0132%.ono"
-  "s.ransim.types.Cell.CrntiMapEntryB\021\202\337\037\005C"
-  "RNTI\212\337\037\004IMSI\022\023\n\013crnti_index\030\013 \001(\r\022\014\n\004por"
-  "t\030\014 \001(\r\022\013\n\003pci\030\r \001(\r\022\016\n\006earfcn\030\016 \001(\r\022.\n\t"
-  "cell_type\030\017 \001(\0162\033.onos.ransim.types.Cell"
-  "Type\022\026\n\016rrc_idle_count\030\020 \001(\r\022\033\n\023rrc_conn"
-  "ected_count\030\021 \001(\r\032/\n\rCrntiMapEntry\022\013\n\003ke"
-  "y\030\001 \001(\r\022\r\n\005value\030\002 \001(\004:\0028\001\"\343\002\n\021Measureme"
-  "ntParams\022\027\n\017time_to_trigger\030\001 \001(\005\022\030\n\020fre"
-  "quency_offset\030\002 \001(\005\022\037\n\027pcell_individual_"
-  "offset\030\003 \001(\005\022l\n\030ncell_individual_offsets"
-  "\030\004 \003(\0132@.onos.ransim.types.MeasurementPa"
-  "rams.NcellIndividualOffsetsEntryB\010\202\337\037\004NC"
-  "GI\022\022\n\nhysteresis\030\005 \001(\005\0229\n\017event_a3_param"
-  "s\030\006 \001(\0132 .onos.ransim.types.EventA3Param"
-  "s\032=\n\033NcellIndividualOffsetsEntry\022\013\n\003key\030"
-  "\001 \001(\004\022\r\n\005value\030\002 \001(\005:\0028\001\";\n\rEventA3Param"
-  "s\022\021\n\ta3_offset\030\001 \001(\005\022\027\n\017report_on_leave\030"
-  "\002 \001(\010\"\221\001\n\004Node\022!\n\005enbid\030\001 \001(\rB\022\342\336\037\005GnbID"
-  "\372\336\037\005GnbID\022\023\n\013controllers\030\002 \003(\t\022\026\n\016servic"
-  "e_models\030\003 \003(\t\022)\n\ncell_ecgis\030\004 \003(\004B\025\342\336\037\t"
-  "CellNCGIs\372\336\037\004NCGI\022\016\n\006status\030\005 \001(\t\"\315\001\n\tMa"
-  "pLayout\022(\n\006center\030\001 \001(\0132\030.onos.ransim.ty"
-  "pes.Point\022\014\n\004zoom\030\002 \001(\002\022\014\n\004fade\030\003 \001(\010\022\023\n"
-  "\013show_routes\030\004 \001(\010\022\022\n\nshow_power\030\005 \001(\010\022\027"
-  "\n\017locations_scale\030\t \001(\002\022\017\n\007min_ues\030\006 \001(\r"
-  "\022\017\n\007max_ues\030\007 \001(\r\022\026\n\016current_routes\030\010 \001("
-  "\r*C\n\010CellType\022\t\n\005FEMTO\020\000\022\016\n\nENTERPRISE\020\001"
-  "\022\021\n\rOUTDOOR_SMALL\020\002\022\t\n\005MACRO\020\003b\006proto3"
+  "rrc_state\030\022 \001(\r\022\017\n\007five_qi\030\023 \001(\005\022+\n\004ueid"
+  "\030\024 \001(\0132\035.onos.ransim.types.UeIdentity\022\036\n"
+  "\026serving_tower_geometry\030\025 \001(\001\"^\n\nUeIdent"
+  "ity\022\'\n\005guami\030\001 \001(\0132\030.onos.ransim.types.G"
+  "uami\022\'\n\016amf_ue_ngap_id\030\002 \001(\004B\017\372\336\037\013AmfUEN"
+  "gapID\"W\n\005Guami\022\016\n\006plmnid\030\001 \001(\r\022\025\n\ramf_re"
+  "gion_id\030\002 \001(\r\022\022\n\namf_set_id\030\003 \001(\r\022\023\n\013amf"
+  "_pointer\030\004 \001(\r\"N\n\tUeMetrics\022\022\n\nho_latenc"
+  "y\030\001 \001(\003\022\033\n\023ho_report_timestamp\030\002 \001(\003\022\020\n\010"
+  "is_first\030\003 \001(\010\"\317\004\n\004Cell\022\036\n\004ecgi\030\001 \001(\004B\020\342"
+  "\336\037\004NCGI\372\336\037\004NCGI\022*\n\010location\030\003 \001(\0132\030.onos"
+  ".ransim.types.Point\022)\n\006sector\030\004 \001(\0132\031.on"
+  "os.ransim.types.Sector\022\r\n\005color\030\005 \001(\t\022\033\n"
+  "\007max_ues\030\006 \001(\rB\n\342\336\037\006MaxUEs\022\033\n\tneighbors\030"
+  "\007 \003(\004B\010\372\336\037\004NCGI\022\"\n\013tx_power_db\030\010 \001(\001B\r\342\336"
+  "\037\tTxPowerdB\022@\n\022measurement_params\030\t \001(\0132"
+  "$.onos.ransim.types.MeasurementParams\022K\n"
+  "\tcrnti_map\030\n \003(\0132%.onos.ransim.types.Cel"
+  "l.CrntiMapEntryB\021\202\337\037\005CRNTI\212\337\037\004IMSI\022\023\n\013cr"
+  "nti_index\030\013 \001(\r\022\014\n\004port\030\014 \001(\r\022\013\n\003pci\030\r \001"
+  "(\r\022\016\n\006earfcn\030\016 \001(\r\022.\n\tcell_type\030\017 \001(\0162\033."
+  "onos.ransim.types.CellType\022\026\n\016rrc_idle_c"
+  "ount\030\020 \001(\r\022\033\n\023rrc_connected_count\030\021 \001(\r\032"
+  "/\n\rCrntiMapEntry\022\013\n\003key\030\001 \001(\r\022\r\n\005value\030\002"
+  " \001(\004:\0028\001\"\343\002\n\021MeasurementParams\022\027\n\017time_t"
+  "o_trigger\030\001 \001(\005\022\030\n\020frequency_offset\030\002 \001("
+  "\005\022\037\n\027pcell_individual_offset\030\003 \001(\005\022l\n\030nc"
+  "ell_individual_offsets\030\004 \003(\0132@.onos.rans"
+  "im.types.MeasurementParams.NcellIndividu"
+  "alOffsetsEntryB\010\202\337\037\004NCGI\022\022\n\nhysteresis\030\005"
+  " \001(\005\0229\n\017event_a3_params\030\006 \001(\0132 .onos.ran"
+  "sim.types.EventA3Params\032=\n\033NcellIndividu"
+  "alOffsetsEntry\022\013\n\003key\030\001 \001(\004\022\r\n\005value\030\002 \001"
+  "(\005:\0028\001\";\n\rEventA3Params\022\021\n\ta3_offset\030\001 \001"
+  "(\005\022\027\n\017report_on_leave\030\002 \001(\010\"\221\001\n\004Node\022!\n\005"
+  "enbid\030\001 \001(\rB\022\342\336\037\005GnbID\372\336\037\005GnbID\022\023\n\013contr"
+  "ollers\030\002 \003(\t\022\026\n\016service_models\030\003 \003(\t\022)\n\n"
+  "cell_ecgis\030\004 \003(\004B\025\342\336\037\tCellNCGIs\372\336\037\004NCGI\022"
+  "\016\n\006status\030\005 \001(\t\"\315\001\n\tMapLayout\022(\n\006center\030"
+  "\001 \001(\0132\030.onos.ransim.types.Point\022\014\n\004zoom\030"
+  "\002 \001(\002\022\014\n\004fade\030\003 \001(\010\022\023\n\013show_routes\030\004 \001(\010"
+  "\022\022\n\nshow_power\030\005 \001(\010\022\027\n\017locations_scale\030"
+  "\t \001(\002\022\017\n\007min_ues\030\006 \001(\r\022\017\n\007max_ues\030\007 \001(\r\022"
+  "\026\n\016current_routes\030\010 \001(\r*C\n\010CellType\022\t\n\005F"
+  "EMTO\020\000\022\016\n\nENTERPRISE\020\001\022\021\n\rOUTDOOR_SMALL\020"
+  "\002\022\t\n\005MACRO\020\003b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_onos_2fransim_2ftypes_2ftypes_2eproto_deps[1] = {
   &::descriptor_table_gogoproto_2fgogo_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_onos_2fransim_2ftypes_2ftypes_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_onos_2fransim_2ftypes_2ftypes_2eproto = {
-  false, false, 2398, descriptor_table_protodef_onos_2fransim_2ftypes_2ftypes_2eproto, "onos/ransim/types/types.proto", 
-  &descriptor_table_onos_2fransim_2ftypes_2ftypes_2eproto_once, descriptor_table_onos_2fransim_2ftypes_2ftypes_2eproto_deps, 1, 12,
+  false, false, 2660, descriptor_table_protodef_onos_2fransim_2ftypes_2ftypes_2eproto, "onos/ransim/types/types.proto", 
+  &descriptor_table_onos_2fransim_2ftypes_2ftypes_2eproto_once, descriptor_table_onos_2fransim_2ftypes_2ftypes_2eproto_deps, 1, 14,
   schemas, file_default_instances, TableStruct_onos_2fransim_2ftypes_2ftypes_2eproto::offsets,
   file_level_metadata_onos_2fransim_2ftypes_2ftypes_2eproto, file_level_enum_descriptors_onos_2fransim_2ftypes_2ftypes_2eproto, file_level_service_descriptors_onos_2fransim_2ftypes_2ftypes_2eproto,
 };
@@ -1416,6 +1477,7 @@ class Ue::_Internal {
  public:
   static const ::onos::ransim::types::Point& position(const Ue* msg);
   static const ::onos::ransim::types::UeMetrics& metrics(const Ue* msg);
+  static const ::onos::ransim::types::UeIdentity& ueid(const Ue* msg);
 };
 
 const ::onos::ransim::types::Point&
@@ -1425,6 +1487,10 @@ Ue::_Internal::position(const Ue* msg) {
 const ::onos::ransim::types::UeMetrics&
 Ue::_Internal::metrics(const Ue* msg) {
   return *msg->metrics_;
+}
+const ::onos::ransim::types::UeIdentity&
+Ue::_Internal::ueid(const Ue* msg) {
+  return *msg->ueid_;
 }
 Ue::Ue(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
@@ -1456,9 +1522,14 @@ Ue::Ue(const Ue& from)
   } else {
     metrics_ = nullptr;
   }
+  if (from._internal_has_ueid()) {
+    ueid_ = new ::onos::ransim::types::UeIdentity(*from.ueid_);
+  } else {
+    ueid_ = nullptr;
+  }
   ::memcpy(&imsi_, &from.imsi_,
-    static_cast<size_t>(reinterpret_cast<char*>(&five_qi_) -
-    reinterpret_cast<char*>(&imsi_)) + sizeof(five_qi_));
+    static_cast<size_t>(reinterpret_cast<char*>(&serving_tower_geometry_) -
+    reinterpret_cast<char*>(&imsi_)) + sizeof(serving_tower_geometry_));
   // @@protoc_insertion_point(copy_constructor:onos.ransim.types.Ue)
 }
 
@@ -1469,8 +1540,8 @@ type_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlready
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&position_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&five_qi_) -
-    reinterpret_cast<char*>(&position_)) + sizeof(five_qi_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&serving_tower_geometry_) -
+    reinterpret_cast<char*>(&position_)) + sizeof(serving_tower_geometry_));
 }
 
 Ue::~Ue() {
@@ -1485,6 +1556,7 @@ inline void Ue::SharedDtor() {
   type_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (this != internal_default_instance()) delete position_;
   if (this != internal_default_instance()) delete metrics_;
+  if (this != internal_default_instance()) delete ueid_;
 }
 
 void Ue::ArenaDtor(void* object) {
@@ -1512,9 +1584,13 @@ void Ue::Clear() {
     delete metrics_;
   }
   metrics_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && ueid_ != nullptr) {
+    delete ueid_;
+  }
+  ueid_ = nullptr;
   ::memset(&imsi_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&five_qi_) -
-      reinterpret_cast<char*>(&imsi_)) + sizeof(five_qi_));
+      reinterpret_cast<char*>(&serving_tower_geometry_) -
+      reinterpret_cast<char*>(&imsi_)) + sizeof(serving_tower_geometry_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1659,6 +1735,22 @@ const char* Ue::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::interna
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 152)) {
           five_qi_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .onos.ransim.types.UeIdentity ueid = 20;
+      case 20:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 162)) {
+          ptr = ctx->ParseMessage(_internal_mutable_ueid(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // double serving_tower_geometry = 21;
+      case 21:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 169)) {
+          serving_tower_geometry_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
         } else
           goto handle_unusual;
         continue;
@@ -1817,6 +1909,24 @@ uint8_t* Ue::_InternalSerialize(
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(19, this->_internal_five_qi(), target);
   }
 
+  // .onos.ransim.types.UeIdentity ueid = 20;
+  if (this->_internal_has_ueid()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        20, _Internal::ueid(this), target, stream);
+  }
+
+  // double serving_tower_geometry = 21;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_serving_tower_geometry = this->_internal_serving_tower_geometry();
+  uint64_t raw_serving_tower_geometry;
+  memcpy(&raw_serving_tower_geometry, &tmp_serving_tower_geometry, sizeof(tmp_serving_tower_geometry));
+  if (raw_serving_tower_geometry != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(21, this->_internal_serving_tower_geometry(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -1852,6 +1962,13 @@ size_t Ue::ByteSizeLong() const {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *metrics_);
+  }
+
+  // .onos.ransim.types.UeIdentity ueid = 20;
+  if (this->_internal_has_ueid()) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *ueid_);
   }
 
   // uint64 imsi = 1 [(.gogoproto.customname) = "IMSI", (.gogoproto.casttype) = "IMSI"];
@@ -1944,6 +2061,15 @@ size_t Ue::ByteSizeLong() const {
         this->_internal_five_qi());
   }
 
+  // double serving_tower_geometry = 21;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_serving_tower_geometry = this->_internal_serving_tower_geometry();
+  uint64_t raw_serving_tower_geometry;
+  memcpy(&raw_serving_tower_geometry, &tmp_serving_tower_geometry, sizeof(tmp_serving_tower_geometry));
+  if (raw_serving_tower_geometry != 0) {
+    total_size += 2 + 8;
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
@@ -1974,6 +2100,9 @@ void Ue::MergeFrom(const Ue& from) {
   }
   if (from._internal_has_metrics()) {
     _internal_mutable_metrics()->::onos::ransim::types::UeMetrics::MergeFrom(from._internal_metrics());
+  }
+  if (from._internal_has_ueid()) {
+    _internal_mutable_ueid()->::onos::ransim::types::UeIdentity::MergeFrom(from._internal_ueid());
   }
   if (from._internal_imsi() != 0) {
     _internal_set_imsi(from._internal_imsi());
@@ -2033,6 +2162,13 @@ void Ue::MergeFrom(const Ue& from) {
   if (from._internal_five_qi() != 0) {
     _internal_set_five_qi(from._internal_five_qi());
   }
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_serving_tower_geometry = from._internal_serving_tower_geometry();
+  uint64_t raw_serving_tower_geometry;
+  memcpy(&raw_serving_tower_geometry, &tmp_serving_tower_geometry, sizeof(tmp_serving_tower_geometry));
+  if (raw_serving_tower_geometry != 0) {
+    _internal_set_serving_tower_geometry(from._internal_serving_tower_geometry());
+  }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -2058,8 +2194,8 @@ void Ue::InternalSwap(Ue* other) {
       &other->type_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Ue, five_qi_)
-      + sizeof(Ue::five_qi_)
+      PROTOBUF_FIELD_OFFSET(Ue, serving_tower_geometry_)
+      + sizeof(Ue::serving_tower_geometry_)
       - PROTOBUF_FIELD_OFFSET(Ue, position_)>(
           reinterpret_cast<char*>(&position_),
           reinterpret_cast<char*>(&other->position_));
@@ -2069,6 +2205,489 @@ void Ue::InternalSwap(Ue* other) {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_onos_2fransim_2ftypes_2ftypes_2eproto_getter, &descriptor_table_onos_2fransim_2ftypes_2ftypes_2eproto_once,
       file_level_metadata_onos_2fransim_2ftypes_2ftypes_2eproto[3]);
+}
+
+// ===================================================================
+
+class UeIdentity::_Internal {
+ public:
+  static const ::onos::ransim::types::Guami& guami(const UeIdentity* msg);
+};
+
+const ::onos::ransim::types::Guami&
+UeIdentity::_Internal::guami(const UeIdentity* msg) {
+  return *msg->guami_;
+}
+UeIdentity::UeIdentity(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:onos.ransim.types.UeIdentity)
+}
+UeIdentity::UeIdentity(const UeIdentity& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_guami()) {
+    guami_ = new ::onos::ransim::types::Guami(*from.guami_);
+  } else {
+    guami_ = nullptr;
+  }
+  amf_ue_ngap_id_ = from.amf_ue_ngap_id_;
+  // @@protoc_insertion_point(copy_constructor:onos.ransim.types.UeIdentity)
+}
+
+inline void UeIdentity::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&guami_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&amf_ue_ngap_id_) -
+    reinterpret_cast<char*>(&guami_)) + sizeof(amf_ue_ngap_id_));
+}
+
+UeIdentity::~UeIdentity() {
+  // @@protoc_insertion_point(destructor:onos.ransim.types.UeIdentity)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void UeIdentity::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (this != internal_default_instance()) delete guami_;
+}
+
+void UeIdentity::ArenaDtor(void* object) {
+  UeIdentity* _this = reinterpret_cast< UeIdentity* >(object);
+  (void)_this;
+}
+void UeIdentity::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void UeIdentity::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void UeIdentity::Clear() {
+// @@protoc_insertion_point(message_clear_start:onos.ransim.types.UeIdentity)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  if (GetArenaForAllocation() == nullptr && guami_ != nullptr) {
+    delete guami_;
+  }
+  guami_ = nullptr;
+  amf_ue_ngap_id_ = uint64_t{0u};
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* UeIdentity::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // .onos.ransim.types.Guami guami = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_guami(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint64 amf_ue_ngap_id = 2 [(.gogoproto.casttype) = "AmfUENgapID"];
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          amf_ue_ngap_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* UeIdentity::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:onos.ransim.types.UeIdentity)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .onos.ransim.types.Guami guami = 1;
+  if (this->_internal_has_guami()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        1, _Internal::guami(this), target, stream);
+  }
+
+  // uint64 amf_ue_ngap_id = 2 [(.gogoproto.casttype) = "AmfUENgapID"];
+  if (this->_internal_amf_ue_ngap_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_amf_ue_ngap_id(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:onos.ransim.types.UeIdentity)
+  return target;
+}
+
+size_t UeIdentity::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:onos.ransim.types.UeIdentity)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // .onos.ransim.types.Guami guami = 1;
+  if (this->_internal_has_guami()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *guami_);
+  }
+
+  // uint64 amf_ue_ngap_id = 2 [(.gogoproto.casttype) = "AmfUENgapID"];
+  if (this->_internal_amf_ue_ngap_id() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_amf_ue_ngap_id());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData UeIdentity::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    UeIdentity::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*UeIdentity::GetClassData() const { return &_class_data_; }
+
+void UeIdentity::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<UeIdentity *>(to)->MergeFrom(
+      static_cast<const UeIdentity &>(from));
+}
+
+
+void UeIdentity::MergeFrom(const UeIdentity& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:onos.ransim.types.UeIdentity)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_has_guami()) {
+    _internal_mutable_guami()->::onos::ransim::types::Guami::MergeFrom(from._internal_guami());
+  }
+  if (from._internal_amf_ue_ngap_id() != 0) {
+    _internal_set_amf_ue_ngap_id(from._internal_amf_ue_ngap_id());
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void UeIdentity::CopyFrom(const UeIdentity& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:onos.ransim.types.UeIdentity)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool UeIdentity::IsInitialized() const {
+  return true;
+}
+
+void UeIdentity::InternalSwap(UeIdentity* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(UeIdentity, amf_ue_ngap_id_)
+      + sizeof(UeIdentity::amf_ue_ngap_id_)
+      - PROTOBUF_FIELD_OFFSET(UeIdentity, guami_)>(
+          reinterpret_cast<char*>(&guami_),
+          reinterpret_cast<char*>(&other->guami_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata UeIdentity::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_onos_2fransim_2ftypes_2ftypes_2eproto_getter, &descriptor_table_onos_2fransim_2ftypes_2ftypes_2eproto_once,
+      file_level_metadata_onos_2fransim_2ftypes_2ftypes_2eproto[4]);
+}
+
+// ===================================================================
+
+class Guami::_Internal {
+ public:
+};
+
+Guami::Guami(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
+  // @@protoc_insertion_point(arena_constructor:onos.ransim.types.Guami)
+}
+Guami::Guami(const Guami& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&plmnid_, &from.plmnid_,
+    static_cast<size_t>(reinterpret_cast<char*>(&amf_pointer_) -
+    reinterpret_cast<char*>(&plmnid_)) + sizeof(amf_pointer_));
+  // @@protoc_insertion_point(copy_constructor:onos.ransim.types.Guami)
+}
+
+inline void Guami::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&plmnid_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&amf_pointer_) -
+    reinterpret_cast<char*>(&plmnid_)) + sizeof(amf_pointer_));
+}
+
+Guami::~Guami() {
+  // @@protoc_insertion_point(destructor:onos.ransim.types.Guami)
+  if (GetArenaForAllocation() != nullptr) return;
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+inline void Guami::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void Guami::ArenaDtor(void* object) {
+  Guami* _this = reinterpret_cast< Guami* >(object);
+  (void)_this;
+}
+void Guami::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void Guami::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void Guami::Clear() {
+// @@protoc_insertion_point(message_clear_start:onos.ransim.types.Guami)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&plmnid_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&amf_pointer_) -
+      reinterpret_cast<char*>(&plmnid_)) + sizeof(amf_pointer_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* Guami::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // uint32 plmnid = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          plmnid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint32 amf_region_id = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          amf_region_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint32 amf_set_id = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          amf_set_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // uint32 amf_pointer = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+          amf_pointer_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* Guami::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:onos.ransim.types.Guami)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 plmnid = 1;
+  if (this->_internal_plmnid() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_plmnid(), target);
+  }
+
+  // uint32 amf_region_id = 2;
+  if (this->_internal_amf_region_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_amf_region_id(), target);
+  }
+
+  // uint32 amf_set_id = 3;
+  if (this->_internal_amf_set_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_amf_set_id(), target);
+  }
+
+  // uint32 amf_pointer = 4;
+  if (this->_internal_amf_pointer() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_amf_pointer(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:onos.ransim.types.Guami)
+  return target;
+}
+
+size_t Guami::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:onos.ransim.types.Guami)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // uint32 plmnid = 1;
+  if (this->_internal_plmnid() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_plmnid());
+  }
+
+  // uint32 amf_region_id = 2;
+  if (this->_internal_amf_region_id() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_amf_region_id());
+  }
+
+  // uint32 amf_set_id = 3;
+  if (this->_internal_amf_set_id() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_amf_set_id());
+  }
+
+  // uint32 amf_pointer = 4;
+  if (this->_internal_amf_pointer() != 0) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_amf_pointer());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Guami::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
+    Guami::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Guami::GetClassData() const { return &_class_data_; }
+
+void Guami::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<Guami *>(to)->MergeFrom(
+      static_cast<const Guami &>(from));
+}
+
+
+void Guami::MergeFrom(const Guami& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:onos.ransim.types.Guami)
+  GOOGLE_DCHECK_NE(&from, this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_plmnid() != 0) {
+    _internal_set_plmnid(from._internal_plmnid());
+  }
+  if (from._internal_amf_region_id() != 0) {
+    _internal_set_amf_region_id(from._internal_amf_region_id());
+  }
+  if (from._internal_amf_set_id() != 0) {
+    _internal_set_amf_set_id(from._internal_amf_set_id());
+  }
+  if (from._internal_amf_pointer() != 0) {
+    _internal_set_amf_pointer(from._internal_amf_pointer());
+  }
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void Guami::CopyFrom(const Guami& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:onos.ransim.types.Guami)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Guami::IsInitialized() const {
+  return true;
+}
+
+void Guami::InternalSwap(Guami* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(Guami, amf_pointer_)
+      + sizeof(Guami::amf_pointer_)
+      - PROTOBUF_FIELD_OFFSET(Guami, plmnid_)>(
+          reinterpret_cast<char*>(&plmnid_),
+          reinterpret_cast<char*>(&other->plmnid_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata Guami::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_onos_2fransim_2ftypes_2ftypes_2eproto_getter, &descriptor_table_onos_2fransim_2ftypes_2ftypes_2eproto_once,
+      file_level_metadata_onos_2fransim_2ftypes_2ftypes_2eproto[5]);
 }
 
 // ===================================================================
@@ -2302,7 +2921,7 @@ void UeMetrics::InternalSwap(UeMetrics* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata UeMetrics::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_onos_2fransim_2ftypes_2ftypes_2eproto_getter, &descriptor_table_onos_2fransim_2ftypes_2ftypes_2eproto_once,
-      file_level_metadata_onos_2fransim_2ftypes_2ftypes_2eproto[4]);
+      file_level_metadata_onos_2fransim_2ftypes_2ftypes_2eproto[6]);
 }
 
 // ===================================================================
@@ -2316,7 +2935,7 @@ void Cell_CrntiMapEntry_DoNotUse::MergeFrom(const Cell_CrntiMapEntry_DoNotUse& o
 ::PROTOBUF_NAMESPACE_ID::Metadata Cell_CrntiMapEntry_DoNotUse::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_onos_2fransim_2ftypes_2ftypes_2eproto_getter, &descriptor_table_onos_2fransim_2ftypes_2ftypes_2eproto_once,
-      file_level_metadata_onos_2fransim_2ftypes_2ftypes_2eproto[5]);
+      file_level_metadata_onos_2fransim_2ftypes_2ftypes_2eproto[7]);
 }
 
 // ===================================================================
@@ -2999,7 +3618,7 @@ void Cell::InternalSwap(Cell* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata Cell::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_onos_2fransim_2ftypes_2ftypes_2eproto_getter, &descriptor_table_onos_2fransim_2ftypes_2ftypes_2eproto_once,
-      file_level_metadata_onos_2fransim_2ftypes_2ftypes_2eproto[6]);
+      file_level_metadata_onos_2fransim_2ftypes_2ftypes_2eproto[8]);
 }
 
 // ===================================================================
@@ -3013,7 +3632,7 @@ void MeasurementParams_NcellIndividualOffsetsEntry_DoNotUse::MergeFrom(const Mea
 ::PROTOBUF_NAMESPACE_ID::Metadata MeasurementParams_NcellIndividualOffsetsEntry_DoNotUse::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_onos_2fransim_2ftypes_2ftypes_2eproto_getter, &descriptor_table_onos_2fransim_2ftypes_2ftypes_2eproto_once,
-      file_level_metadata_onos_2fransim_2ftypes_2ftypes_2eproto[7]);
+      file_level_metadata_onos_2fransim_2ftypes_2ftypes_2eproto[9]);
 }
 
 // ===================================================================
@@ -3372,7 +3991,7 @@ void MeasurementParams::InternalSwap(MeasurementParams* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata MeasurementParams::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_onos_2fransim_2ftypes_2ftypes_2eproto_getter, &descriptor_table_onos_2fransim_2ftypes_2ftypes_2eproto_once,
-      file_level_metadata_onos_2fransim_2ftypes_2ftypes_2eproto[8]);
+      file_level_metadata_onos_2fransim_2ftypes_2ftypes_2eproto[10]);
 }
 
 // ===================================================================
@@ -3584,7 +4203,7 @@ void EventA3Params::InternalSwap(EventA3Params* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata EventA3Params::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_onos_2fransim_2ftypes_2ftypes_2eproto_getter, &descriptor_table_onos_2fransim_2ftypes_2ftypes_2eproto_once,
-      file_level_metadata_onos_2fransim_2ftypes_2ftypes_2eproto[9]);
+      file_level_metadata_onos_2fransim_2ftypes_2ftypes_2eproto[11]);
 }
 
 // ===================================================================
@@ -3929,7 +4548,7 @@ void Node::InternalSwap(Node* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata Node::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_onos_2fransim_2ftypes_2ftypes_2eproto_getter, &descriptor_table_onos_2fransim_2ftypes_2ftypes_2eproto_once,
-      file_level_metadata_onos_2fransim_2ftypes_2ftypes_2eproto[10]);
+      file_level_metadata_onos_2fransim_2ftypes_2ftypes_2eproto[12]);
 }
 
 // ===================================================================
@@ -4338,7 +4957,7 @@ void MapLayout::InternalSwap(MapLayout* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata MapLayout::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_onos_2fransim_2ftypes_2ftypes_2eproto_getter, &descriptor_table_onos_2fransim_2ftypes_2ftypes_2eproto_once,
-      file_level_metadata_onos_2fransim_2ftypes_2ftypes_2eproto[11]);
+      file_level_metadata_onos_2fransim_2ftypes_2ftypes_2eproto[13]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -4357,6 +4976,12 @@ template<> PROTOBUF_NOINLINE ::onos::ransim::types::Route* Arena::CreateMaybeMes
 }
 template<> PROTOBUF_NOINLINE ::onos::ransim::types::Ue* Arena::CreateMaybeMessage< ::onos::ransim::types::Ue >(Arena* arena) {
   return Arena::CreateMessageInternal< ::onos::ransim::types::Ue >(arena);
+}
+template<> PROTOBUF_NOINLINE ::onos::ransim::types::UeIdentity* Arena::CreateMaybeMessage< ::onos::ransim::types::UeIdentity >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::onos::ransim::types::UeIdentity >(arena);
+}
+template<> PROTOBUF_NOINLINE ::onos::ransim::types::Guami* Arena::CreateMaybeMessage< ::onos::ransim::types::Guami >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::onos::ransim::types::Guami >(arena);
 }
 template<> PROTOBUF_NOINLINE ::onos::ransim::types::UeMetrics* Arena::CreateMaybeMessage< ::onos::ransim::types::UeMetrics >(Arena* arena) {
   return Arena::CreateMessageInternal< ::onos::ransim::types::UeMetrics >(arena);

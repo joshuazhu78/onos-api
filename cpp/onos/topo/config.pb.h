@@ -584,6 +584,7 @@ class Configurable final :
     kVersionFieldNumber = 4,
     kTimeoutFieldNumber = 5,
     kPersistentFieldNumber = 6,
+    kValidateCapabilitiesFieldNumber = 7,
   };
   // string type = 1;
   void clear_type();
@@ -668,6 +669,15 @@ class Configurable final :
   void _internal_set_persistent(bool value);
   public:
 
+  // bool validate_capabilities = 7;
+  void clear_validate_capabilities();
+  bool validate_capabilities() const;
+  void set_validate_capabilities(bool value);
+  private:
+  bool _internal_validate_capabilities() const;
+  void _internal_set_validate_capabilities(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:onos.topo.Configurable)
  private:
   class _Internal;
@@ -681,6 +691,7 @@ class Configurable final :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr version_;
   ::PROTOBUF_NAMESPACE_ID::Duration* timeout_;
   bool persistent_;
+  bool validate_capabilities_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_onos_2ftopo_2fconfig_2eproto;
 };
@@ -2251,6 +2262,26 @@ inline void Configurable::_internal_set_persistent(bool value) {
 inline void Configurable::set_persistent(bool value) {
   _internal_set_persistent(value);
   // @@protoc_insertion_point(field_set:onos.topo.Configurable.persistent)
+}
+
+// bool validate_capabilities = 7;
+inline void Configurable::clear_validate_capabilities() {
+  validate_capabilities_ = false;
+}
+inline bool Configurable::_internal_validate_capabilities() const {
+  return validate_capabilities_;
+}
+inline bool Configurable::validate_capabilities() const {
+  // @@protoc_insertion_point(field_get:onos.topo.Configurable.validate_capabilities)
+  return _internal_validate_capabilities();
+}
+inline void Configurable::_internal_set_validate_capabilities(bool value) {
+  
+  validate_capabilities_ = value;
+}
+inline void Configurable::set_validate_capabilities(bool value) {
+  _internal_set_validate_capabilities(value);
+  // @@protoc_insertion_point(field_set:onos.topo.Configurable.validate_capabilities)
 }
 
 // -------------------------------------------------------------------

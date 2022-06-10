@@ -51,7 +51,7 @@ struct TableStruct_onos_2fransim_2ftypes_2ftypes_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[12]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[14]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -70,6 +70,9 @@ extern Cell_CrntiMapEntry_DoNotUseDefaultTypeInternal _Cell_CrntiMapEntry_DoNotU
 class EventA3Params;
 struct EventA3ParamsDefaultTypeInternal;
 extern EventA3ParamsDefaultTypeInternal _EventA3Params_default_instance_;
+class Guami;
+struct GuamiDefaultTypeInternal;
+extern GuamiDefaultTypeInternal _Guami_default_instance_;
 class MapLayout;
 struct MapLayoutDefaultTypeInternal;
 extern MapLayoutDefaultTypeInternal _MapLayout_default_instance_;
@@ -94,6 +97,9 @@ extern SectorDefaultTypeInternal _Sector_default_instance_;
 class Ue;
 struct UeDefaultTypeInternal;
 extern UeDefaultTypeInternal _Ue_default_instance_;
+class UeIdentity;
+struct UeIdentityDefaultTypeInternal;
+extern UeIdentityDefaultTypeInternal _UeIdentity_default_instance_;
 class UeMetrics;
 struct UeMetricsDefaultTypeInternal;
 extern UeMetricsDefaultTypeInternal _UeMetrics_default_instance_;
@@ -104,6 +110,7 @@ PROTOBUF_NAMESPACE_OPEN
 template<> ::onos::ransim::types::Cell* Arena::CreateMaybeMessage<::onos::ransim::types::Cell>(Arena*);
 template<> ::onos::ransim::types::Cell_CrntiMapEntry_DoNotUse* Arena::CreateMaybeMessage<::onos::ransim::types::Cell_CrntiMapEntry_DoNotUse>(Arena*);
 template<> ::onos::ransim::types::EventA3Params* Arena::CreateMaybeMessage<::onos::ransim::types::EventA3Params>(Arena*);
+template<> ::onos::ransim::types::Guami* Arena::CreateMaybeMessage<::onos::ransim::types::Guami>(Arena*);
 template<> ::onos::ransim::types::MapLayout* Arena::CreateMaybeMessage<::onos::ransim::types::MapLayout>(Arena*);
 template<> ::onos::ransim::types::MeasurementParams* Arena::CreateMaybeMessage<::onos::ransim::types::MeasurementParams>(Arena*);
 template<> ::onos::ransim::types::MeasurementParams_NcellIndividualOffsetsEntry_DoNotUse* Arena::CreateMaybeMessage<::onos::ransim::types::MeasurementParams_NcellIndividualOffsetsEntry_DoNotUse>(Arena*);
@@ -112,6 +119,7 @@ template<> ::onos::ransim::types::Point* Arena::CreateMaybeMessage<::onos::ransi
 template<> ::onos::ransim::types::Route* Arena::CreateMaybeMessage<::onos::ransim::types::Route>(Arena*);
 template<> ::onos::ransim::types::Sector* Arena::CreateMaybeMessage<::onos::ransim::types::Sector>(Arena*);
 template<> ::onos::ransim::types::Ue* Arena::CreateMaybeMessage<::onos::ransim::types::Ue>(Arena*);
+template<> ::onos::ransim::types::UeIdentity* Arena::CreateMaybeMessage<::onos::ransim::types::UeIdentity>(Arena*);
 template<> ::onos::ransim::types::UeMetrics* Arena::CreateMaybeMessage<::onos::ransim::types::UeMetrics>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace onos {
@@ -854,6 +862,7 @@ class Ue final :
     kTypeFieldNumber = 2,
     kPositionFieldNumber = 4,
     kMetricsFieldNumber = 17,
+    kUeidFieldNumber = 20,
     kImsiFieldNumber = 1,
     kServingTowerFieldNumber = 7,
     kServingTowerStrengthFieldNumber = 8,
@@ -868,6 +877,7 @@ class Ue final :
     kAdmittedFieldNumber = 16,
     kRrcStateFieldNumber = 18,
     kFiveQiFieldNumber = 19,
+    kServingTowerGeometryFieldNumber = 21,
   };
   // string type = 2;
   void clear_type();
@@ -918,6 +928,24 @@ class Ue final :
   void unsafe_arena_set_allocated_metrics(
       ::onos::ransim::types::UeMetrics* metrics);
   ::onos::ransim::types::UeMetrics* unsafe_arena_release_metrics();
+
+  // .onos.ransim.types.UeIdentity ueid = 20;
+  bool has_ueid() const;
+  private:
+  bool _internal_has_ueid() const;
+  public:
+  void clear_ueid();
+  const ::onos::ransim::types::UeIdentity& ueid() const;
+  PROTOBUF_NODISCARD ::onos::ransim::types::UeIdentity* release_ueid();
+  ::onos::ransim::types::UeIdentity* mutable_ueid();
+  void set_allocated_ueid(::onos::ransim::types::UeIdentity* ueid);
+  private:
+  const ::onos::ransim::types::UeIdentity& _internal_ueid() const;
+  ::onos::ransim::types::UeIdentity* _internal_mutable_ueid();
+  public:
+  void unsafe_arena_set_allocated_ueid(
+      ::onos::ransim::types::UeIdentity* ueid);
+  ::onos::ransim::types::UeIdentity* unsafe_arena_release_ueid();
 
   // uint64 imsi = 1 [(.gogoproto.customname) = "IMSI", (.gogoproto.casttype) = "IMSI"];
   void clear_imsi();
@@ -1045,6 +1073,15 @@ class Ue final :
   void _internal_set_five_qi(int32_t value);
   public:
 
+  // double serving_tower_geometry = 21;
+  void clear_serving_tower_geometry();
+  double serving_tower_geometry() const;
+  void set_serving_tower_geometry(double value);
+  private:
+  double _internal_serving_tower_geometry() const;
+  void _internal_set_serving_tower_geometry(double value);
+  public:
+
   // @@protoc_insertion_point(class_scope:onos.ransim.types.Ue)
  private:
   class _Internal;
@@ -1055,6 +1092,7 @@ class Ue final :
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr type_;
   ::onos::ransim::types::Point* position_;
   ::onos::ransim::types::UeMetrics* metrics_;
+  ::onos::ransim::types::UeIdentity* ueid_;
   uint64_t imsi_;
   uint64_t serving_tower_;
   double serving_tower_strength_;
@@ -1069,6 +1107,352 @@ class Ue final :
   bool admitted_;
   uint32_t rrc_state_;
   int32_t five_qi_;
+  double serving_tower_geometry_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_onos_2fransim_2ftypes_2ftypes_2eproto;
+};
+// -------------------------------------------------------------------
+
+class UeIdentity final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:onos.ransim.types.UeIdentity) */ {
+ public:
+  inline UeIdentity() : UeIdentity(nullptr) {}
+  ~UeIdentity() override;
+  explicit constexpr UeIdentity(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  UeIdentity(const UeIdentity& from);
+  UeIdentity(UeIdentity&& from) noexcept
+    : UeIdentity() {
+    *this = ::std::move(from);
+  }
+
+  inline UeIdentity& operator=(const UeIdentity& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline UeIdentity& operator=(UeIdentity&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const UeIdentity& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const UeIdentity* internal_default_instance() {
+    return reinterpret_cast<const UeIdentity*>(
+               &_UeIdentity_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    4;
+
+  friend void swap(UeIdentity& a, UeIdentity& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(UeIdentity* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(UeIdentity* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  UeIdentity* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<UeIdentity>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const UeIdentity& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const UeIdentity& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(UeIdentity* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "onos.ransim.types.UeIdentity";
+  }
+  protected:
+  explicit UeIdentity(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kGuamiFieldNumber = 1,
+    kAmfUeNgapIdFieldNumber = 2,
+  };
+  // .onos.ransim.types.Guami guami = 1;
+  bool has_guami() const;
+  private:
+  bool _internal_has_guami() const;
+  public:
+  void clear_guami();
+  const ::onos::ransim::types::Guami& guami() const;
+  PROTOBUF_NODISCARD ::onos::ransim::types::Guami* release_guami();
+  ::onos::ransim::types::Guami* mutable_guami();
+  void set_allocated_guami(::onos::ransim::types::Guami* guami);
+  private:
+  const ::onos::ransim::types::Guami& _internal_guami() const;
+  ::onos::ransim::types::Guami* _internal_mutable_guami();
+  public:
+  void unsafe_arena_set_allocated_guami(
+      ::onos::ransim::types::Guami* guami);
+  ::onos::ransim::types::Guami* unsafe_arena_release_guami();
+
+  // uint64 amf_ue_ngap_id = 2 [(.gogoproto.casttype) = "AmfUENgapID"];
+  void clear_amf_ue_ngap_id();
+  uint64_t amf_ue_ngap_id() const;
+  void set_amf_ue_ngap_id(uint64_t value);
+  private:
+  uint64_t _internal_amf_ue_ngap_id() const;
+  void _internal_set_amf_ue_ngap_id(uint64_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:onos.ransim.types.UeIdentity)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::onos::ransim::types::Guami* guami_;
+  uint64_t amf_ue_ngap_id_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_onos_2fransim_2ftypes_2ftypes_2eproto;
+};
+// -------------------------------------------------------------------
+
+class Guami final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:onos.ransim.types.Guami) */ {
+ public:
+  inline Guami() : Guami(nullptr) {}
+  ~Guami() override;
+  explicit constexpr Guami(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  Guami(const Guami& from);
+  Guami(Guami&& from) noexcept
+    : Guami() {
+    *this = ::std::move(from);
+  }
+
+  inline Guami& operator=(const Guami& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline Guami& operator=(Guami&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const Guami& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const Guami* internal_default_instance() {
+    return reinterpret_cast<const Guami*>(
+               &_Guami_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    5;
+
+  friend void swap(Guami& a, Guami& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(Guami* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(Guami* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  Guami* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<Guami>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const Guami& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom(const Guami& from);
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(Guami* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "onos.ransim.types.Guami";
+  }
+  protected:
+  explicit Guami(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPlmnidFieldNumber = 1,
+    kAmfRegionIdFieldNumber = 2,
+    kAmfSetIdFieldNumber = 3,
+    kAmfPointerFieldNumber = 4,
+  };
+  // uint32 plmnid = 1;
+  void clear_plmnid();
+  uint32_t plmnid() const;
+  void set_plmnid(uint32_t value);
+  private:
+  uint32_t _internal_plmnid() const;
+  void _internal_set_plmnid(uint32_t value);
+  public:
+
+  // uint32 amf_region_id = 2;
+  void clear_amf_region_id();
+  uint32_t amf_region_id() const;
+  void set_amf_region_id(uint32_t value);
+  private:
+  uint32_t _internal_amf_region_id() const;
+  void _internal_set_amf_region_id(uint32_t value);
+  public:
+
+  // uint32 amf_set_id = 3;
+  void clear_amf_set_id();
+  uint32_t amf_set_id() const;
+  void set_amf_set_id(uint32_t value);
+  private:
+  uint32_t _internal_amf_set_id() const;
+  void _internal_set_amf_set_id(uint32_t value);
+  public:
+
+  // uint32 amf_pointer = 4;
+  void clear_amf_pointer();
+  uint32_t amf_pointer() const;
+  void set_amf_pointer(uint32_t value);
+  private:
+  uint32_t _internal_amf_pointer() const;
+  void _internal_set_amf_pointer(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:onos.ransim.types.Guami)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  uint32_t plmnid_;
+  uint32_t amf_region_id_;
+  uint32_t amf_set_id_;
+  uint32_t amf_pointer_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_onos_2fransim_2ftypes_2ftypes_2eproto;
 };
@@ -1122,7 +1506,7 @@ class UeMetrics final :
                &_UeMetrics_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    6;
 
   friend void swap(UeMetrics& a, UeMetrics& b) {
     a.Swap(&b);
@@ -1313,7 +1697,7 @@ class Cell final :
                &_Cell_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    8;
 
   friend void swap(Cell& a, Cell& b) {
     a.Swap(&b);
@@ -1706,7 +2090,7 @@ class MeasurementParams final :
                &_MeasurementParams_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    10;
 
   friend void swap(MeasurementParams& a, MeasurementParams& b) {
     a.Swap(&b);
@@ -1929,7 +2313,7 @@ class EventA3Params final :
                &_EventA3Params_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    11;
 
   friend void swap(EventA3Params& a, EventA3Params& b) {
     a.Swap(&b);
@@ -2086,7 +2470,7 @@ class Node final :
                &_Node_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    12;
 
   friend void swap(Node& a, Node& b) {
     a.Swap(&b);
@@ -2325,7 +2709,7 @@ class MapLayout final :
                &_MapLayout_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    13;
 
   friend void swap(MapLayout& a, MapLayout& b) {
     a.Swap(&b);
@@ -3451,6 +3835,314 @@ inline void Ue::_internal_set_five_qi(int32_t value) {
 inline void Ue::set_five_qi(int32_t value) {
   _internal_set_five_qi(value);
   // @@protoc_insertion_point(field_set:onos.ransim.types.Ue.five_qi)
+}
+
+// .onos.ransim.types.UeIdentity ueid = 20;
+inline bool Ue::_internal_has_ueid() const {
+  return this != internal_default_instance() && ueid_ != nullptr;
+}
+inline bool Ue::has_ueid() const {
+  return _internal_has_ueid();
+}
+inline void Ue::clear_ueid() {
+  if (GetArenaForAllocation() == nullptr && ueid_ != nullptr) {
+    delete ueid_;
+  }
+  ueid_ = nullptr;
+}
+inline const ::onos::ransim::types::UeIdentity& Ue::_internal_ueid() const {
+  const ::onos::ransim::types::UeIdentity* p = ueid_;
+  return p != nullptr ? *p : reinterpret_cast<const ::onos::ransim::types::UeIdentity&>(
+      ::onos::ransim::types::_UeIdentity_default_instance_);
+}
+inline const ::onos::ransim::types::UeIdentity& Ue::ueid() const {
+  // @@protoc_insertion_point(field_get:onos.ransim.types.Ue.ueid)
+  return _internal_ueid();
+}
+inline void Ue::unsafe_arena_set_allocated_ueid(
+    ::onos::ransim::types::UeIdentity* ueid) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(ueid_);
+  }
+  ueid_ = ueid;
+  if (ueid) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:onos.ransim.types.Ue.ueid)
+}
+inline ::onos::ransim::types::UeIdentity* Ue::release_ueid() {
+  
+  ::onos::ransim::types::UeIdentity* temp = ueid_;
+  ueid_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::onos::ransim::types::UeIdentity* Ue::unsafe_arena_release_ueid() {
+  // @@protoc_insertion_point(field_release:onos.ransim.types.Ue.ueid)
+  
+  ::onos::ransim::types::UeIdentity* temp = ueid_;
+  ueid_ = nullptr;
+  return temp;
+}
+inline ::onos::ransim::types::UeIdentity* Ue::_internal_mutable_ueid() {
+  
+  if (ueid_ == nullptr) {
+    auto* p = CreateMaybeMessage<::onos::ransim::types::UeIdentity>(GetArenaForAllocation());
+    ueid_ = p;
+  }
+  return ueid_;
+}
+inline ::onos::ransim::types::UeIdentity* Ue::mutable_ueid() {
+  ::onos::ransim::types::UeIdentity* _msg = _internal_mutable_ueid();
+  // @@protoc_insertion_point(field_mutable:onos.ransim.types.Ue.ueid)
+  return _msg;
+}
+inline void Ue::set_allocated_ueid(::onos::ransim::types::UeIdentity* ueid) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete ueid_;
+  }
+  if (ueid) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::onos::ransim::types::UeIdentity>::GetOwningArena(ueid);
+    if (message_arena != submessage_arena) {
+      ueid = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, ueid, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  ueid_ = ueid;
+  // @@protoc_insertion_point(field_set_allocated:onos.ransim.types.Ue.ueid)
+}
+
+// double serving_tower_geometry = 21;
+inline void Ue::clear_serving_tower_geometry() {
+  serving_tower_geometry_ = 0;
+}
+inline double Ue::_internal_serving_tower_geometry() const {
+  return serving_tower_geometry_;
+}
+inline double Ue::serving_tower_geometry() const {
+  // @@protoc_insertion_point(field_get:onos.ransim.types.Ue.serving_tower_geometry)
+  return _internal_serving_tower_geometry();
+}
+inline void Ue::_internal_set_serving_tower_geometry(double value) {
+  
+  serving_tower_geometry_ = value;
+}
+inline void Ue::set_serving_tower_geometry(double value) {
+  _internal_set_serving_tower_geometry(value);
+  // @@protoc_insertion_point(field_set:onos.ransim.types.Ue.serving_tower_geometry)
+}
+
+// -------------------------------------------------------------------
+
+// UeIdentity
+
+// .onos.ransim.types.Guami guami = 1;
+inline bool UeIdentity::_internal_has_guami() const {
+  return this != internal_default_instance() && guami_ != nullptr;
+}
+inline bool UeIdentity::has_guami() const {
+  return _internal_has_guami();
+}
+inline void UeIdentity::clear_guami() {
+  if (GetArenaForAllocation() == nullptr && guami_ != nullptr) {
+    delete guami_;
+  }
+  guami_ = nullptr;
+}
+inline const ::onos::ransim::types::Guami& UeIdentity::_internal_guami() const {
+  const ::onos::ransim::types::Guami* p = guami_;
+  return p != nullptr ? *p : reinterpret_cast<const ::onos::ransim::types::Guami&>(
+      ::onos::ransim::types::_Guami_default_instance_);
+}
+inline const ::onos::ransim::types::Guami& UeIdentity::guami() const {
+  // @@protoc_insertion_point(field_get:onos.ransim.types.UeIdentity.guami)
+  return _internal_guami();
+}
+inline void UeIdentity::unsafe_arena_set_allocated_guami(
+    ::onos::ransim::types::Guami* guami) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(guami_);
+  }
+  guami_ = guami;
+  if (guami) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:onos.ransim.types.UeIdentity.guami)
+}
+inline ::onos::ransim::types::Guami* UeIdentity::release_guami() {
+  
+  ::onos::ransim::types::Guami* temp = guami_;
+  guami_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::onos::ransim::types::Guami* UeIdentity::unsafe_arena_release_guami() {
+  // @@protoc_insertion_point(field_release:onos.ransim.types.UeIdentity.guami)
+  
+  ::onos::ransim::types::Guami* temp = guami_;
+  guami_ = nullptr;
+  return temp;
+}
+inline ::onos::ransim::types::Guami* UeIdentity::_internal_mutable_guami() {
+  
+  if (guami_ == nullptr) {
+    auto* p = CreateMaybeMessage<::onos::ransim::types::Guami>(GetArenaForAllocation());
+    guami_ = p;
+  }
+  return guami_;
+}
+inline ::onos::ransim::types::Guami* UeIdentity::mutable_guami() {
+  ::onos::ransim::types::Guami* _msg = _internal_mutable_guami();
+  // @@protoc_insertion_point(field_mutable:onos.ransim.types.UeIdentity.guami)
+  return _msg;
+}
+inline void UeIdentity::set_allocated_guami(::onos::ransim::types::Guami* guami) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete guami_;
+  }
+  if (guami) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper<::onos::ransim::types::Guami>::GetOwningArena(guami);
+    if (message_arena != submessage_arena) {
+      guami = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, guami, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  guami_ = guami;
+  // @@protoc_insertion_point(field_set_allocated:onos.ransim.types.UeIdentity.guami)
+}
+
+// uint64 amf_ue_ngap_id = 2 [(.gogoproto.casttype) = "AmfUENgapID"];
+inline void UeIdentity::clear_amf_ue_ngap_id() {
+  amf_ue_ngap_id_ = uint64_t{0u};
+}
+inline uint64_t UeIdentity::_internal_amf_ue_ngap_id() const {
+  return amf_ue_ngap_id_;
+}
+inline uint64_t UeIdentity::amf_ue_ngap_id() const {
+  // @@protoc_insertion_point(field_get:onos.ransim.types.UeIdentity.amf_ue_ngap_id)
+  return _internal_amf_ue_ngap_id();
+}
+inline void UeIdentity::_internal_set_amf_ue_ngap_id(uint64_t value) {
+  
+  amf_ue_ngap_id_ = value;
+}
+inline void UeIdentity::set_amf_ue_ngap_id(uint64_t value) {
+  _internal_set_amf_ue_ngap_id(value);
+  // @@protoc_insertion_point(field_set:onos.ransim.types.UeIdentity.amf_ue_ngap_id)
+}
+
+// -------------------------------------------------------------------
+
+// Guami
+
+// uint32 plmnid = 1;
+inline void Guami::clear_plmnid() {
+  plmnid_ = 0u;
+}
+inline uint32_t Guami::_internal_plmnid() const {
+  return plmnid_;
+}
+inline uint32_t Guami::plmnid() const {
+  // @@protoc_insertion_point(field_get:onos.ransim.types.Guami.plmnid)
+  return _internal_plmnid();
+}
+inline void Guami::_internal_set_plmnid(uint32_t value) {
+  
+  plmnid_ = value;
+}
+inline void Guami::set_plmnid(uint32_t value) {
+  _internal_set_plmnid(value);
+  // @@protoc_insertion_point(field_set:onos.ransim.types.Guami.plmnid)
+}
+
+// uint32 amf_region_id = 2;
+inline void Guami::clear_amf_region_id() {
+  amf_region_id_ = 0u;
+}
+inline uint32_t Guami::_internal_amf_region_id() const {
+  return amf_region_id_;
+}
+inline uint32_t Guami::amf_region_id() const {
+  // @@protoc_insertion_point(field_get:onos.ransim.types.Guami.amf_region_id)
+  return _internal_amf_region_id();
+}
+inline void Guami::_internal_set_amf_region_id(uint32_t value) {
+  
+  amf_region_id_ = value;
+}
+inline void Guami::set_amf_region_id(uint32_t value) {
+  _internal_set_amf_region_id(value);
+  // @@protoc_insertion_point(field_set:onos.ransim.types.Guami.amf_region_id)
+}
+
+// uint32 amf_set_id = 3;
+inline void Guami::clear_amf_set_id() {
+  amf_set_id_ = 0u;
+}
+inline uint32_t Guami::_internal_amf_set_id() const {
+  return amf_set_id_;
+}
+inline uint32_t Guami::amf_set_id() const {
+  // @@protoc_insertion_point(field_get:onos.ransim.types.Guami.amf_set_id)
+  return _internal_amf_set_id();
+}
+inline void Guami::_internal_set_amf_set_id(uint32_t value) {
+  
+  amf_set_id_ = value;
+}
+inline void Guami::set_amf_set_id(uint32_t value) {
+  _internal_set_amf_set_id(value);
+  // @@protoc_insertion_point(field_set:onos.ransim.types.Guami.amf_set_id)
+}
+
+// uint32 amf_pointer = 4;
+inline void Guami::clear_amf_pointer() {
+  amf_pointer_ = 0u;
+}
+inline uint32_t Guami::_internal_amf_pointer() const {
+  return amf_pointer_;
+}
+inline uint32_t Guami::amf_pointer() const {
+  // @@protoc_insertion_point(field_get:onos.ransim.types.Guami.amf_pointer)
+  return _internal_amf_pointer();
+}
+inline void Guami::_internal_set_amf_pointer(uint32_t value) {
+  
+  amf_pointer_ = value;
+}
+inline void Guami::set_amf_pointer(uint32_t value) {
+  _internal_set_amf_pointer(value);
+  // @@protoc_insertion_point(field_set:onos.ransim.types.Guami.amf_pointer)
 }
 
 // -------------------------------------------------------------------
@@ -4898,6 +5590,10 @@ inline void MapLayout::set_current_routes(uint32_t value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

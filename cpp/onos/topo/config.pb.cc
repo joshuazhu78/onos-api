@@ -43,7 +43,8 @@ constexpr Configurable::Configurable(
   , target_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , version_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , timeout_(nullptr)
-  , persistent_(false){}
+  , persistent_(false)
+  , validate_capabilities_(false){}
 struct ConfigurableDefaultTypeInternal {
   constexpr ConfigurableDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -168,6 +169,7 @@ const uint32_t TableStruct_onos_2ftopo_2fconfig_2eproto::offsets[] PROTOBUF_SECT
   PROTOBUF_FIELD_OFFSET(::onos::topo::Configurable, version_),
   PROTOBUF_FIELD_OFFSET(::onos::topo::Configurable, timeout_),
   PROTOBUF_FIELD_OFFSET(::onos::topo::Configurable, persistent_),
+  PROTOBUF_FIELD_OFFSET(::onos::topo::Configurable, validate_capabilities_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::onos::topo::MastershipState, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -225,12 +227,12 @@ const uint32_t TableStruct_onos_2ftopo_2fconfig_2eproto::offsets[] PROTOBUF_SECT
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::onos::topo::Asset)},
   { 13, -1, -1, sizeof(::onos::topo::Configurable)},
-  { 25, -1, -1, sizeof(::onos::topo::MastershipState)},
-  { 33, -1, -1, sizeof(::onos::topo::TLSOptions)},
-  { 44, 52, -1, sizeof(::onos::topo::AdHoc_PropertiesEntry_DoNotUse)},
-  { 54, -1, -1, sizeof(::onos::topo::AdHoc)},
-  { 61, -1, -1, sizeof(::onos::topo::ProtocolState)},
-  { 71, -1, -1, sizeof(::onos::topo::Protocols)},
+  { 26, -1, -1, sizeof(::onos::topo::MastershipState)},
+  { 34, -1, -1, sizeof(::onos::topo::TLSOptions)},
+  { 45, 53, -1, sizeof(::onos::topo::AdHoc_PropertiesEntry_DoNotUse)},
+  { 55, -1, -1, sizeof(::onos::topo::AdHoc)},
+  { 62, -1, -1, sizeof(::onos::topo::ProtocolState)},
+  { 72, -1, -1, sizeof(::onos::topo::Protocols)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -250,32 +252,33 @@ const char descriptor_table_protodef_onos_2ftopo_2fconfig_2eproto[] PROTOBUF_SEC
   "ogo.proto\"{\n\005Asset\022\014\n\004name\030\001 \001(\t\022\024\n\014manu"
   "facturer\030\002 \001(\t\022\r\n\005model\030\003 \001(\t\022\016\n\006serial\030"
   "\004 \001(\t\022\r\n\005asset\030\005 \001(\t\022\022\n\nsw_version\030\006 \001(\t"
-  "\022\014\n\004role\030\010 \001(\t\"\224\001\n\014Configurable\022\014\n\004type\030"
+  "\022\014\n\004role\030\010 \001(\t\"\263\001\n\014Configurable\022\014\n\004type\030"
   "\001 \001(\t\022\017\n\007address\030\002 \001(\t\022\016\n\006target\030\003 \001(\t\022\017"
   "\n\007version\030\004 \001(\t\0220\n\007timeout\030\005 \001(\0132\031.googl"
   "e.protobuf.DurationB\004\230\337\037\001\022\022\n\npersistent\030"
-  "\006 \001(\010\"0\n\017MastershipState\022\014\n\004term\030\001 \001(\004\022\017"
-  "\n\007node_id\030\002 \001(\t\"Y\n\nTLSOptions\022\020\n\010insecur"
-  "e\030\001 \001(\010\022\r\n\005plain\030\002 \001(\010\022\013\n\003key\030\003 \001(\t\022\017\n\007c"
-  "a_cert\030\004 \001(\t\022\014\n\004cert\030\005 \001(\t\"p\n\005AdHoc\0224\n\np"
-  "roperties\030\001 \003(\0132 .onos.topo.AdHoc.Proper"
-  "tiesEntry\0321\n\017PropertiesEntry\022\013\n\003key\030\001 \001("
-  "\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\315\001\n\rProtocolState\022%"
-  "\n\010protocol\030\001 \001(\0162\023.onos.topo.Protocol\0227\n"
-  "\021connectivityState\030\002 \001(\0162\034.onos.topo.Con"
-  "nectivityState\022-\n\014channelState\030\003 \001(\0162\027.o"
-  "nos.topo.ChannelState\022-\n\014serviceState\030\004 "
-  "\001(\0162\027.onos.topo.ServiceState\"4\n\tProtocol"
-  "s\022\'\n\005state\030\001 \003(\0132\030.onos.topo.ProtocolSta"
-  "te*M\n\010Protocol\022\024\n\020UNKNOWN_PROTOCOL\020\000\022\010\n\004"
-  "GNMI\020\001\022\r\n\tP4RUNTIME\020\002\022\010\n\004GNOI\020\003\022\010\n\004E2AP\020"
-  "\004*S\n\021ConnectivityState\022\036\n\032UNKNOWN_CONNEC"
-  "TIVITY_STATE\020\000\022\r\n\tREACHABLE\020\001\022\017\n\013UNREACH"
-  "ABLE\020\002*J\n\014ChannelState\022\031\n\025UNKNOWN_CHANNE"
-  "L_STATE\020\000\022\r\n\tCONNECTED\020\001\022\020\n\014DISCONNECTED"
-  "\020\002*Y\n\014ServiceState\022\031\n\025UNKNOWN_SERVICE_ST"
-  "ATE\020\000\022\r\n\tAVAILABLE\020\001\022\017\n\013UNAVAILABLE\020\002\022\016\n"
-  "\nCONNECTING\020\003b\006proto3"
+  "\006 \001(\010\022\035\n\025validate_capabilities\030\007 \001(\010\"0\n\017"
+  "MastershipState\022\014\n\004term\030\001 \001(\004\022\017\n\007node_id"
+  "\030\002 \001(\t\"Y\n\nTLSOptions\022\020\n\010insecure\030\001 \001(\010\022\r"
+  "\n\005plain\030\002 \001(\010\022\013\n\003key\030\003 \001(\t\022\017\n\007ca_cert\030\004 "
+  "\001(\t\022\014\n\004cert\030\005 \001(\t\"p\n\005AdHoc\0224\n\nproperties"
+  "\030\001 \003(\0132 .onos.topo.AdHoc.PropertiesEntry"
+  "\0321\n\017PropertiesEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005valu"
+  "e\030\002 \001(\t:\0028\001\"\315\001\n\rProtocolState\022%\n\010protoco"
+  "l\030\001 \001(\0162\023.onos.topo.Protocol\0227\n\021connecti"
+  "vityState\030\002 \001(\0162\034.onos.topo.Connectivity"
+  "State\022-\n\014channelState\030\003 \001(\0162\027.onos.topo."
+  "ChannelState\022-\n\014serviceState\030\004 \001(\0162\027.ono"
+  "s.topo.ServiceState\"4\n\tProtocols\022\'\n\005stat"
+  "e\030\001 \003(\0132\030.onos.topo.ProtocolState*M\n\010Pro"
+  "tocol\022\024\n\020UNKNOWN_PROTOCOL\020\000\022\010\n\004GNMI\020\001\022\r\n"
+  "\tP4RUNTIME\020\002\022\010\n\004GNOI\020\003\022\010\n\004E2AP\020\004*S\n\021Conn"
+  "ectivityState\022\036\n\032UNKNOWN_CONNECTIVITY_ST"
+  "ATE\020\000\022\r\n\tREACHABLE\020\001\022\017\n\013UNREACHABLE\020\002*J\n"
+  "\014ChannelState\022\031\n\025UNKNOWN_CHANNEL_STATE\020\000"
+  "\022\r\n\tCONNECTED\020\001\022\020\n\014DISCONNECTED\020\002*Y\n\014Ser"
+  "viceState\022\031\n\025UNKNOWN_SERVICE_STATE\020\000\022\r\n\t"
+  "AVAILABLE\020\001\022\017\n\013UNAVAILABLE\020\002\022\016\n\nCONNECTI"
+  "NG\020\003b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_onos_2ftopo_2fconfig_2eproto_deps[2] = {
   &::descriptor_table_gogoproto_2fgogo_2eproto,
@@ -283,7 +286,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_onos_2ftopo_2fconfig_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_onos_2ftopo_2fconfig_2eproto = {
-  false, false, 1221, descriptor_table_protodef_onos_2ftopo_2fconfig_2eproto, "onos/topo/config.proto", 
+  false, false, 1252, descriptor_table_protodef_onos_2ftopo_2fconfig_2eproto, "onos/topo/config.proto", 
   &descriptor_table_onos_2ftopo_2fconfig_2eproto_once, descriptor_table_onos_2ftopo_2fconfig_2eproto_deps, 2, 8,
   schemas, file_default_instances, TableStruct_onos_2ftopo_2fconfig_2eproto::offsets,
   file_level_metadata_onos_2ftopo_2fconfig_2eproto, file_level_enum_descriptors_onos_2ftopo_2fconfig_2eproto, file_level_service_descriptors_onos_2ftopo_2fconfig_2eproto,
@@ -923,7 +926,9 @@ Configurable::Configurable(const Configurable& from)
   } else {
     timeout_ = nullptr;
   }
-  persistent_ = from.persistent_;
+  ::memcpy(&persistent_, &from.persistent_,
+    static_cast<size_t>(reinterpret_cast<char*>(&validate_capabilities_) -
+    reinterpret_cast<char*>(&persistent_)) + sizeof(validate_capabilities_));
   // @@protoc_insertion_point(copy_constructor:onos.topo.Configurable)
 }
 
@@ -946,8 +951,8 @@ version_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlre
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&timeout_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&persistent_) -
-    reinterpret_cast<char*>(&timeout_)) + sizeof(persistent_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&validate_capabilities_) -
+    reinterpret_cast<char*>(&timeout_)) + sizeof(validate_capabilities_));
 }
 
 Configurable::~Configurable() {
@@ -990,7 +995,9 @@ void Configurable::Clear() {
     delete timeout_;
   }
   timeout_ = nullptr;
-  persistent_ = false;
+  ::memset(&persistent_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&validate_capabilities_) -
+      reinterpret_cast<char*>(&persistent_)) + sizeof(validate_capabilities_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1052,6 +1059,14 @@ const char* Configurable::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_I
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
           persistent_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // bool validate_capabilities = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 56)) {
+          validate_capabilities_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1139,6 +1154,12 @@ uint8_t* Configurable::_InternalSerialize(
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(6, this->_internal_persistent(), target);
   }
 
+  // bool validate_capabilities = 7;
+  if (this->_internal_validate_capabilities() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(7, this->_internal_validate_capabilities(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -1195,6 +1216,11 @@ size_t Configurable::ByteSizeLong() const {
     total_size += 1 + 1;
   }
 
+  // bool validate_capabilities = 7;
+  if (this->_internal_validate_capabilities() != 0) {
+    total_size += 1 + 1;
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
@@ -1234,6 +1260,9 @@ void Configurable::MergeFrom(const Configurable& from) {
   }
   if (from._internal_persistent() != 0) {
     _internal_set_persistent(from._internal_persistent());
+  }
+  if (from._internal_validate_capabilities() != 0) {
+    _internal_set_validate_capabilities(from._internal_validate_capabilities());
   }
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -1275,8 +1304,8 @@ void Configurable::InternalSwap(Configurable* other) {
       &other->version_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Configurable, persistent_)
-      + sizeof(Configurable::persistent_)
+      PROTOBUF_FIELD_OFFSET(Configurable, validate_capabilities_)
+      + sizeof(Configurable::validate_capabilities_)
       - PROTOBUF_FIELD_OFFSET(Configurable, timeout_)>(
           reinterpret_cast<char*>(&timeout_),
           reinterpret_cast<char*>(&other->timeout_));

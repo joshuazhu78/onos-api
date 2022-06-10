@@ -77,7 +77,21 @@ message Ue {
 
     int32 five_qi = 19;
 
-    double serving_tower_geometry = 20;
+    UeIdentity ueid = 20;
+
+    double serving_tower_geometry = 21;
+}
+
+message UeIdentity {
+    Guami guami = 1;
+    uint64 amf_ue_ngap_id = 2 [(gogoproto.casttype) = "AmfUENgapID"];
+}
+
+message Guami {
+    uint32 plmnid = 1; // 24 bits (12 bits for MCC and 12 bits for MNC)
+    uint32 amf_region_id = 2; // 8 bits
+    uint32 amf_set_id = 3; // 10 bits
+    uint32 amf_pointer = 4; // 6 bits
 }
 
 message UeMetrics {
