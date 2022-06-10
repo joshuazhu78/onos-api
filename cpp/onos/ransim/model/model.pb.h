@@ -5467,7 +5467,7 @@ class GetRouteRequest final :
   enum : int {
     kImsiFieldNumber = 1,
   };
-  // uint32 imsi = 1 [(.gogoproto.customname) = "IMSI", (.gogoproto.casttype) = "github.com/onosproject/onos-api/go/onos/ransim/types.IMSI"];
+  // uint32 imsi = 1;
   void clear_imsi();
   uint32_t imsi() const;
   void set_imsi(uint32_t value);
@@ -5766,15 +5766,15 @@ class DeleteRouteRequest final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kEnbidFieldNumber = 1,
+    kImsiFieldNumber = 1,
   };
-  // uint64 enbid = 1 [(.gogoproto.customname) = "IMSI", (.gogoproto.casttype) = "github.com/onosproject/onos-api/go/onos/ransim/types.IMSI"];
-  void clear_enbid();
-  uint64_t enbid() const;
-  void set_enbid(uint64_t value);
+  // uint64 imsi = 1;
+  void clear_imsi();
+  uint64_t imsi() const;
+  void set_imsi(uint64_t value);
   private:
-  uint64_t _internal_enbid() const;
-  void _internal_set_enbid(uint64_t value);
+  uint64_t _internal_imsi() const;
+  void _internal_set_imsi(uint64_t value);
   public:
 
   // @@protoc_insertion_point(class_scope:onos.ransim.model.DeleteRouteRequest)
@@ -5784,7 +5784,7 @@ class DeleteRouteRequest final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  uint64_t enbid_;
+  uint64_t imsi_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_onos_2fransim_2fmodel_2fmodel_2eproto;
 };
@@ -6628,7 +6628,7 @@ class GetUERequest final :
   enum : int {
     kImsiFieldNumber = 1,
   };
-  // uint32 imsi = 1 [(.gogoproto.customname) = "IMSI", (.gogoproto.casttype) = "github.com/onosproject/onos-api/go/onos/ransim/types.IMSI"];
+  // uint32 imsi = 1;
   void clear_imsi();
   uint32_t imsi() const;
   void set_imsi(uint32_t value);
@@ -6930,7 +6930,7 @@ class MoveToCellRequest final :
     kImsiFieldNumber = 1,
     kEcgiFieldNumber = 2,
   };
-  // uint32 imsi = 1 [(.gogoproto.customname) = "IMSI", (.gogoproto.casttype) = "github.com/onosproject/onos-api/go/onos/ransim/types.IMSI"];
+  // uint32 imsi = 1;
   void clear_imsi();
   uint32_t imsi() const;
   void set_imsi(uint32_t value);
@@ -7224,7 +7224,7 @@ class MoveToLocationRequest final :
       ::onos::ransim::types::Point* location);
   ::onos::ransim::types::Point* unsafe_arena_release_location();
 
-  // uint32 imsi = 1 [(.gogoproto.customname) = "IMSI", (.gogoproto.casttype) = "github.com/onosproject/onos-api/go/onos/ransim/types.IMSI"];
+  // uint32 imsi = 1;
   void clear_imsi();
   uint32_t imsi() const;
   void set_imsi(uint32_t value);
@@ -7499,7 +7499,7 @@ class DeleteUERequest final :
   enum : int {
     kImsiFieldNumber = 1,
   };
-  // uint32 imsi = 1 [(.gogoproto.customname) = "IMSI", (.gogoproto.casttype) = "github.com/onosproject/onos-api/go/onos/ransim/types.IMSI"];
+  // uint32 imsi = 1;
   void clear_imsi();
   uint32_t imsi() const;
   void set_imsi(uint32_t value);
@@ -10492,7 +10492,7 @@ inline void CreateRouteRequest::set_allocated_route(::onos::ransim::types::Route
 
 // GetRouteRequest
 
-// uint32 imsi = 1 [(.gogoproto.customname) = "IMSI", (.gogoproto.casttype) = "github.com/onosproject/onos-api/go/onos/ransim/types.IMSI"];
+// uint32 imsi = 1;
 inline void GetRouteRequest::clear_imsi() {
   imsi_ = 0u;
 }
@@ -10606,24 +10606,24 @@ inline void GetRouteResponse::set_allocated_route(::onos::ransim::types::Route* 
 
 // DeleteRouteRequest
 
-// uint64 enbid = 1 [(.gogoproto.customname) = "IMSI", (.gogoproto.casttype) = "github.com/onosproject/onos-api/go/onos/ransim/types.IMSI"];
-inline void DeleteRouteRequest::clear_enbid() {
-  enbid_ = uint64_t{0u};
+// uint64 imsi = 1;
+inline void DeleteRouteRequest::clear_imsi() {
+  imsi_ = uint64_t{0u};
 }
-inline uint64_t DeleteRouteRequest::_internal_enbid() const {
-  return enbid_;
+inline uint64_t DeleteRouteRequest::_internal_imsi() const {
+  return imsi_;
 }
-inline uint64_t DeleteRouteRequest::enbid() const {
-  // @@protoc_insertion_point(field_get:onos.ransim.model.DeleteRouteRequest.enbid)
-  return _internal_enbid();
+inline uint64_t DeleteRouteRequest::imsi() const {
+  // @@protoc_insertion_point(field_get:onos.ransim.model.DeleteRouteRequest.imsi)
+  return _internal_imsi();
 }
-inline void DeleteRouteRequest::_internal_set_enbid(uint64_t value) {
+inline void DeleteRouteRequest::_internal_set_imsi(uint64_t value) {
   
-  enbid_ = value;
+  imsi_ = value;
 }
-inline void DeleteRouteRequest::set_enbid(uint64_t value) {
-  _internal_set_enbid(value);
-  // @@protoc_insertion_point(field_set:onos.ransim.model.DeleteRouteRequest.enbid)
+inline void DeleteRouteRequest::set_imsi(uint64_t value) {
+  _internal_set_imsi(value);
+  // @@protoc_insertion_point(field_set:onos.ransim.model.DeleteRouteRequest.imsi)
 }
 
 // -------------------------------------------------------------------
@@ -10882,7 +10882,7 @@ inline void ListRoutesResponse::set_allocated_route(::onos::ransim::types::Route
 
 // GetUERequest
 
-// uint32 imsi = 1 [(.gogoproto.customname) = "IMSI", (.gogoproto.casttype) = "github.com/onosproject/onos-api/go/onos/ransim/types.IMSI"];
+// uint32 imsi = 1;
 inline void GetUERequest::clear_imsi() {
   imsi_ = 0u;
 }
@@ -10996,7 +10996,7 @@ inline void GetUEResponse::set_allocated_ue(::onos::ransim::types::Ue* ue) {
 
 // MoveToCellRequest
 
-// uint32 imsi = 1 [(.gogoproto.customname) = "IMSI", (.gogoproto.casttype) = "github.com/onosproject/onos-api/go/onos/ransim/types.IMSI"];
+// uint32 imsi = 1;
 inline void MoveToCellRequest::clear_imsi() {
   imsi_ = 0u;
 }
@@ -11044,7 +11044,7 @@ inline void MoveToCellRequest::set_ecgi(uint32_t value) {
 
 // MoveToLocationRequest
 
-// uint32 imsi = 1 [(.gogoproto.customname) = "IMSI", (.gogoproto.casttype) = "github.com/onosproject/onos-api/go/onos/ransim/types.IMSI"];
+// uint32 imsi = 1;
 inline void MoveToLocationRequest::clear_imsi() {
   imsi_ = 0u;
 }
@@ -11178,7 +11178,7 @@ inline void MoveToLocationRequest::set_heading(uint32_t value) {
 
 // DeleteUERequest
 
-// uint32 imsi = 1 [(.gogoproto.customname) = "IMSI", (.gogoproto.casttype) = "github.com/onosproject/onos-api/go/onos/ransim/types.IMSI"];
+// uint32 imsi = 1;
 inline void DeleteUERequest::clear_imsi() {
   imsi_ = 0u;
 }
