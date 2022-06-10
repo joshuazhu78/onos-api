@@ -68,6 +68,7 @@ class Ue(betterproto.Message):
     metrics: "UeMetrics" = betterproto.message_field(17)
     rrc_state: int = betterproto.uint32_field(18)
     five_qi: int = betterproto.int32_field(19)
+    serving_tower_geometry: float = betterproto.double_field(20)
 
     def __post_init__(self) -> None:
         super().__post_init__()
