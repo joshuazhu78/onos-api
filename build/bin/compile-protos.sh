@@ -91,6 +91,12 @@ protoc --proto_path=$proto_path \
     --doc_opt=markdown,rsm.md \
     proto/onos/rsm/rsm.proto
 
+# bwp
+protoc --proto_path=$proto_path \
+    --doc_out=docs/onos/bwp \
+    --doc_opt=markdown,bwp.md \
+    proto/onos/bwp/bwp.proto
+
 # ransim
 protoc --proto_path=$proto_path \
     --doc_out=docs/onos/ransim \
@@ -198,6 +204,11 @@ protoc --proto_path=$proto_path \
 protoc --proto_path=$proto_path \
     --gogofaster_out=$go_import_paths,import_path=onos/mho,plugins=grpc:./go \
     proto/onos/mho/*.proto
+
+# bwp
+protoc --proto_path=$proto_path \
+    --gogofaster_out=$go_import_paths,import_path=onos/bwp,plugins=grpc:./go \
+    proto/onos/bwp/*.proto
 
 # ransim
 protoc --proto_path=$proto_path \

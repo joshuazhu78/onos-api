@@ -1,0 +1,77 @@
+// SPDX-FileCopyrightText: 2020-present Open Networking Foundation <info@opennetworking.org>
+//
+// SPDX-License-Identifier: Apache-2.0
+
+syntax = "proto3";
+
+// Package onos.bwp defines interfaces to monitor BWP
+package onos.bwp;
+
+service Bwp {
+  rpc GetConflicts(GetConflictsRequest) returns (GetConflictsResponse) {}
+  rpc GetResolvedConflicts(GetResolvedConflictsRequest) returns (GetResolvedConflictsResponse) {}
+  rpc GetCell(GetCellRequest) returns (GetCellResponse) {}
+  rpc GetCells(GetCellsRequest) returns (GetCellsResponse) {}
+}
+
+// if cell id is not specified, will return all cells with conflicts
+message GetConflictsRequest {
+  uint64 cell_id = 1;
+}
+
+message GetConflictsResponse {
+  repeated BwpCell cells = 1;
+}
+
+message GetResolvedConflictsRequest {
+}
+
+// returns all the resolved conflicts in the store
+message GetResolvedConflictsResponse {
+  repeated CellResolution cells = 1;
+}
+
+message CellResolution {
+  uint64 id = 1; 
+  uint32 resolved_bwp = 2;
+  uint32 original_bwp = 3;
+  uint32 resolved_conflicts = 4;
+}
+
+// cell id required
+message GetCellRequest {
+  uint64 cell_id = 1;
+}
+
+message GetCellResponse {
+  BwpCell cell = 1;
+}
+
+message GetCellsRequest {
+}
+
+message GetCellsResponse {
+  repeated BwpCell cells = 1;
+}
+
+message BwpCell {
+  uint64 id = 1; 
+  string node_id = 2;
+  uint32 arfcn = 3;
+  CellType cell_type = 4;
+  repeated uint32 bwps = 5;
+  repeated PrbRange prb_pool = 6;
+  repeated uint64 neighbor_ids = 7;
+}
+
+enum CellType {
+  FEMTO = 0;
+  ENTERPRISE = 1;
+  OUTDOOR_SMALL = 2;
+  MACRO = 3;
+}
+
+message PrbRange {
+  uint32 min = 1;
+  uint32 max = 2;
+}
