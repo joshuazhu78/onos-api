@@ -59,7 +59,7 @@ message BwpCell {
   string node_id = 2;
   uint32 arfcn = 3;
   CellType cell_type = 4;
-  repeated uint32 bwps = 5;
+  repeated int32 bwps = 5;
   repeated PrbRange prb_pool = 6;
   repeated uint64 neighbor_ids = 7;
 }

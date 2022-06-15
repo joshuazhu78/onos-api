@@ -298,7 +298,7 @@ const char descriptor_table_protodef_onos_2fbwp_2fbwp_2eproto[] PROTOBUF_SECTION
   "os.bwp.BwpCell\"\246\001\n\007BwpCell\022\n\n\002id\030\001 \001(\004\022\017"
   "\n\007node_id\030\002 \001(\t\022\r\n\005arfcn\030\003 \001(\r\022%\n\tcell_t"
   "ype\030\004 \001(\0162\022.onos.bwp.CellType\022\014\n\004bwps\030\005 "
-  "\003(\r\022$\n\010prb_pool\030\006 \003(\0132\022.onos.bwp.PrbRang"
+  "\003(\005\022$\n\010prb_pool\030\006 \003(\0132\022.onos.bwp.PrbRang"
   "e\022\024\n\014neighbor_ids\030\007 \003(\004\"$\n\010PrbRange\022\013\n\003m"
   "in\030\001 \001(\r\022\013\n\003max\030\002 \001(\r*C\n\010CellType\022\t\n\005FEM"
   "TO\020\000\022\016\n\nENTERPRISE\020\001\022\021\n\rOUTDOOR_SMALL\020\002\022"
@@ -1912,10 +1912,10 @@ const char* BwpCell::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::in
         } else
           goto handle_unusual;
         continue;
-      // repeated uint32 bwps = 5;
+      // repeated int32 bwps = 5;
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt32Parser(_internal_mutable_bwps(), ptr, ctx);
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt32Parser(_internal_mutable_bwps(), ptr, ctx);
           CHK_(ptr);
         } else if (static_cast<uint8_t>(tag) == 40) {
           _internal_add_bwps(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
@@ -2005,11 +2005,11 @@ uint8_t* BwpCell::_InternalSerialize(
       4, this->_internal_cell_type(), target);
   }
 
-  // repeated uint32 bwps = 5;
+  // repeated int32 bwps = 5;
   {
     int byte_size = _bwps_cached_byte_size_.load(std::memory_order_relaxed);
     if (byte_size > 0) {
-      target = stream->WriteUInt32Packed(
+      target = stream->WriteInt32Packed(
           5, _internal_bwps(), byte_size, target);
     }
   }
@@ -2047,10 +2047,10 @@ size_t BwpCell::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated uint32 bwps = 5;
+  // repeated int32 bwps = 5;
   {
     size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      UInt32Size(this->bwps_);
+      Int32Size(this->bwps_);
     if (data_size > 0) {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(

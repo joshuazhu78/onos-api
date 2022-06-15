@@ -1594,26 +1594,26 @@ class BwpCell final :
     kArfcnFieldNumber = 3,
     kCellTypeFieldNumber = 4,
   };
-  // repeated uint32 bwps = 5;
+  // repeated int32 bwps = 5;
   int bwps_size() const;
   private:
   int _internal_bwps_size() const;
   public:
   void clear_bwps();
   private:
-  uint32_t _internal_bwps(int index) const;
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+  int32_t _internal_bwps(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
       _internal_bwps() const;
-  void _internal_add_bwps(uint32_t value);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+  void _internal_add_bwps(int32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       _internal_mutable_bwps();
   public:
-  uint32_t bwps(int index) const;
-  void set_bwps(int index, uint32_t value);
-  void add_bwps(uint32_t value);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+  int32_t bwps(int index) const;
+  void set_bwps(int index, int32_t value);
+  void add_bwps(int32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
       bwps() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       mutable_bwps();
 
   // repeated .onos.bwp.PrbRange prb_pool = 6;
@@ -1704,7 +1704,7 @@ class BwpCell final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > bwps_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > bwps_;
   mutable std::atomic<int> _bwps_cached_byte_size_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::onos::bwp::PrbRange > prb_pool_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t > neighbor_ids_;
@@ -2361,7 +2361,7 @@ inline void BwpCell::set_cell_type(::onos::bwp::CellType value) {
   // @@protoc_insertion_point(field_set:onos.bwp.BwpCell.cell_type)
 }
 
-// repeated uint32 bwps = 5;
+// repeated int32 bwps = 5;
 inline int BwpCell::_internal_bwps_size() const {
   return bwps_.size();
 }
@@ -2371,38 +2371,38 @@ inline int BwpCell::bwps_size() const {
 inline void BwpCell::clear_bwps() {
   bwps_.Clear();
 }
-inline uint32_t BwpCell::_internal_bwps(int index) const {
+inline int32_t BwpCell::_internal_bwps(int index) const {
   return bwps_.Get(index);
 }
-inline uint32_t BwpCell::bwps(int index) const {
+inline int32_t BwpCell::bwps(int index) const {
   // @@protoc_insertion_point(field_get:onos.bwp.BwpCell.bwps)
   return _internal_bwps(index);
 }
-inline void BwpCell::set_bwps(int index, uint32_t value) {
+inline void BwpCell::set_bwps(int index, int32_t value) {
   bwps_.Set(index, value);
   // @@protoc_insertion_point(field_set:onos.bwp.BwpCell.bwps)
 }
-inline void BwpCell::_internal_add_bwps(uint32_t value) {
+inline void BwpCell::_internal_add_bwps(int32_t value) {
   bwps_.Add(value);
 }
-inline void BwpCell::add_bwps(uint32_t value) {
+inline void BwpCell::add_bwps(int32_t value) {
   _internal_add_bwps(value);
   // @@protoc_insertion_point(field_add:onos.bwp.BwpCell.bwps)
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
 BwpCell::_internal_bwps() const {
   return bwps_;
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
 BwpCell::bwps() const {
   // @@protoc_insertion_point(field_list:onos.bwp.BwpCell.bwps)
   return _internal_bwps();
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
 BwpCell::_internal_mutable_bwps() {
   return &bwps_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
 BwpCell::mutable_bwps() {
   // @@protoc_insertion_point(field_mutable_list:onos.bwp.BwpCell.bwps)
   return _internal_mutable_bwps();

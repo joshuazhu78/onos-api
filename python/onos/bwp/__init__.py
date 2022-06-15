@@ -102,7 +102,7 @@ class BwpCell(betterproto.Message):
     node_id: str = betterproto.string_field(2)
     arfcn: int = betterproto.uint32_field(3)
     cell_type: "CellType" = betterproto.enum_field(4)
-    bwps: List[int] = betterproto.uint32_field(5)
+    bwps: List[int] = betterproto.int32_field(5)
     prb_pool: List["PrbRange"] = betterproto.message_field(6)
     neighbor_ids: List[int] = betterproto.uint64_field(7)
 

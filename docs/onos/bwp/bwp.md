@@ -43,7 +43,7 @@
 | node_id | [string](#string) |  |  |
 | arfcn | [uint32](#uint32) |  |  |
 | cell_type | [CellType](#onos-bwp-CellType) |  |  |
-| bwps | [uint32](#uint32) | repeated |  |
+| bwps | [int32](#int32) | repeated |  |
 | prb_pool | [PrbRange](#onos-bwp-PrbRange) | repeated |  |
 | neighbor_ids | [uint64](#uint64) | repeated |  |
 
