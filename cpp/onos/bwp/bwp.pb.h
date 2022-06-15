@@ -833,11 +833,55 @@ class CellResolution final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kIdFieldNumber = 1,
     kResolvedBwpFieldNumber = 2,
     kOriginalBwpFieldNumber = 3,
+    kIdFieldNumber = 1,
     kResolvedConflictsFieldNumber = 4,
   };
+  // repeated int32 resolved_bwp = 2;
+  int resolved_bwp_size() const;
+  private:
+  int _internal_resolved_bwp_size() const;
+  public:
+  void clear_resolved_bwp();
+  private:
+  int32_t _internal_resolved_bwp(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+      _internal_resolved_bwp() const;
+  void _internal_add_resolved_bwp(int32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+      _internal_mutable_resolved_bwp();
+  public:
+  int32_t resolved_bwp(int index) const;
+  void set_resolved_bwp(int index, int32_t value);
+  void add_resolved_bwp(int32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+      resolved_bwp() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+      mutable_resolved_bwp();
+
+  // repeated int32 original_bwp = 3;
+  int original_bwp_size() const;
+  private:
+  int _internal_original_bwp_size() const;
+  public:
+  void clear_original_bwp();
+  private:
+  int32_t _internal_original_bwp(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+      _internal_original_bwp() const;
+  void _internal_add_original_bwp(int32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+      _internal_mutable_original_bwp();
+  public:
+  int32_t original_bwp(int index) const;
+  void set_original_bwp(int index, int32_t value);
+  void add_original_bwp(int32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+      original_bwp() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+      mutable_original_bwp();
+
   // uint64 id = 1;
   void clear_id();
   uint64_t id() const;
@@ -845,24 +889,6 @@ class CellResolution final :
   private:
   uint64_t _internal_id() const;
   void _internal_set_id(uint64_t value);
-  public:
-
-  // uint32 resolved_bwp = 2;
-  void clear_resolved_bwp();
-  uint32_t resolved_bwp() const;
-  void set_resolved_bwp(uint32_t value);
-  private:
-  uint32_t _internal_resolved_bwp() const;
-  void _internal_set_resolved_bwp(uint32_t value);
-  public:
-
-  // uint32 original_bwp = 3;
-  void clear_original_bwp();
-  uint32_t original_bwp() const;
-  void set_original_bwp(uint32_t value);
-  private:
-  uint32_t _internal_original_bwp() const;
-  void _internal_set_original_bwp(uint32_t value);
   public:
 
   // uint32 resolved_conflicts = 4;
@@ -881,9 +907,11 @@ class CellResolution final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > resolved_bwp_;
+  mutable std::atomic<int> _resolved_bwp_cached_byte_size_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > original_bwp_;
+  mutable std::atomic<int> _original_bwp_cached_byte_size_;
   uint64_t id_;
-  uint32_t resolved_bwp_;
-  uint32_t original_bwp_;
   uint32_t resolved_conflicts_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_onos_2fbwp_2fbwp_2eproto;
@@ -2020,44 +2048,98 @@ inline void CellResolution::set_id(uint64_t value) {
   // @@protoc_insertion_point(field_set:onos.bwp.CellResolution.id)
 }
 
-// uint32 resolved_bwp = 2;
+// repeated int32 resolved_bwp = 2;
+inline int CellResolution::_internal_resolved_bwp_size() const {
+  return resolved_bwp_.size();
+}
+inline int CellResolution::resolved_bwp_size() const {
+  return _internal_resolved_bwp_size();
+}
 inline void CellResolution::clear_resolved_bwp() {
-  resolved_bwp_ = 0u;
+  resolved_bwp_.Clear();
 }
-inline uint32_t CellResolution::_internal_resolved_bwp() const {
-  return resolved_bwp_;
+inline int32_t CellResolution::_internal_resolved_bwp(int index) const {
+  return resolved_bwp_.Get(index);
 }
-inline uint32_t CellResolution::resolved_bwp() const {
+inline int32_t CellResolution::resolved_bwp(int index) const {
   // @@protoc_insertion_point(field_get:onos.bwp.CellResolution.resolved_bwp)
-  return _internal_resolved_bwp();
+  return _internal_resolved_bwp(index);
 }
-inline void CellResolution::_internal_set_resolved_bwp(uint32_t value) {
-  
-  resolved_bwp_ = value;
-}
-inline void CellResolution::set_resolved_bwp(uint32_t value) {
-  _internal_set_resolved_bwp(value);
+inline void CellResolution::set_resolved_bwp(int index, int32_t value) {
+  resolved_bwp_.Set(index, value);
   // @@protoc_insertion_point(field_set:onos.bwp.CellResolution.resolved_bwp)
 }
-
-// uint32 original_bwp = 3;
-inline void CellResolution::clear_original_bwp() {
-  original_bwp_ = 0u;
+inline void CellResolution::_internal_add_resolved_bwp(int32_t value) {
+  resolved_bwp_.Add(value);
 }
-inline uint32_t CellResolution::_internal_original_bwp() const {
+inline void CellResolution::add_resolved_bwp(int32_t value) {
+  _internal_add_resolved_bwp(value);
+  // @@protoc_insertion_point(field_add:onos.bwp.CellResolution.resolved_bwp)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+CellResolution::_internal_resolved_bwp() const {
+  return resolved_bwp_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+CellResolution::resolved_bwp() const {
+  // @@protoc_insertion_point(field_list:onos.bwp.CellResolution.resolved_bwp)
+  return _internal_resolved_bwp();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+CellResolution::_internal_mutable_resolved_bwp() {
+  return &resolved_bwp_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+CellResolution::mutable_resolved_bwp() {
+  // @@protoc_insertion_point(field_mutable_list:onos.bwp.CellResolution.resolved_bwp)
+  return _internal_mutable_resolved_bwp();
+}
+
+// repeated int32 original_bwp = 3;
+inline int CellResolution::_internal_original_bwp_size() const {
+  return original_bwp_.size();
+}
+inline int CellResolution::original_bwp_size() const {
+  return _internal_original_bwp_size();
+}
+inline void CellResolution::clear_original_bwp() {
+  original_bwp_.Clear();
+}
+inline int32_t CellResolution::_internal_original_bwp(int index) const {
+  return original_bwp_.Get(index);
+}
+inline int32_t CellResolution::original_bwp(int index) const {
+  // @@protoc_insertion_point(field_get:onos.bwp.CellResolution.original_bwp)
+  return _internal_original_bwp(index);
+}
+inline void CellResolution::set_original_bwp(int index, int32_t value) {
+  original_bwp_.Set(index, value);
+  // @@protoc_insertion_point(field_set:onos.bwp.CellResolution.original_bwp)
+}
+inline void CellResolution::_internal_add_original_bwp(int32_t value) {
+  original_bwp_.Add(value);
+}
+inline void CellResolution::add_original_bwp(int32_t value) {
+  _internal_add_original_bwp(value);
+  // @@protoc_insertion_point(field_add:onos.bwp.CellResolution.original_bwp)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+CellResolution::_internal_original_bwp() const {
   return original_bwp_;
 }
-inline uint32_t CellResolution::original_bwp() const {
-  // @@protoc_insertion_point(field_get:onos.bwp.CellResolution.original_bwp)
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+CellResolution::original_bwp() const {
+  // @@protoc_insertion_point(field_list:onos.bwp.CellResolution.original_bwp)
   return _internal_original_bwp();
 }
-inline void CellResolution::_internal_set_original_bwp(uint32_t value) {
-  
-  original_bwp_ = value;
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+CellResolution::_internal_mutable_original_bwp() {
+  return &original_bwp_;
 }
-inline void CellResolution::set_original_bwp(uint32_t value) {
-  _internal_set_original_bwp(value);
-  // @@protoc_insertion_point(field_set:onos.bwp.CellResolution.original_bwp)
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+CellResolution::mutable_original_bwp() {
+  // @@protoc_insertion_point(field_mutable_list:onos.bwp.CellResolution.original_bwp)
+  return _internal_mutable_original_bwp();
 }
 
 // uint32 resolved_conflicts = 4;

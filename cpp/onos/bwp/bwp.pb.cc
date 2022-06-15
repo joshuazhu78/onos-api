@@ -67,9 +67,11 @@ struct GetResolvedConflictsResponseDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT GetResolvedConflictsResponseDefaultTypeInternal _GetResolvedConflictsResponse_default_instance_;
 constexpr CellResolution::CellResolution(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : id_(uint64_t{0u})
-  , resolved_bwp_(0u)
-  , original_bwp_(0u)
+  : resolved_bwp_()
+  , _resolved_bwp_cached_byte_size_(0)
+  , original_bwp_()
+  , _original_bwp_cached_byte_size_(0)
+  , id_(uint64_t{0u})
   , resolved_conflicts_(0u){}
 struct CellResolutionDefaultTypeInternal {
   constexpr CellResolutionDefaultTypeInternal()
@@ -290,7 +292,7 @@ const char descriptor_table_protodef_onos_2fbwp_2fbwp_2eproto[] PROTOBUF_SECTION
   "G\n\034GetResolvedConflictsResponse\022\'\n\005cells"
   "\030\001 \003(\0132\030.onos.bwp.CellResolution\"d\n\016Cell"
   "Resolution\022\n\n\002id\030\001 \001(\004\022\024\n\014resolved_bwp\030\002"
-  " \001(\r\022\024\n\014original_bwp\030\003 \001(\r\022\032\n\022resolved_c"
+  " \003(\005\022\024\n\014original_bwp\030\003 \003(\005\022\032\n\022resolved_c"
   "onflicts\030\004 \001(\r\"!\n\016GetCellRequest\022\017\n\007cell"
   "_id\030\001 \001(\004\"2\n\017GetCellResponse\022\037\n\004cell\030\001 \001"
   "(\0132\021.onos.bwp.BwpCell\"\021\n\017GetCellsRequest"
@@ -939,7 +941,9 @@ class CellResolution::_Internal {
 
 CellResolution::CellResolution(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
+  resolved_bwp_(arena),
+  original_bwp_(arena) {
   SharedCtor();
   if (!is_message_owned) {
     RegisterArenaDtor(arena);
@@ -947,7 +951,9 @@ CellResolution::CellResolution(::PROTOBUF_NAMESPACE_ID::Arena* arena,
   // @@protoc_insertion_point(arena_constructor:onos.bwp.CellResolution)
 }
 CellResolution::CellResolution(const CellResolution& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      resolved_bwp_(from.resolved_bwp_),
+      original_bwp_(from.original_bwp_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&id_, &from.id_,
     static_cast<size_t>(reinterpret_cast<char*>(&resolved_conflicts_) -
@@ -989,6 +995,8 @@ void CellResolution::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  resolved_bwp_.Clear();
+  original_bwp_.Clear();
   ::memset(&id_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&resolved_conflicts_) -
       reinterpret_cast<char*>(&id_)) + sizeof(resolved_conflicts_));
@@ -1009,18 +1017,24 @@ const char* CellResolution::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE
         } else
           goto handle_unusual;
         continue;
-      // uint32 resolved_bwp = 2;
+      // repeated int32 resolved_bwp = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          resolved_bwp_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt32Parser(_internal_mutable_resolved_bwp(), ptr, ctx);
+          CHK_(ptr);
+        } else if (static_cast<uint8_t>(tag) == 16) {
+          _internal_add_resolved_bwp(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // uint32 original_bwp = 3;
+      // repeated int32 original_bwp = 3;
       case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
-          original_bwp_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt32Parser(_internal_mutable_original_bwp(), ptr, ctx);
+          CHK_(ptr);
+        } else if (static_cast<uint8_t>(tag) == 24) {
+          _internal_add_original_bwp(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1068,16 +1082,22 @@ uint8_t* CellResolution::_InternalSerialize(
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_id(), target);
   }
 
-  // uint32 resolved_bwp = 2;
-  if (this->_internal_resolved_bwp() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_resolved_bwp(), target);
+  // repeated int32 resolved_bwp = 2;
+  {
+    int byte_size = _resolved_bwp_cached_byte_size_.load(std::memory_order_relaxed);
+    if (byte_size > 0) {
+      target = stream->WriteInt32Packed(
+          2, _internal_resolved_bwp(), byte_size, target);
+    }
   }
 
-  // uint32 original_bwp = 3;
-  if (this->_internal_original_bwp() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_original_bwp(), target);
+  // repeated int32 original_bwp = 3;
+  {
+    int byte_size = _original_bwp_cached_byte_size_.load(std::memory_order_relaxed);
+    if (byte_size > 0) {
+      target = stream->WriteInt32Packed(
+          3, _internal_original_bwp(), byte_size, target);
+    }
   }
 
   // uint32 resolved_conflicts = 4;
@@ -1102,19 +1122,39 @@ size_t CellResolution::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  // repeated int32 resolved_bwp = 2;
+  {
+    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      Int32Size(this->resolved_bwp_);
+    if (data_size > 0) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+            static_cast<int32_t>(data_size));
+    }
+    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    _resolved_bwp_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
+    total_size += data_size;
+  }
+
+  // repeated int32 original_bwp = 3;
+  {
+    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      Int32Size(this->original_bwp_);
+    if (data_size > 0) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+            static_cast<int32_t>(data_size));
+    }
+    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    _original_bwp_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
+    total_size += data_size;
+  }
+
   // uint64 id = 1;
   if (this->_internal_id() != 0) {
     total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64SizePlusOne(this->_internal_id());
-  }
-
-  // uint32 resolved_bwp = 2;
-  if (this->_internal_resolved_bwp() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_resolved_bwp());
-  }
-
-  // uint32 original_bwp = 3;
-  if (this->_internal_original_bwp() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_original_bwp());
   }
 
   // uint32 resolved_conflicts = 4;
@@ -1144,14 +1184,10 @@ void CellResolution::MergeFrom(const CellResolution& from) {
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
+  resolved_bwp_.MergeFrom(from.resolved_bwp_);
+  original_bwp_.MergeFrom(from.original_bwp_);
   if (from._internal_id() != 0) {
     _internal_set_id(from._internal_id());
-  }
-  if (from._internal_resolved_bwp() != 0) {
-    _internal_set_resolved_bwp(from._internal_resolved_bwp());
-  }
-  if (from._internal_original_bwp() != 0) {
-    _internal_set_original_bwp(from._internal_original_bwp());
   }
   if (from._internal_resolved_conflicts() != 0) {
     _internal_set_resolved_conflicts(from._internal_resolved_conflicts());
@@ -1173,6 +1209,8 @@ bool CellResolution::IsInitialized() const {
 void CellResolution::InternalSwap(CellResolution* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  resolved_bwp_.InternalSwap(&other->resolved_bwp_);
+  original_bwp_.InternalSwap(&other->original_bwp_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CellResolution, resolved_conflicts_)
       + sizeof(CellResolution::resolved_conflicts_)

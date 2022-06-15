@@ -61,8 +61,8 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | id | [uint64](#uint64) |  |  |
-| resolved_bwp | [uint32](#uint32) |  |  |
-| original_bwp | [uint32](#uint32) |  |  |
+| resolved_bwp | [int32](#int32) | repeated |  |
+| original_bwp | [int32](#int32) | repeated |  |
 | resolved_conflicts | [uint32](#uint32) |  |  |
 
 

@@ -54,8 +54,8 @@ class GetResolvedConflictsResponse(betterproto.Message):
 @dataclass(eq=False, repr=False)
 class CellResolution(betterproto.Message):
     id: int = betterproto.uint64_field(1)
-    resolved_bwp: int = betterproto.uint32_field(2)
-    original_bwp: int = betterproto.uint32_field(3)
+    resolved_bwp: List[int] = betterproto.int32_field(2)
+    original_bwp: List[int] = betterproto.int32_field(3)
     resolved_conflicts: int = betterproto.uint32_field(4)
 
     def __post_init__(self) -> None:
