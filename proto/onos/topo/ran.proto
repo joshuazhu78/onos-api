@@ -225,6 +225,7 @@ message E2Cell {
     uint32 pci = 6  [(gogoproto.customname) = "PCI"];
     map<string, uint32> kpi_reports = 7 [(gogoproto.customname) = "KpiReports"];
     repeated NeighborCellID neighbor_cell_ids = 8 [(gogoproto.customname) = "NeighborCellIDs"];
+    repeated int32 bwp = 9 [(gogoproto.customname) = "BWP"];
 }
 
 // Each entity with an E2Cell persona is expected to be a target of one and only one "CONTROLS" relation with a node

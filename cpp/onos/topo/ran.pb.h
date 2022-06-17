@@ -4518,6 +4518,7 @@ class E2Cell final :
   enum : int {
     kKpiReportsFieldNumber = 7,
     kNeighborCellIdsFieldNumber = 8,
+    kBwpFieldNumber = 9,
     kCellObjectIdFieldNumber = 1,
     kCellTypeFieldNumber = 5,
     kCellGlobalIdFieldNumber = 2,
@@ -4559,6 +4560,28 @@ class E2Cell final :
   ::onos::topo::NeighborCellID* add_neighbor_cell_ids();
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::onos::topo::NeighborCellID >&
       neighbor_cell_ids() const;
+
+  // repeated int32 bwp = 9 [(.gogoproto.customname) = "BWP"];
+  int bwp_size() const;
+  private:
+  int _internal_bwp_size() const;
+  public:
+  void clear_bwp();
+  private:
+  int32_t _internal_bwp(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+      _internal_bwp() const;
+  void _internal_add_bwp(int32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+      _internal_mutable_bwp();
+  public:
+  int32_t bwp(int index) const;
+  void set_bwp(int index, int32_t value);
+  void add_bwp(int32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+      bwp() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+      mutable_bwp();
 
   // string cell_object_id = 1 [(.gogoproto.customname) = "CellObjectID"];
   void clear_cell_object_id();
@@ -4646,6 +4669,8 @@ class E2Cell final :
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_UINT32> kpi_reports_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::onos::topo::NeighborCellID > neighbor_cell_ids_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > bwp_;
+  mutable std::atomic<int> _bwp_cached_byte_size_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr cell_object_id_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr cell_type_;
   ::onos::topo::CellGlobalID* cell_global_id_;
@@ -13552,6 +13577,53 @@ inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::onos::topo::NeighborCe
 E2Cell::neighbor_cell_ids() const {
   // @@protoc_insertion_point(field_list:onos.topo.E2Cell.neighbor_cell_ids)
   return neighbor_cell_ids_;
+}
+
+// repeated int32 bwp = 9 [(.gogoproto.customname) = "BWP"];
+inline int E2Cell::_internal_bwp_size() const {
+  return bwp_.size();
+}
+inline int E2Cell::bwp_size() const {
+  return _internal_bwp_size();
+}
+inline void E2Cell::clear_bwp() {
+  bwp_.Clear();
+}
+inline int32_t E2Cell::_internal_bwp(int index) const {
+  return bwp_.Get(index);
+}
+inline int32_t E2Cell::bwp(int index) const {
+  // @@protoc_insertion_point(field_get:onos.topo.E2Cell.bwp)
+  return _internal_bwp(index);
+}
+inline void E2Cell::set_bwp(int index, int32_t value) {
+  bwp_.Set(index, value);
+  // @@protoc_insertion_point(field_set:onos.topo.E2Cell.bwp)
+}
+inline void E2Cell::_internal_add_bwp(int32_t value) {
+  bwp_.Add(value);
+}
+inline void E2Cell::add_bwp(int32_t value) {
+  _internal_add_bwp(value);
+  // @@protoc_insertion_point(field_add:onos.topo.E2Cell.bwp)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+E2Cell::_internal_bwp() const {
+  return bwp_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >&
+E2Cell::bwp() const {
+  // @@protoc_insertion_point(field_list:onos.topo.E2Cell.bwp)
+  return _internal_bwp();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+E2Cell::_internal_mutable_bwp() {
+  return &bwp_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
+E2Cell::mutable_bwp() {
+  // @@protoc_insertion_point(field_mutable_list:onos.topo.E2Cell.bwp)
+  return _internal_mutable_bwp();
 }
 
 // -------------------------------------------------------------------

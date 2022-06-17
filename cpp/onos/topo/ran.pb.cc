@@ -327,6 +327,8 @@ constexpr E2Cell::E2Cell(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : kpi_reports_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{})
   , neighbor_cell_ids_()
+  , bwp_()
+  , _bwp_cached_byte_size_(0)
   , cell_object_id_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , cell_type_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , cell_global_id_(nullptr)
@@ -1057,6 +1059,7 @@ const uint32_t TableStruct_onos_2ftopo_2fran_2eproto::offsets[] PROTOBUF_SECTION
   PROTOBUF_FIELD_OFFSET(::onos::topo::E2Cell, pci_),
   PROTOBUF_FIELD_OFFSET(::onos::topo::E2Cell, kpi_reports_),
   PROTOBUF_FIELD_OFFSET(::onos::topo::E2Cell, neighbor_cell_ids_),
+  PROTOBUF_FIELD_OFFSET(::onos::topo::E2Cell, bwp_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::onos::topo::ServiceModelInfo, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1392,42 +1395,42 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 185, -1, -1, sizeof(::onos::topo::NeighborCellID)},
   { 193, 201, -1, sizeof(::onos::topo::E2Cell_KpiReportsEntry_DoNotUse)},
   { 203, -1, -1, sizeof(::onos::topo::E2Cell)},
-  { 217, -1, -1, sizeof(::onos::topo::ServiceModelInfo)},
-  { 227, -1, -1, sizeof(::onos::topo::RCRanFunction)},
-  { 239, -1, -1, sizeof(::onos::topo::MHORanFunction)},
-  { 247, -1, -1, sizeof(::onos::topo::KPMRanFunction)},
-  { 255, -1, -1, sizeof(::onos::topo::RSMRanFunction)},
-  { 263, -1, -1, sizeof(::onos::topo::RCEventTriggerStyle)},
-  { 272, -1, -1, sizeof(::onos::topo::RCReportStyle)},
-  { 281, -1, -1, sizeof(::onos::topo::RCInsertStyle)},
-  { 290, -1, -1, sizeof(::onos::topo::RCPolicyStyle)},
-  { 298, -1, -1, sizeof(::onos::topo::RCControlStyle)},
-  { 310, -1, -1, sizeof(::onos::topo::ControlAction)},
-  { 319, -1, -1, sizeof(::onos::topo::InsertIndication)},
-  { 328, -1, -1, sizeof(::onos::topo::RANParameter)},
-  { 336, -1, -1, sizeof(::onos::topo::KPMReportStyle)},
-  { 345, -1, -1, sizeof(::onos::topo::MHOReportStyle)},
-  { 353, -1, -1, sizeof(::onos::topo::KPMMeasurement)},
-  { 361, -1, -1, sizeof(::onos::topo::RSMNodeSlicingCapabilityItem)},
-  { 372, -1, -1, sizeof(::onos::topo::RSMSupportedSlicingConfigItem)},
-  { 379, -1, -1, sizeof(::onos::topo::RSMSliceItemList)},
-  { 386, -1, -1, sizeof(::onos::topo::RSMSlicingItem)},
-  { 397, -1, -1, sizeof(::onos::topo::RSMSliceParameters)},
-  { 406, -1, -1, sizeof(::onos::topo::DuUeF1apID)},
-  { 413, -1, -1, sizeof(::onos::topo::CuUeF1apID)},
-  { 420, -1, -1, sizeof(::onos::topo::RanUeNgapID)},
-  { 427, -1, -1, sizeof(::onos::topo::EnbUeS1apID)},
-  { 434, -1, -1, sizeof(::onos::topo::AmfUeNgapID)},
-  { 441, -1, -1, sizeof(::onos::topo::UeIdentity)},
-  { 454, -1, -1, sizeof(::onos::topo::DrbId)},
-  { 463, -1, -1, sizeof(::onos::topo::FiveGDrbId)},
-  { 472, -1, -1, sizeof(::onos::topo::Qfi)},
-  { 479, -1, -1, sizeof(::onos::topo::QoSflowLevelParameters)},
-  { 488, -1, -1, sizeof(::onos::topo::DynamicFiveQi)},
-  { 497, -1, -1, sizeof(::onos::topo::NonDynamicFiveQi)},
-  { 504, -1, -1, sizeof(::onos::topo::FiveQi)},
-  { 511, -1, -1, sizeof(::onos::topo::FourGDrbId)},
-  { 519, -1, -1, sizeof(::onos::topo::Qci)},
+  { 218, -1, -1, sizeof(::onos::topo::ServiceModelInfo)},
+  { 228, -1, -1, sizeof(::onos::topo::RCRanFunction)},
+  { 240, -1, -1, sizeof(::onos::topo::MHORanFunction)},
+  { 248, -1, -1, sizeof(::onos::topo::KPMRanFunction)},
+  { 256, -1, -1, sizeof(::onos::topo::RSMRanFunction)},
+  { 264, -1, -1, sizeof(::onos::topo::RCEventTriggerStyle)},
+  { 273, -1, -1, sizeof(::onos::topo::RCReportStyle)},
+  { 282, -1, -1, sizeof(::onos::topo::RCInsertStyle)},
+  { 291, -1, -1, sizeof(::onos::topo::RCPolicyStyle)},
+  { 299, -1, -1, sizeof(::onos::topo::RCControlStyle)},
+  { 311, -1, -1, sizeof(::onos::topo::ControlAction)},
+  { 320, -1, -1, sizeof(::onos::topo::InsertIndication)},
+  { 329, -1, -1, sizeof(::onos::topo::RANParameter)},
+  { 337, -1, -1, sizeof(::onos::topo::KPMReportStyle)},
+  { 346, -1, -1, sizeof(::onos::topo::MHOReportStyle)},
+  { 354, -1, -1, sizeof(::onos::topo::KPMMeasurement)},
+  { 362, -1, -1, sizeof(::onos::topo::RSMNodeSlicingCapabilityItem)},
+  { 373, -1, -1, sizeof(::onos::topo::RSMSupportedSlicingConfigItem)},
+  { 380, -1, -1, sizeof(::onos::topo::RSMSliceItemList)},
+  { 387, -1, -1, sizeof(::onos::topo::RSMSlicingItem)},
+  { 398, -1, -1, sizeof(::onos::topo::RSMSliceParameters)},
+  { 407, -1, -1, sizeof(::onos::topo::DuUeF1apID)},
+  { 414, -1, -1, sizeof(::onos::topo::CuUeF1apID)},
+  { 421, -1, -1, sizeof(::onos::topo::RanUeNgapID)},
+  { 428, -1, -1, sizeof(::onos::topo::EnbUeS1apID)},
+  { 435, -1, -1, sizeof(::onos::topo::AmfUeNgapID)},
+  { 442, -1, -1, sizeof(::onos::topo::UeIdentity)},
+  { 455, -1, -1, sizeof(::onos::topo::DrbId)},
+  { 464, -1, -1, sizeof(::onos::topo::FiveGDrbId)},
+  { 473, -1, -1, sizeof(::onos::topo::Qfi)},
+  { 480, -1, -1, sizeof(::onos::topo::QoSflowLevelParameters)},
+  { 489, -1, -1, sizeof(::onos::topo::DynamicFiveQi)},
+  { 498, -1, -1, sizeof(::onos::topo::NonDynamicFiveQi)},
+  { 505, -1, -1, sizeof(::onos::topo::FiveQi)},
+  { 512, -1, -1, sizeof(::onos::topo::FourGDrbId)},
+  { 520, -1, -1, sizeof(::onos::topo::Qci)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -1553,7 +1556,7 @@ const char descriptor_table_protodef_onos_2ftopo_2fran_2eproto[] PROTOBUF_SECTIO
   "alIDType\"p\n\016NeighborCellID\022A\n\016cell_globa"
   "l_id\030\001 \001(\0132\027.onos.topo.CellGlobalIDB\020\342\336\037"
   "\014CellGlobalID\022\033\n\007plmn_id\030\002 \001(\tB\n\342\336\037\006Plmn"
-  "ID\"\225\003\n\006E2Cell\022(\n\016cell_object_id\030\001 \001(\tB\020\342"
+  "ID\"\253\003\n\006E2Cell\022(\n\016cell_object_id\030\001 \001(\tB\020\342"
   "\336\037\014CellObjectID\022A\n\016cell_global_id\030\002 \001(\0132"
   "\027.onos.topo.CellGlobalIDB\020\342\336\037\014CellGlobal"
   "ID\022\025\n\rantenna_count\030\003 \001(\r\022\030\n\005arfcn\030\004 \001(\r"
@@ -1561,125 +1564,126 @@ const char descriptor_table_protodef_onos_2ftopo_2fran_2eproto[] PROTOBUF_SECTIO
   "\001(\rB\007\342\336\037\003PCI\022F\n\013kpi_reports\030\007 \003(\0132!.onos"
   ".topo.E2Cell.KpiReportsEntryB\016\342\336\037\nKpiRep"
   "orts\022I\n\021neighbor_cell_ids\030\010 \003(\0132\031.onos.t"
-  "opo.NeighborCellIDB\023\342\336\037\017NeighborCellIDs\032"
-  "1\n\017KpiReportsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value"
-  "\030\002 \001(\r:\0028\001\"{\n\020ServiceModelInfo\022\024\n\003oid\030\001 "
-  "\001(\tB\007\342\336\037\003OID\022\014\n\004name\030\002 \001(\t\022+\n\rran_functi"
-  "ons\030\003 \003(\0132\024.google.protobuf.Any\022\026\n\016ranFu"
-  "nctionIDs\030\004 \003(\r\"\247\002\n\rRCRanFunction\022\022\n\002id\030"
-  "\001 \001(\tB\006\342\336\037\002ID\022/\n\rreport_styles\030\002 \003(\0132\030.o"
-  "nos.topo.RCReportStyle\022/\n\rinsert_styles\030"
-  "\003 \003(\0132\030.onos.topo.RCInsertStyle\022<\n\024event"
-  "_trigger_styles\030\004 \003(\0132\036.onos.topo.RCEven"
-  "tTriggerStyle\022/\n\rpolicy_styles\030\005 \003(\0132\030.o"
-  "nos.topo.RCPolicyStyle\0221\n\016control_styles"
-  "\030\006 \003(\0132\031.onos.topo.RCControlStyle\"V\n\016MHO"
-  "RanFunction\022\022\n\002id\030\001 \001(\tB\006\342\336\037\002ID\0220\n\rrepor"
-  "t_styles\030\002 \003(\0132\031.onos.topo.MHOReportStyl"
-  "e\"V\n\016KPMRanFunction\022\022\n\002id\030\001 \001(\tB\006\342\336\037\002ID\022"
-  "0\n\rreport_styles\030\002 \003(\0132\031.onos.topo.KPMRe"
-  "portStyle\"w\n\016RSMRanFunction\022\022\n\002id\030\001 \001(\tB"
-  "\006\342\336\037\002ID\022Q\n ric_slicing_node_capability_l"
-  "ist\030\002 \003(\0132\'.onos.topo.RSMNodeSlicingCapa"
-  "bilityItem\"F\n\023RCEventTriggerStyle\022\014\n\004nam"
-  "e\030\001 \001(\t\022\014\n\004type\030\002 \001(\005\022\023\n\013format_type\030\003 \001"
-  "(\005\"\\\n\rRCReportStyle\022\014\n\004name\030\001 \001(\t\022\014\n\004typ"
-  "e\030\002 \001(\005\022/\n\016ran_parameters\030\003 \003(\0132\027.onos.t"
-  "opo.RANParameter\"d\n\rRCInsertStyle\022\014\n\004nam"
-  "e\030\001 \001(\t\022\014\n\004type\030\002 \001(\005\0227\n\022insert_indicati"
-  "ons\030\003 \003(\0132\033.onos.topo.InsertIndication\"+"
-  "\n\rRCPolicyStyle\022\014\n\004name\030\001 \001(\t\022\014\n\004type\030\002 "
-  "\001(\005\"\275\001\n\016RCControlStyle\022\014\n\004name\030\001 \001(\t\022\014\n\004"
-  "type\030\002 \001(\005\022\032\n\022header_format_type\030\003 \001(\005\022\033"
-  "\n\023message_format_type\030\004 \001(\005\022#\n\033control_o"
-  "utcome_format_type\030\005 \001(\005\0221\n\017control_acti"
-  "ons\030\006 \003(\0132\030.onos.topo.ControlAction\"b\n\rC"
-  "ontrolAction\022\022\n\002id\030\001 \001(\005B\006\342\336\037\002ID\022\014\n\004name"
-  "\030\002 \001(\t\022/\n\016ran_parameters\030\003 \003(\0132\027.onos.to"
-  "po.RANParameter\"e\n\020InsertIndication\022\022\n\002i"
-  "d\030\001 \001(\005B\006\342\336\037\002ID\022\014\n\004name\030\002 \001(\t\022/\n\016ran_par"
-  "ameters\030\003 \003(\0132\027.onos.topo.RANParameter\"0"
-  "\n\014RANParameter\022\022\n\002id\030\001 \001(\005B\006\342\336\037\002ID\022\014\n\004na"
-  "me\030\002 \001(\t\"]\n\016KPMReportStyle\022\014\n\004name\030\001 \001(\t"
-  "\022\014\n\004type\030\002 \001(\005\022/\n\014measurements\030\003 \003(\0132\031.o"
-  "nos.topo.KPMMeasurement\",\n\016MHOReportStyl"
-  "e\022\014\n\004name\030\001 \001(\t\022\014\n\004type\030\002 \001(\005\"2\n\016KPMMeas"
-  "urement\022\022\n\002id\030\001 \001(\tB\006\342\336\037\002ID\022\014\n\004name\030\002 \001("
-  "\t\"\372\001\n\034RSMNodeSlicingCapabilityItem\022\037\n\027ma"
-  "x_number_of_slices_dl\030\001 \001(\005\022\037\n\027max_numbe"
-  "r_of_slices_ul\030\002 \001(\005\022/\n\014slicing_type\030\003 \001"
-  "(\0162\031.onos.topo.RSMSlicingType\022#\n\033max_num"
-  "ber_of_ues_per_slice\030\004 \001(\005\022B\n\020supported_"
-  "config\030\005 \003(\0132(.onos.topo.RSMSupportedSli"
-  "cingConfigItem\"W\n\035RSMSupportedSlicingCon"
-  "figItem\0226\n\023slicing_config_type\030\001 \001(\0162\031.o"
-  "nos.topo.E2SmRsmCommand\"E\n\020RSMSliceItemL"
-  "ist\0221\n\016rsm_slice_list\030\001 \003(\0132\031.onos.topo."
-  "RSMSlicingItem\"\311\001\n\016RSMSlicingItem\022\022\n\002id\030"
-  "\001 \001(\tB\006\342\336\037\002ID\022\022\n\nslice_desc\030\002 \001(\t\0227\n\020sli"
-  "ce_parameters\030\003 \001(\0132\035.onos.topo.RSMSlice"
-  "Parameters\022+\n\nslice_type\030\004 \001(\0162\027.onos.to"
-  "po.RSMSliceType\022)\n\nue_id_list\030\005 \003(\0132\025.on"
-  "os.topo.UeIdentity\"l\n\022RSMSliceParameters"
-  "\0223\n\016scheduler_type\030\001 \001(\0162\033.onos.topo.RSM"
-  "SchedulerType\022\016\n\006weight\030\002 \001(\005\022\021\n\tqos_lev"
-  "el\030\003 \001(\005\"\033\n\nDuUeF1apID\022\r\n\005value\030\001 \001(\003\"\033\n"
-  "\nCuUeF1apID\022\r\n\005value\030\001 \001(\003\"\034\n\013RanUeNgapI"
-  "D\022\r\n\005value\030\001 \001(\003\"\034\n\013EnbUeS1apID\022\r\n\005value"
-  "\030\001 \001(\005\"\034\n\013AmfUeNgapID\022\r\n\005value\030\001 \001(\003\"\262\003\n"
-  "\nUeIdentity\022<\n\rdu_ue_f1ap_id\030\001 \001(\0132\025.ono"
-  "s.topo.DuUeF1apIDB\016\342\336\037\nDuUeF1apID\022<\n\rcu_"
-  "ue_f1ap_id\030\002 \001(\0132\025.onos.topo.CuUeF1apIDB"
-  "\016\342\336\037\nCuUeF1apID\022\?\n\016ran_ue_ngap_id\030\003 \001(\0132"
-  "\026.onos.topo.RanUeNgapIDB\017\342\336\037\013RANUeNgapID"
-  "\022\?\n\016enb_ue_s1ap_id\030\004 \001(\0132\026.onos.topo.Enb"
-  "UeS1apIDB\017\342\336\037\013EnbUeS1apID\022\?\n\016amf_ue_ngap"
-  "_id\030\005 \001(\0132\026.onos.topo.AmfUeNgapIDB\017\342\336\037\013A"
-  "MFUeNgapID\022C\n\021preferred_id_type\030\006 \001(\0162\023."
-  "onos.topo.UeIdTypeB\023\342\336\037\017PreferredIDType\022"
-  " \n\006drb_id\030\007 \001(\0132\020.onos.topo.DrbId\"\207\001\n\005Dr"
-  "bId\0229\n\014four_gdrb_id\030\001 \001(\0132\025.onos.topo.Fo"
-  "urGDrbIdH\000R\nfourGDrbID\0229\n\014five_gdrb_id\030\002"
-  " \001(\0132\025.onos.topo.FiveGDrbIdH\000R\nfiveGDrbI"
-  "DB\010\n\006drb_id\"u\n\nFiveGDrbId\022\r\n\005value\030\001 \001(\005"
-  "\022\033\n\003qfi\030\002 \001(\0132\016.onos.topo.Qfi\022;\n\020flows_m"
-  "ap_to_drb\030\003 \003(\0132!.onos.topo.QoSflowLevel"
-  "Parameters\"\024\n\003Qfi\022\r\n\005value\030\001 \001(\005\"\246\001\n\026QoS"
-  "flowLevelParameters\0223\n\017dynamic_five_qi\030\001"
-  " \001(\0132\030.onos.topo.DynamicFiveQiH\000\022:\n\023non_"
-  "dynamic_five_qi\030\002 \001(\0132\033.onos.topo.NonDyn"
-  "amicFiveQiH\000B\033\n\031qos_flow_level_parameter"
-  "s\"^\n\rDynamicFiveQi\022\026\n\016priority_level\030\001 \001"
-  "(\005\022\032\n\022packet_delay_budge\030\002 \001(\005\022\031\n\021packet"
-  "_error_rate\030\003 \001(\005\"6\n\020NonDynamicFiveQi\022\"\n"
-  "\007five_qi\030\001 \001(\0132\021.onos.topo.FiveQi\"\027\n\006Fiv"
-  "eQi\022\r\n\005value\030\001 \001(\005\"8\n\nFourGDrbId\022\r\n\005valu"
-  "e\030\001 \001(\005\022\033\n\003qci\030\002 \001(\0132\016.onos.topo.Qci\"\024\n\003"
-  "Qci\022\r\n\005value\030\001 \001(\005*D\n\016RANEntityKinds\022\n\n\006"
-  "E2NODE\020\000\022\n\n\006E2CELL\020\001\022\007\n\003E2T\020\003\022\010\n\004XAPP\020\004\022"
-  "\007\n\003A1T\020\005*=\n\020RANRelationKinds\022\014\n\010CONTROLS"
-  "\020\000\022\014\n\010CONTAINS\020\001\022\r\n\tNEIGHBORS\020\002*\'\n\020CellG"
-  "lobalIDType\022\t\n\005NRCGI\020\000\022\010\n\004ECGI\020\001*M\n\010Node"
-  "Type\022\013\n\007NT_NONE\020\000\022\n\n\006NT_GNB\020\001\022\r\n\tNT_EN_G"
-  "NB\020\002\022\r\n\tNT_NG_ENB\020\003\022\n\n\006NT_ENB\020\004*L\n\rCompo"
-  "nentType\022\013\n\007CT_NONE\020\000\022\t\n\005CT_CU\020\001\022\014\n\010CT_C"
-  "U_UP\020\002\022\t\n\005CT_DU\020\003\022\n\n\006CT_ENB\020\004*\306\001\n\016E2SmRs"
-  "mCommand\022\"\n\036E2_SM_RSM_COMMAND_SLICE_CREA"
-  "TE\020\000\022\"\n\036E2_SM_RSM_COMMAND_SLICE_UPDATE\020\001"
-  "\022\"\n\036E2_SM_RSM_COMMAND_SLICE_DELETE\020\002\022\"\n\036"
-  "E2_SM_RSM_COMMAND_UE_ASSOCIATE\020\003\022$\n E2_S"
-  "M_RSM_COMMAND_EVENT_TRIGGERS\020\004*C\n\016RSMSli"
-  "cingType\022\027\n\023SLICING_TYPE_STATIC\020\000\022\030\n\024SLI"
-  "CING_TYPE_DYNAMIC\020\001*x\n\020RSMSchedulerType\022"
-  "\036\n\032SCHEDULER_TYPE_ROUND_ROBIN\020\000\022&\n\"SCHED"
-  "ULER_TYPE_PROPORTIONALLY_FAIR\020\001\022\034\n\030SCHED"
-  "ULER_TYPE_QOS_BASED\020\002*@\n\014RSMSliceType\022\027\n"
-  "\023SLICE_TYPE_DL_SLICE\020\000\022\027\n\023SLICE_TYPE_UL_"
-  "SLICE\020\001*\246\001\n\010UeIdType\022\035\n\031UE_ID_TYPE_CU_UE"
-  "_F1_AP_ID\020\000\022\035\n\031UE_ID_TYPE_DU_UE_F1_AP_ID"
-  "\020\001\022\035\n\031UE_ID_TYPE_RAN_UE_NGAP_ID\020\002\022\035\n\031UE_"
-  "ID_TYPE_AMF_UE_NGAP_ID\020\003\022\036\n\032UE_ID_TYPE_E"
-  "NB_UE_S1_AP_ID\020\004b\006proto3"
+  "opo.NeighborCellIDB\023\342\336\037\017NeighborCellIDs\022"
+  "\024\n\003bwp\030\t \003(\005B\007\342\336\037\003BWP\0321\n\017KpiReportsEntry"
+  "\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\r:\0028\001\"{\n\020Serv"
+  "iceModelInfo\022\024\n\003oid\030\001 \001(\tB\007\342\336\037\003OID\022\014\n\004na"
+  "me\030\002 \001(\t\022+\n\rran_functions\030\003 \003(\0132\024.google"
+  ".protobuf.Any\022\026\n\016ranFunctionIDs\030\004 \003(\r\"\247\002"
+  "\n\rRCRanFunction\022\022\n\002id\030\001 \001(\tB\006\342\336\037\002ID\022/\n\rr"
+  "eport_styles\030\002 \003(\0132\030.onos.topo.RCReportS"
+  "tyle\022/\n\rinsert_styles\030\003 \003(\0132\030.onos.topo."
+  "RCInsertStyle\022<\n\024event_trigger_styles\030\004 "
+  "\003(\0132\036.onos.topo.RCEventTriggerStyle\022/\n\rp"
+  "olicy_styles\030\005 \003(\0132\030.onos.topo.RCPolicyS"
+  "tyle\0221\n\016control_styles\030\006 \003(\0132\031.onos.topo"
+  ".RCControlStyle\"V\n\016MHORanFunction\022\022\n\002id\030"
+  "\001 \001(\tB\006\342\336\037\002ID\0220\n\rreport_styles\030\002 \003(\0132\031.o"
+  "nos.topo.MHOReportStyle\"V\n\016KPMRanFunctio"
+  "n\022\022\n\002id\030\001 \001(\tB\006\342\336\037\002ID\0220\n\rreport_styles\030\002"
+  " \003(\0132\031.onos.topo.KPMReportStyle\"w\n\016RSMRa"
+  "nFunction\022\022\n\002id\030\001 \001(\tB\006\342\336\037\002ID\022Q\n ric_sli"
+  "cing_node_capability_list\030\002 \003(\0132\'.onos.t"
+  "opo.RSMNodeSlicingCapabilityItem\"F\n\023RCEv"
+  "entTriggerStyle\022\014\n\004name\030\001 \001(\t\022\014\n\004type\030\002 "
+  "\001(\005\022\023\n\013format_type\030\003 \001(\005\"\\\n\rRCReportStyl"
+  "e\022\014\n\004name\030\001 \001(\t\022\014\n\004type\030\002 \001(\005\022/\n\016ran_par"
+  "ameters\030\003 \003(\0132\027.onos.topo.RANParameter\"d"
+  "\n\rRCInsertStyle\022\014\n\004name\030\001 \001(\t\022\014\n\004type\030\002 "
+  "\001(\005\0227\n\022insert_indications\030\003 \003(\0132\033.onos.t"
+  "opo.InsertIndication\"+\n\rRCPolicyStyle\022\014\n"
+  "\004name\030\001 \001(\t\022\014\n\004type\030\002 \001(\005\"\275\001\n\016RCControlS"
+  "tyle\022\014\n\004name\030\001 \001(\t\022\014\n\004type\030\002 \001(\005\022\032\n\022head"
+  "er_format_type\030\003 \001(\005\022\033\n\023message_format_t"
+  "ype\030\004 \001(\005\022#\n\033control_outcome_format_type"
+  "\030\005 \001(\005\0221\n\017control_actions\030\006 \003(\0132\030.onos.t"
+  "opo.ControlAction\"b\n\rControlAction\022\022\n\002id"
+  "\030\001 \001(\005B\006\342\336\037\002ID\022\014\n\004name\030\002 \001(\t\022/\n\016ran_para"
+  "meters\030\003 \003(\0132\027.onos.topo.RANParameter\"e\n"
+  "\020InsertIndication\022\022\n\002id\030\001 \001(\005B\006\342\336\037\002ID\022\014\n"
+  "\004name\030\002 \001(\t\022/\n\016ran_parameters\030\003 \003(\0132\027.on"
+  "os.topo.RANParameter\"0\n\014RANParameter\022\022\n\002"
+  "id\030\001 \001(\005B\006\342\336\037\002ID\022\014\n\004name\030\002 \001(\t\"]\n\016KPMRep"
+  "ortStyle\022\014\n\004name\030\001 \001(\t\022\014\n\004type\030\002 \001(\005\022/\n\014"
+  "measurements\030\003 \003(\0132\031.onos.topo.KPMMeasur"
+  "ement\",\n\016MHOReportStyle\022\014\n\004name\030\001 \001(\t\022\014\n"
+  "\004type\030\002 \001(\005\"2\n\016KPMMeasurement\022\022\n\002id\030\001 \001("
+  "\tB\006\342\336\037\002ID\022\014\n\004name\030\002 \001(\t\"\372\001\n\034RSMNodeSlici"
+  "ngCapabilityItem\022\037\n\027max_number_of_slices"
+  "_dl\030\001 \001(\005\022\037\n\027max_number_of_slices_ul\030\002 \001"
+  "(\005\022/\n\014slicing_type\030\003 \001(\0162\031.onos.topo.RSM"
+  "SlicingType\022#\n\033max_number_of_ues_per_sli"
+  "ce\030\004 \001(\005\022B\n\020supported_config\030\005 \003(\0132(.ono"
+  "s.topo.RSMSupportedSlicingConfigItem\"W\n\035"
+  "RSMSupportedSlicingConfigItem\0226\n\023slicing"
+  "_config_type\030\001 \001(\0162\031.onos.topo.E2SmRsmCo"
+  "mmand\"E\n\020RSMSliceItemList\0221\n\016rsm_slice_l"
+  "ist\030\001 \003(\0132\031.onos.topo.RSMSlicingItem\"\311\001\n"
+  "\016RSMSlicingItem\022\022\n\002id\030\001 \001(\tB\006\342\336\037\002ID\022\022\n\ns"
+  "lice_desc\030\002 \001(\t\0227\n\020slice_parameters\030\003 \001("
+  "\0132\035.onos.topo.RSMSliceParameters\022+\n\nslic"
+  "e_type\030\004 \001(\0162\027.onos.topo.RSMSliceType\022)\n"
+  "\nue_id_list\030\005 \003(\0132\025.onos.topo.UeIdentity"
+  "\"l\n\022RSMSliceParameters\0223\n\016scheduler_type"
+  "\030\001 \001(\0162\033.onos.topo.RSMSchedulerType\022\016\n\006w"
+  "eight\030\002 \001(\005\022\021\n\tqos_level\030\003 \001(\005\"\033\n\nDuUeF1"
+  "apID\022\r\n\005value\030\001 \001(\003\"\033\n\nCuUeF1apID\022\r\n\005val"
+  "ue\030\001 \001(\003\"\034\n\013RanUeNgapID\022\r\n\005value\030\001 \001(\003\"\034"
+  "\n\013EnbUeS1apID\022\r\n\005value\030\001 \001(\005\"\034\n\013AmfUeNga"
+  "pID\022\r\n\005value\030\001 \001(\003\"\262\003\n\nUeIdentity\022<\n\rdu_"
+  "ue_f1ap_id\030\001 \001(\0132\025.onos.topo.DuUeF1apIDB"
+  "\016\342\336\037\nDuUeF1apID\022<\n\rcu_ue_f1ap_id\030\002 \001(\0132\025"
+  ".onos.topo.CuUeF1apIDB\016\342\336\037\nCuUeF1apID\022\?\n"
+  "\016ran_ue_ngap_id\030\003 \001(\0132\026.onos.topo.RanUeN"
+  "gapIDB\017\342\336\037\013RANUeNgapID\022\?\n\016enb_ue_s1ap_id"
+  "\030\004 \001(\0132\026.onos.topo.EnbUeS1apIDB\017\342\336\037\013EnbU"
+  "eS1apID\022\?\n\016amf_ue_ngap_id\030\005 \001(\0132\026.onos.t"
+  "opo.AmfUeNgapIDB\017\342\336\037\013AMFUeNgapID\022C\n\021pref"
+  "erred_id_type\030\006 \001(\0162\023.onos.topo.UeIdType"
+  "B\023\342\336\037\017PreferredIDType\022 \n\006drb_id\030\007 \001(\0132\020."
+  "onos.topo.DrbId\"\207\001\n\005DrbId\0229\n\014four_gdrb_i"
+  "d\030\001 \001(\0132\025.onos.topo.FourGDrbIdH\000R\nfourGD"
+  "rbID\0229\n\014five_gdrb_id\030\002 \001(\0132\025.onos.topo.F"
+  "iveGDrbIdH\000R\nfiveGDrbIDB\010\n\006drb_id\"u\n\nFiv"
+  "eGDrbId\022\r\n\005value\030\001 \001(\005\022\033\n\003qfi\030\002 \001(\0132\016.on"
+  "os.topo.Qfi\022;\n\020flows_map_to_drb\030\003 \003(\0132!."
+  "onos.topo.QoSflowLevelParameters\"\024\n\003Qfi\022"
+  "\r\n\005value\030\001 \001(\005\"\246\001\n\026QoSflowLevelParameter"
+  "s\0223\n\017dynamic_five_qi\030\001 \001(\0132\030.onos.topo.D"
+  "ynamicFiveQiH\000\022:\n\023non_dynamic_five_qi\030\002 "
+  "\001(\0132\033.onos.topo.NonDynamicFiveQiH\000B\033\n\031qo"
+  "s_flow_level_parameters\"^\n\rDynamicFiveQi"
+  "\022\026\n\016priority_level\030\001 \001(\005\022\032\n\022packet_delay"
+  "_budge\030\002 \001(\005\022\031\n\021packet_error_rate\030\003 \001(\005\""
+  "6\n\020NonDynamicFiveQi\022\"\n\007five_qi\030\001 \001(\0132\021.o"
+  "nos.topo.FiveQi\"\027\n\006FiveQi\022\r\n\005value\030\001 \001(\005"
+  "\"8\n\nFourGDrbId\022\r\n\005value\030\001 \001(\005\022\033\n\003qci\030\002 \001"
+  "(\0132\016.onos.topo.Qci\"\024\n\003Qci\022\r\n\005value\030\001 \001(\005"
+  "*D\n\016RANEntityKinds\022\n\n\006E2NODE\020\000\022\n\n\006E2CELL"
+  "\020\001\022\007\n\003E2T\020\003\022\010\n\004XAPP\020\004\022\007\n\003A1T\020\005*=\n\020RANRel"
+  "ationKinds\022\014\n\010CONTROLS\020\000\022\014\n\010CONTAINS\020\001\022\r"
+  "\n\tNEIGHBORS\020\002*\'\n\020CellGlobalIDType\022\t\n\005NRC"
+  "GI\020\000\022\010\n\004ECGI\020\001*M\n\010NodeType\022\013\n\007NT_NONE\020\000\022"
+  "\n\n\006NT_GNB\020\001\022\r\n\tNT_EN_GNB\020\002\022\r\n\tNT_NG_ENB\020"
+  "\003\022\n\n\006NT_ENB\020\004*L\n\rComponentType\022\013\n\007CT_NON"
+  "E\020\000\022\t\n\005CT_CU\020\001\022\014\n\010CT_CU_UP\020\002\022\t\n\005CT_DU\020\003\022"
+  "\n\n\006CT_ENB\020\004*\306\001\n\016E2SmRsmCommand\022\"\n\036E2_SM_"
+  "RSM_COMMAND_SLICE_CREATE\020\000\022\"\n\036E2_SM_RSM_"
+  "COMMAND_SLICE_UPDATE\020\001\022\"\n\036E2_SM_RSM_COMM"
+  "AND_SLICE_DELETE\020\002\022\"\n\036E2_SM_RSM_COMMAND_"
+  "UE_ASSOCIATE\020\003\022$\n E2_SM_RSM_COMMAND_EVEN"
+  "T_TRIGGERS\020\004*C\n\016RSMSlicingType\022\027\n\023SLICIN"
+  "G_TYPE_STATIC\020\000\022\030\n\024SLICING_TYPE_DYNAMIC\020"
+  "\001*x\n\020RSMSchedulerType\022\036\n\032SCHEDULER_TYPE_"
+  "ROUND_ROBIN\020\000\022&\n\"SCHEDULER_TYPE_PROPORTI"
+  "ONALLY_FAIR\020\001\022\034\n\030SCHEDULER_TYPE_QOS_BASE"
+  "D\020\002*@\n\014RSMSliceType\022\027\n\023SLICE_TYPE_DL_SLI"
+  "CE\020\000\022\027\n\023SLICE_TYPE_UL_SLICE\020\001*\246\001\n\010UeIdTy"
+  "pe\022\035\n\031UE_ID_TYPE_CU_UE_F1_AP_ID\020\000\022\035\n\031UE_"
+  "ID_TYPE_DU_UE_F1_AP_ID\020\001\022\035\n\031UE_ID_TYPE_R"
+  "AN_UE_NGAP_ID\020\002\022\035\n\031UE_ID_TYPE_AMF_UE_NGA"
+  "P_ID\020\003\022\036\n\032UE_ID_TYPE_ENB_UE_S1_AP_ID\020\004b\006"
+  "proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_onos_2ftopo_2fran_2eproto_deps[3] = {
   &::descriptor_table_gogoproto_2fgogo_2eproto,
@@ -1688,7 +1692,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_onos_2ftopo_2fran_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_onos_2ftopo_2fran_2eproto = {
-  false, false, 7424, descriptor_table_protodef_onos_2ftopo_2fran_2eproto, "onos/topo/ran.proto", 
+  false, false, 7446, descriptor_table_protodef_onos_2ftopo_2fran_2eproto, "onos/topo/ran.proto", 
   &descriptor_table_onos_2ftopo_2fran_2eproto_once, descriptor_table_onos_2ftopo_2fran_2eproto_deps, 3, 60,
   schemas, file_default_instances, TableStruct_onos_2ftopo_2fran_2eproto::offsets,
   file_level_metadata_onos_2ftopo_2fran_2eproto, file_level_enum_descriptors_onos_2ftopo_2fran_2eproto, file_level_service_descriptors_onos_2ftopo_2fran_2eproto,
@@ -7481,7 +7485,8 @@ E2Cell::E2Cell(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   kpi_reports_(arena),
-  neighbor_cell_ids_(arena) {
+  neighbor_cell_ids_(arena),
+  bwp_(arena) {
   SharedCtor();
   if (!is_message_owned) {
     RegisterArenaDtor(arena);
@@ -7490,7 +7495,8 @@ E2Cell::E2Cell(::PROTOBUF_NAMESPACE_ID::Arena* arena,
 }
 E2Cell::E2Cell(const E2Cell& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
-      neighbor_cell_ids_(from.neighbor_cell_ids_) {
+      neighbor_cell_ids_(from.neighbor_cell_ids_),
+      bwp_(from.bwp_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   kpi_reports_.MergeFrom(from.kpi_reports_);
   cell_object_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
@@ -7571,6 +7577,7 @@ void E2Cell::Clear() {
 
   kpi_reports_.Clear();
   neighbor_cell_ids_.Clear();
+  bwp_.Clear();
   cell_object_id_.ClearToEmpty();
   cell_type_.ClearToEmpty();
   if (GetArenaForAllocation() == nullptr && cell_global_id_ != nullptr) {
@@ -7664,6 +7671,17 @@ const char* E2Cell::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::int
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<66>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated int32 bwp = 9 [(.gogoproto.customname) = "BWP"];
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 74)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedInt32Parser(_internal_mutable_bwp(), ptr, ctx);
+          CHK_(ptr);
+        } else if (static_cast<uint8_t>(tag) == 72) {
+          _internal_add_bwp(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
+          CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
@@ -7792,6 +7810,15 @@ uint8_t* E2Cell::_InternalSerialize(
       InternalWriteMessage(8, this->_internal_neighbor_cell_ids(i), target, stream);
   }
 
+  // repeated int32 bwp = 9 [(.gogoproto.customname) = "BWP"];
+  {
+    int byte_size = _bwp_cached_byte_size_.load(std::memory_order_relaxed);
+    if (byte_size > 0) {
+      target = stream->WriteInt32Packed(
+          9, _internal_bwp(), byte_size, target);
+    }
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -7822,6 +7849,21 @@ size_t E2Cell::ByteSizeLong() const {
   for (const auto& msg : this->neighbor_cell_ids_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // repeated int32 bwp = 9 [(.gogoproto.customname) = "BWP"];
+  {
+    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      Int32Size(this->bwp_);
+    if (data_size > 0) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+            static_cast<int32_t>(data_size));
+    }
+    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    _bwp_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
+    total_size += data_size;
   }
 
   // string cell_object_id = 1 [(.gogoproto.customname) = "CellObjectID"];
@@ -7884,6 +7926,7 @@ void E2Cell::MergeFrom(const E2Cell& from) {
 
   kpi_reports_.MergeFrom(from.kpi_reports_);
   neighbor_cell_ids_.MergeFrom(from.neighbor_cell_ids_);
+  bwp_.MergeFrom(from.bwp_);
   if (!from._internal_cell_object_id().empty()) {
     _internal_set_cell_object_id(from._internal_cell_object_id());
   }
@@ -7923,6 +7966,7 @@ void E2Cell::InternalSwap(E2Cell* other) {
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   kpi_reports_.InternalSwap(&other->kpi_reports_);
   neighbor_cell_ids_.InternalSwap(&other->neighbor_cell_ids_);
+  bwp_.InternalSwap(&other->bwp_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       &cell_object_id_, lhs_arena,

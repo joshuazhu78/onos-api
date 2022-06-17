@@ -585,6 +585,7 @@ class E2Cell(betterproto.Message):
         7, betterproto.TYPE_STRING, betterproto.TYPE_UINT32
     )
     neighbor_cell_ids: List["NeighborCellId"] = betterproto.message_field(8)
+    bwp: List[int] = betterproto.int32_field(9)
 
     def __post_init__(self) -> None:
         super().__post_init__()
