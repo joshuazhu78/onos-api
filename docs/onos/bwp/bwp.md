@@ -14,7 +14,6 @@
     - [GetConflictsResponse](#onos-bwp-GetConflictsResponse)
     - [GetResolvedConflictsRequest](#onos-bwp-GetResolvedConflictsRequest)
     - [GetResolvedConflictsResponse](#onos-bwp-GetResolvedConflictsResponse)
-    - [PrbRange](#onos-bwp-PrbRange)
   
     - [CellType](#onos-bwp-CellType)
   
@@ -44,7 +43,6 @@
 | arfcn | [uint32](#uint32) |  |  |
 | cell_type | [CellType](#onos-bwp-CellType) |  |  |
 | bwps | [int32](#int32) | repeated |  |
-| prb_pool | [PrbRange](#onos-bwp-PrbRange) | repeated |  |
 | neighbor_ids | [uint64](#uint64) | repeated |  |
 
 
@@ -174,22 +172,6 @@ returns all the resolved conflicts in the store
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | cells | [CellResolution](#onos-bwp-CellResolution) | repeated |  |
-
-
-
-
-
-
-<a name="onos-bwp-PrbRange"></a>
-
-### PrbRange
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| min | [uint32](#uint32) |  |  |
-| max | [uint32](#uint32) |  |  |
 
 
 

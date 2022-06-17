@@ -133,7 +133,6 @@ constexpr BwpCell::BwpCell(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : bwps_()
   , _bwps_cached_byte_size_(0)
-  , prb_pool_()
   , neighbor_ids_()
   , _neighbor_ids_cached_byte_size_(0)
   , node_id_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
@@ -150,22 +149,9 @@ struct BwpCellDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT BwpCellDefaultTypeInternal _BwpCell_default_instance_;
-constexpr PrbRange::PrbRange(
-  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : min_(0u)
-  , max_(0u){}
-struct PrbRangeDefaultTypeInternal {
-  constexpr PrbRangeDefaultTypeInternal()
-    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~PrbRangeDefaultTypeInternal() {}
-  union {
-    PrbRange _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PrbRangeDefaultTypeInternal _PrbRange_default_instance_;
 }  // namespace bwp
 }  // namespace onos
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_onos_2fbwp_2fbwp_2eproto[11];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_onos_2fbwp_2fbwp_2eproto[10];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_onos_2fbwp_2fbwp_2eproto[1];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_onos_2fbwp_2fbwp_2eproto = nullptr;
 
@@ -245,16 +231,7 @@ const uint32_t TableStruct_onos_2fbwp_2fbwp_2eproto::offsets[] PROTOBUF_SECTION_
   PROTOBUF_FIELD_OFFSET(::onos::bwp::BwpCell, arfcn_),
   PROTOBUF_FIELD_OFFSET(::onos::bwp::BwpCell, cell_type_),
   PROTOBUF_FIELD_OFFSET(::onos::bwp::BwpCell, bwps_),
-  PROTOBUF_FIELD_OFFSET(::onos::bwp::BwpCell, prb_pool_),
   PROTOBUF_FIELD_OFFSET(::onos::bwp::BwpCell, neighbor_ids_),
-  ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::onos::bwp::PrbRange, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::onos::bwp::PrbRange, min_),
-  PROTOBUF_FIELD_OFFSET(::onos::bwp::PrbRange, max_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::onos::bwp::GetConflictsRequest)},
@@ -267,7 +244,6 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 51, -1, -1, sizeof(::onos::bwp::GetCellsRequest)},
   { 57, -1, -1, sizeof(::onos::bwp::GetCellsResponse)},
   { 64, -1, -1, sizeof(::onos::bwp::BwpCell)},
-  { 77, -1, -1, sizeof(::onos::bwp::PrbRange)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -281,7 +257,6 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::onos::bwp::_GetCellsRequest_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::onos::bwp::_GetCellsResponse_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::onos::bwp::_BwpCell_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::onos::bwp::_PrbRange_default_instance_),
 };
 
 const char descriptor_table_protodef_onos_2fbwp_2fbwp_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -297,27 +272,25 @@ const char descriptor_table_protodef_onos_2fbwp_2fbwp_2eproto[] PROTOBUF_SECTION
   "_id\030\001 \001(\004\"2\n\017GetCellResponse\022\037\n\004cell\030\001 \001"
   "(\0132\021.onos.bwp.BwpCell\"\021\n\017GetCellsRequest"
   "\"4\n\020GetCellsResponse\022 \n\005cells\030\001 \003(\0132\021.on"
-  "os.bwp.BwpCell\"\246\001\n\007BwpCell\022\n\n\002id\030\001 \001(\004\022\017"
+  "os.bwp.BwpCell\"\200\001\n\007BwpCell\022\n\n\002id\030\001 \001(\004\022\017"
   "\n\007node_id\030\002 \001(\t\022\r\n\005arfcn\030\003 \001(\r\022%\n\tcell_t"
   "ype\030\004 \001(\0162\022.onos.bwp.CellType\022\014\n\004bwps\030\005 "
-  "\003(\005\022$\n\010prb_pool\030\006 \003(\0132\022.onos.bwp.PrbRang"
-  "e\022\024\n\014neighbor_ids\030\007 \003(\004\"$\n\010PrbRange\022\013\n\003m"
-  "in\030\001 \001(\r\022\013\n\003max\030\002 \001(\r*C\n\010CellType\022\t\n\005FEM"
-  "TO\020\000\022\016\n\nENTERPRISE\020\001\022\021\n\rOUTDOOR_SMALL\020\002\022"
-  "\t\n\005MACRO\020\0032\306\002\n\003Bwp\022O\n\014GetConflicts\022\035.ono"
-  "s.bwp.GetConflictsRequest\032\036.onos.bwp.Get"
-  "ConflictsResponse\"\000\022g\n\024GetResolvedConfli"
-  "cts\022%.onos.bwp.GetResolvedConflictsReque"
-  "st\032&.onos.bwp.GetResolvedConflictsRespon"
-  "se\"\000\022@\n\007GetCell\022\030.onos.bwp.GetCellReques"
-  "t\032\031.onos.bwp.GetCellResponse\"\000\022C\n\010GetCel"
-  "ls\022\031.onos.bwp.GetCellsRequest\032\032.onos.bwp"
-  ".GetCellsResponse\"\000b\006proto3"
+  "\003(\005\022\024\n\014neighbor_ids\030\007 \003(\004*C\n\010CellType\022\t\n"
+  "\005FEMTO\020\000\022\016\n\nENTERPRISE\020\001\022\021\n\rOUTDOOR_SMAL"
+  "L\020\002\022\t\n\005MACRO\020\0032\306\002\n\003Bwp\022O\n\014GetConflicts\022\035"
+  ".onos.bwp.GetConflictsRequest\032\036.onos.bwp"
+  ".GetConflictsResponse\"\000\022g\n\024GetResolvedCo"
+  "nflicts\022%.onos.bwp.GetResolvedConflictsR"
+  "equest\032&.onos.bwp.GetResolvedConflictsRe"
+  "sponse\"\000\022@\n\007GetCell\022\030.onos.bwp.GetCellRe"
+  "quest\032\031.onos.bwp.GetCellResponse\"\000\022C\n\010Ge"
+  "tCells\022\031.onos.bwp.GetCellsRequest\032\032.onos"
+  ".bwp.GetCellsResponse\"\000b\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_onos_2fbwp_2fbwp_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_onos_2fbwp_2fbwp_2eproto = {
-  false, false, 1107, descriptor_table_protodef_onos_2fbwp_2fbwp_2eproto, "onos/bwp/bwp.proto", 
-  &descriptor_table_onos_2fbwp_2fbwp_2eproto_once, nullptr, 0, 11,
+  false, false, 1031, descriptor_table_protodef_onos_2fbwp_2fbwp_2eproto, "onos/bwp/bwp.proto", 
+  &descriptor_table_onos_2fbwp_2fbwp_2eproto_once, nullptr, 0, 10,
   schemas, file_default_instances, TableStruct_onos_2fbwp_2fbwp_2eproto::offsets,
   file_level_metadata_onos_2fbwp_2fbwp_2eproto, file_level_enum_descriptors_onos_2fbwp_2fbwp_2eproto, file_level_service_descriptors_onos_2fbwp_2fbwp_2eproto,
 };
@@ -1832,7 +1805,6 @@ BwpCell::BwpCell(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
   bwps_(arena),
-  prb_pool_(arena),
   neighbor_ids_(arena) {
   SharedCtor();
   if (!is_message_owned) {
@@ -1843,7 +1815,6 @@ BwpCell::BwpCell(::PROTOBUF_NAMESPACE_ID::Arena* arena,
 BwpCell::BwpCell(const BwpCell& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       bwps_(from.bwps_),
-      prb_pool_(from.prb_pool_),
       neighbor_ids_(from.neighbor_ids_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   node_id_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
@@ -1900,7 +1871,6 @@ void BwpCell::Clear() {
   (void) cached_has_bits;
 
   bwps_.Clear();
-  prb_pool_.Clear();
   neighbor_ids_.Clear();
   node_id_.ClearToEmpty();
   ::memset(&id_, 0, static_cast<size_t>(
@@ -1958,19 +1928,6 @@ const char* BwpCell::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::in
         } else if (static_cast<uint8_t>(tag) == 40) {
           _internal_add_bwps(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
           CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // repeated .onos.bwp.PrbRange prb_pool = 6;
-      case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            ptr = ctx->ParseMessage(_internal_add_prb_pool(), ptr);
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<50>(ptr));
         } else
           goto handle_unusual;
         continue;
@@ -2052,14 +2009,6 @@ uint8_t* BwpCell::_InternalSerialize(
     }
   }
 
-  // repeated .onos.bwp.PrbRange prb_pool = 6;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->_internal_prb_pool_size()); i < n; i++) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(6, this->_internal_prb_pool(i), target, stream);
-  }
-
   // repeated uint64 neighbor_ids = 7;
   {
     int byte_size = _neighbor_ids_cached_byte_size_.load(std::memory_order_relaxed);
@@ -2098,13 +2047,6 @@ size_t BwpCell::ByteSizeLong() const {
     _bwps_cached_byte_size_.store(cached_size,
                                     std::memory_order_relaxed);
     total_size += data_size;
-  }
-
-  // repeated .onos.bwp.PrbRange prb_pool = 6;
-  total_size += 1UL * this->_internal_prb_pool_size();
-  for (const auto& msg : this->prb_pool_) {
-    total_size +=
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
   // repeated uint64 neighbor_ids = 7;
@@ -2168,7 +2110,6 @@ void BwpCell::MergeFrom(const BwpCell& from) {
   (void) cached_has_bits;
 
   bwps_.MergeFrom(from.bwps_);
-  prb_pool_.MergeFrom(from.prb_pool_);
   neighbor_ids_.MergeFrom(from.neighbor_ids_);
   if (!from._internal_node_id().empty()) {
     _internal_set_node_id(from._internal_node_id());
@@ -2202,7 +2143,6 @@ void BwpCell::InternalSwap(BwpCell* other) {
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   bwps_.InternalSwap(&other->bwps_);
-  prb_pool_.InternalSwap(&other->prb_pool_);
   neighbor_ids_.InternalSwap(&other->neighbor_ids_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
@@ -2221,218 +2161,6 @@ void BwpCell::InternalSwap(BwpCell* other) {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_onos_2fbwp_2fbwp_2eproto_getter, &descriptor_table_onos_2fbwp_2fbwp_2eproto_once,
       file_level_metadata_onos_2fbwp_2fbwp_2eproto[9]);
-}
-
-// ===================================================================
-
-class PrbRange::_Internal {
- public:
-};
-
-PrbRange::PrbRange(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor();
-  if (!is_message_owned) {
-    RegisterArenaDtor(arena);
-  }
-  // @@protoc_insertion_point(arena_constructor:onos.bwp.PrbRange)
-}
-PrbRange::PrbRange(const PrbRange& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&min_, &from.min_,
-    static_cast<size_t>(reinterpret_cast<char*>(&max_) -
-    reinterpret_cast<char*>(&min_)) + sizeof(max_));
-  // @@protoc_insertion_point(copy_constructor:onos.bwp.PrbRange)
-}
-
-inline void PrbRange::SharedCtor() {
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&min_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&max_) -
-    reinterpret_cast<char*>(&min_)) + sizeof(max_));
-}
-
-PrbRange::~PrbRange() {
-  // @@protoc_insertion_point(destructor:onos.bwp.PrbRange)
-  if (GetArenaForAllocation() != nullptr) return;
-  SharedDtor();
-  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-inline void PrbRange::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-}
-
-void PrbRange::ArenaDtor(void* object) {
-  PrbRange* _this = reinterpret_cast< PrbRange* >(object);
-  (void)_this;
-}
-void PrbRange::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
-}
-void PrbRange::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-
-void PrbRange::Clear() {
-// @@protoc_insertion_point(message_clear_start:onos.bwp.PrbRange)
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  ::memset(&min_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&max_) -
-      reinterpret_cast<char*>(&min_)) + sizeof(max_));
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* PrbRange::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  while (!ctx->Done(&ptr)) {
-    uint32_t tag;
-    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-    switch (tag >> 3) {
-      // uint32 min = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          min_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // uint32 max = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          max_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      default:
-        goto handle_unusual;
-    }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
-    }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
-  }  // while
-message_done:
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto message_done;
-#undef CHK_
-}
-
-uint8_t* PrbRange::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:onos.bwp.PrbRange)
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  // uint32 min = 1;
-  if (this->_internal_min() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_min(), target);
-  }
-
-  // uint32 max = 2;
-  if (this->_internal_max() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_max(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:onos.bwp.PrbRange)
-  return target;
-}
-
-size_t PrbRange::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:onos.bwp.PrbRange)
-  size_t total_size = 0;
-
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  // uint32 min = 1;
-  if (this->_internal_min() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_min());
-  }
-
-  // uint32 max = 2;
-  if (this->_internal_max() != 0) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_max());
-  }
-
-  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
-}
-
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData PrbRange::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
-    PrbRange::MergeImpl
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*PrbRange::GetClassData() const { return &_class_data_; }
-
-void PrbRange::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
-                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-  static_cast<PrbRange *>(to)->MergeFrom(
-      static_cast<const PrbRange &>(from));
-}
-
-
-void PrbRange::MergeFrom(const PrbRange& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:onos.bwp.PrbRange)
-  GOOGLE_DCHECK_NE(&from, this);
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  if (from._internal_min() != 0) {
-    _internal_set_min(from._internal_min());
-  }
-  if (from._internal_max() != 0) {
-    _internal_set_max(from._internal_max());
-  }
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void PrbRange::CopyFrom(const PrbRange& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:onos.bwp.PrbRange)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool PrbRange::IsInitialized() const {
-  return true;
-}
-
-void PrbRange::InternalSwap(PrbRange* other) {
-  using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(PrbRange, max_)
-      + sizeof(PrbRange::max_)
-      - PROTOBUF_FIELD_OFFSET(PrbRange, min_)>(
-          reinterpret_cast<char*>(&min_),
-          reinterpret_cast<char*>(&other->min_));
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata PrbRange::GetMetadata() const {
-  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
-      &descriptor_table_onos_2fbwp_2fbwp_2eproto_getter, &descriptor_table_onos_2fbwp_2fbwp_2eproto_once,
-      file_level_metadata_onos_2fbwp_2fbwp_2eproto[10]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -2468,9 +2196,6 @@ template<> PROTOBUF_NOINLINE ::onos::bwp::GetCellsResponse* Arena::CreateMaybeMe
 }
 template<> PROTOBUF_NOINLINE ::onos::bwp::BwpCell* Arena::CreateMaybeMessage< ::onos::bwp::BwpCell >(Arena* arena) {
   return Arena::CreateMessageInternal< ::onos::bwp::BwpCell >(arena);
-}
-template<> PROTOBUF_NOINLINE ::onos::bwp::PrbRange* Arena::CreateMaybeMessage< ::onos::bwp::PrbRange >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::onos::bwp::PrbRange >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

@@ -103,17 +103,7 @@ class BwpCell(betterproto.Message):
     arfcn: int = betterproto.uint32_field(3)
     cell_type: "CellType" = betterproto.enum_field(4)
     bwps: List[int] = betterproto.int32_field(5)
-    prb_pool: List["PrbRange"] = betterproto.message_field(6)
     neighbor_ids: List[int] = betterproto.uint64_field(7)
-
-    def __post_init__(self) -> None:
-        super().__post_init__()
-
-
-@dataclass(eq=False, repr=False)
-class PrbRange(betterproto.Message):
-    min: int = betterproto.uint32_field(1)
-    max: int = betterproto.uint32_field(2)
 
     def __post_init__(self) -> None:
         super().__post_init__()

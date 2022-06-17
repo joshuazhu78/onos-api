@@ -48,7 +48,7 @@ struct TableStruct_onos_2fbwp_2fbwp_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[11]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[10]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -87,9 +87,6 @@ extern GetResolvedConflictsRequestDefaultTypeInternal _GetResolvedConflictsReque
 class GetResolvedConflictsResponse;
 struct GetResolvedConflictsResponseDefaultTypeInternal;
 extern GetResolvedConflictsResponseDefaultTypeInternal _GetResolvedConflictsResponse_default_instance_;
-class PrbRange;
-struct PrbRangeDefaultTypeInternal;
-extern PrbRangeDefaultTypeInternal _PrbRange_default_instance_;
 }  // namespace bwp
 }  // namespace onos
 PROTOBUF_NAMESPACE_OPEN
@@ -103,7 +100,6 @@ template<> ::onos::bwp::GetConflictsRequest* Arena::CreateMaybeMessage<::onos::b
 template<> ::onos::bwp::GetConflictsResponse* Arena::CreateMaybeMessage<::onos::bwp::GetConflictsResponse>(Arena*);
 template<> ::onos::bwp::GetResolvedConflictsRequest* Arena::CreateMaybeMessage<::onos::bwp::GetResolvedConflictsRequest>(Arena*);
 template<> ::onos::bwp::GetResolvedConflictsResponse* Arena::CreateMaybeMessage<::onos::bwp::GetResolvedConflictsResponse>(Arena*);
-template<> ::onos::bwp::PrbRange* Arena::CreateMaybeMessage<::onos::bwp::PrbRange>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace onos {
 namespace bwp {
@@ -1615,7 +1611,6 @@ class BwpCell final :
 
   enum : int {
     kBwpsFieldNumber = 5,
-    kPrbPoolFieldNumber = 6,
     kNeighborIdsFieldNumber = 7,
     kNodeIdFieldNumber = 2,
     kIdFieldNumber = 1,
@@ -1643,24 +1638,6 @@ class BwpCell final :
       bwps() const;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t >*
       mutable_bwps();
-
-  // repeated .onos.bwp.PrbRange prb_pool = 6;
-  int prb_pool_size() const;
-  private:
-  int _internal_prb_pool_size() const;
-  public:
-  void clear_prb_pool();
-  ::onos::bwp::PrbRange* mutable_prb_pool(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::onos::bwp::PrbRange >*
-      mutable_prb_pool();
-  private:
-  const ::onos::bwp::PrbRange& _internal_prb_pool(int index) const;
-  ::onos::bwp::PrbRange* _internal_add_prb_pool();
-  public:
-  const ::onos::bwp::PrbRange& prb_pool(int index) const;
-  ::onos::bwp::PrbRange* add_prb_pool();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::onos::bwp::PrbRange >&
-      prb_pool() const;
 
   // repeated uint64 neighbor_ids = 7;
   int neighbor_ids_size() const;
@@ -1734,170 +1711,12 @@ class BwpCell final :
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< int32_t > bwps_;
   mutable std::atomic<int> _bwps_cached_byte_size_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::onos::bwp::PrbRange > prb_pool_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint64_t > neighbor_ids_;
   mutable std::atomic<int> _neighbor_ids_cached_byte_size_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr node_id_;
   uint64_t id_;
   uint32_t arfcn_;
   int cell_type_;
-  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-  friend struct ::TableStruct_onos_2fbwp_2fbwp_2eproto;
-};
-// -------------------------------------------------------------------
-
-class PrbRange final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:onos.bwp.PrbRange) */ {
- public:
-  inline PrbRange() : PrbRange(nullptr) {}
-  ~PrbRange() override;
-  explicit constexpr PrbRange(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  PrbRange(const PrbRange& from);
-  PrbRange(PrbRange&& from) noexcept
-    : PrbRange() {
-    *this = ::std::move(from);
-  }
-
-  inline PrbRange& operator=(const PrbRange& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline PrbRange& operator=(PrbRange&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const PrbRange& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const PrbRange* internal_default_instance() {
-    return reinterpret_cast<const PrbRange*>(
-               &_PrbRange_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    10;
-
-  friend void swap(PrbRange& a, PrbRange& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(PrbRange* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(PrbRange* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  PrbRange* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<PrbRange>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const PrbRange& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom(const PrbRange& from);
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to, const ::PROTOBUF_NAMESPACE_ID::Message& from);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _cached_size_.Get(); }
-
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(PrbRange* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "onos.bwp.PrbRange";
-  }
-  protected:
-  explicit PrbRange(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  private:
-  static void ArenaDtor(void* object);
-  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kMinFieldNumber = 1,
-    kMaxFieldNumber = 2,
-  };
-  // uint32 min = 1;
-  void clear_min();
-  uint32_t min() const;
-  void set_min(uint32_t value);
-  private:
-  uint32_t _internal_min() const;
-  void _internal_set_min(uint32_t value);
-  public:
-
-  // uint32 max = 2;
-  void clear_max();
-  uint32_t max() const;
-  void set_max(uint32_t value);
-  private:
-  uint32_t _internal_max() const;
-  void _internal_set_max(uint32_t value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:onos.bwp.PrbRange)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  uint32_t min_;
-  uint32_t max_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_onos_2fbwp_2fbwp_2eproto;
 };
@@ -2490,46 +2309,6 @@ BwpCell::mutable_bwps() {
   return _internal_mutable_bwps();
 }
 
-// repeated .onos.bwp.PrbRange prb_pool = 6;
-inline int BwpCell::_internal_prb_pool_size() const {
-  return prb_pool_.size();
-}
-inline int BwpCell::prb_pool_size() const {
-  return _internal_prb_pool_size();
-}
-inline void BwpCell::clear_prb_pool() {
-  prb_pool_.Clear();
-}
-inline ::onos::bwp::PrbRange* BwpCell::mutable_prb_pool(int index) {
-  // @@protoc_insertion_point(field_mutable:onos.bwp.BwpCell.prb_pool)
-  return prb_pool_.Mutable(index);
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::onos::bwp::PrbRange >*
-BwpCell::mutable_prb_pool() {
-  // @@protoc_insertion_point(field_mutable_list:onos.bwp.BwpCell.prb_pool)
-  return &prb_pool_;
-}
-inline const ::onos::bwp::PrbRange& BwpCell::_internal_prb_pool(int index) const {
-  return prb_pool_.Get(index);
-}
-inline const ::onos::bwp::PrbRange& BwpCell::prb_pool(int index) const {
-  // @@protoc_insertion_point(field_get:onos.bwp.BwpCell.prb_pool)
-  return _internal_prb_pool(index);
-}
-inline ::onos::bwp::PrbRange* BwpCell::_internal_add_prb_pool() {
-  return prb_pool_.Add();
-}
-inline ::onos::bwp::PrbRange* BwpCell::add_prb_pool() {
-  ::onos::bwp::PrbRange* _add = _internal_add_prb_pool();
-  // @@protoc_insertion_point(field_add:onos.bwp.BwpCell.prb_pool)
-  return _add;
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::onos::bwp::PrbRange >&
-BwpCell::prb_pool() const {
-  // @@protoc_insertion_point(field_list:onos.bwp.BwpCell.prb_pool)
-  return prb_pool_;
-}
-
 // repeated uint64 neighbor_ids = 7;
 inline int BwpCell::_internal_neighbor_ids_size() const {
   return neighbor_ids_.size();
@@ -2577,55 +2356,9 @@ BwpCell::mutable_neighbor_ids() {
   return _internal_mutable_neighbor_ids();
 }
 
-// -------------------------------------------------------------------
-
-// PrbRange
-
-// uint32 min = 1;
-inline void PrbRange::clear_min() {
-  min_ = 0u;
-}
-inline uint32_t PrbRange::_internal_min() const {
-  return min_;
-}
-inline uint32_t PrbRange::min() const {
-  // @@protoc_insertion_point(field_get:onos.bwp.PrbRange.min)
-  return _internal_min();
-}
-inline void PrbRange::_internal_set_min(uint32_t value) {
-  
-  min_ = value;
-}
-inline void PrbRange::set_min(uint32_t value) {
-  _internal_set_min(value);
-  // @@protoc_insertion_point(field_set:onos.bwp.PrbRange.min)
-}
-
-// uint32 max = 2;
-inline void PrbRange::clear_max() {
-  max_ = 0u;
-}
-inline uint32_t PrbRange::_internal_max() const {
-  return max_;
-}
-inline uint32_t PrbRange::max() const {
-  // @@protoc_insertion_point(field_get:onos.bwp.PrbRange.max)
-  return _internal_max();
-}
-inline void PrbRange::_internal_set_max(uint32_t value) {
-  
-  max_ = value;
-}
-inline void PrbRange::set_max(uint32_t value) {
-  _internal_set_max(value);
-  // @@protoc_insertion_point(field_set:onos.bwp.PrbRange.max)
-}
-
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

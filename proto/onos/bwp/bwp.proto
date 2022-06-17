@@ -60,7 +60,6 @@ message BwpCell {
   uint32 arfcn = 3;
   CellType cell_type = 4;
   repeated int32 bwps = 5;
-  repeated PrbRange prb_pool = 6;
   repeated uint64 neighbor_ids = 7;
 }
 
@@ -71,7 +70,3 @@ enum CellType {
   MACRO = 3;
 }
 
-message PrbRange {
-  uint32 min = 1;
-  uint32 max = 2;
-}
