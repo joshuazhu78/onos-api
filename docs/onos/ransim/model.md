@@ -239,7 +239,7 @@ CreateNodeResponse create a node response
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| enbid | [uint64](#uint64) |  |  |
+| ecgi | [uint64](#uint64) |  |  |
 
 
 
@@ -289,7 +289,7 @@ DeleteNodeResponse delete a node response
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| enbid | [uint64](#uint64) |  |  |
+| imsi | [uint64](#uint64) |  |  |
 
 
 
@@ -314,7 +314,7 @@ DeleteNodeResponse delete a node response
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| imsi | [uint32](#uint32) |  |  |
+| imsi | [uint64](#uint64) |  |  |
 
 
 
@@ -399,7 +399,7 @@ GetNodeResponse get a node response
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| imsi | [uint32](#uint32) |  |  |
+| imsi | [uint64](#uint64) |  |  |
 
 
 
@@ -454,7 +454,7 @@ GetNodeResponse get a node response
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| imsi | [uint32](#uint32) |  |  |
+| imsi | [uint64](#uint64) |  |  |
 
 
 
@@ -610,8 +610,8 @@ GetNodeResponse get a node response
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| imsi | [uint32](#uint32) |  |  |
-| ecgi | [uint32](#uint32) |  |  |
+| imsi | [uint64](#uint64) |  |  |
+| ecgi | [uint64](#uint64) |  |  |
 
 
 
@@ -636,7 +636,7 @@ GetNodeResponse get a node response
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| imsi | [uint32](#uint32) |  |  |
+| imsi | [uint64](#uint64) |  |  |
 | location | [onos.ransim.types.Point](#onos-ransim-types-Point) |  |  |
 | heading | [uint32](#uint32) |  |  |
 

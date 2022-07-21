@@ -261,7 +261,7 @@ class UpdateCellResponse(betterproto.Message):
 
 @dataclass(eq=False, repr=False)
 class DeleteCellRequest(betterproto.Message):
-    enbid: int = betterproto.uint64_field(1)
+    ecgi: int = betterproto.uint64_field(1)
 
     def __post_init__(self) -> None:
         super().__post_init__()
@@ -327,7 +327,7 @@ class CreateRouteResponse(betterproto.Message):
 
 @dataclass(eq=False, repr=False)
 class GetRouteRequest(betterproto.Message):
-    imsi: int = betterproto.uint32_field(1)
+    imsi: int = betterproto.uint64_field(1)
 
     def __post_init__(self) -> None:
         super().__post_init__()
@@ -343,7 +343,7 @@ class GetRouteResponse(betterproto.Message):
 
 @dataclass(eq=False, repr=False)
 class DeleteRouteRequest(betterproto.Message):
-    enbid: int = betterproto.uint64_field(1)
+    imsi: int = betterproto.uint64_field(1)
 
     def __post_init__(self) -> None:
         super().__post_init__()
@@ -393,7 +393,7 @@ class ListRoutesResponse(betterproto.Message):
 
 @dataclass(eq=False, repr=False)
 class GetUeRequest(betterproto.Message):
-    imsi: int = betterproto.uint32_field(1)
+    imsi: int = betterproto.uint64_field(1)
 
     def __post_init__(self) -> None:
         super().__post_init__()
@@ -409,8 +409,8 @@ class GetUeResponse(betterproto.Message):
 
 @dataclass(eq=False, repr=False)
 class MoveToCellRequest(betterproto.Message):
-    imsi: int = betterproto.uint32_field(1)
-    ecgi: int = betterproto.uint32_field(2)
+    imsi: int = betterproto.uint64_field(1)
+    ecgi: int = betterproto.uint64_field(2)
 
     def __post_init__(self) -> None:
         super().__post_init__()
@@ -426,7 +426,7 @@ class MoveToCellResponse(betterproto.Message):
 
 @dataclass(eq=False, repr=False)
 class MoveToLocationRequest(betterproto.Message):
-    imsi: int = betterproto.uint32_field(1)
+    imsi: int = betterproto.uint64_field(1)
     location: "_types__.Point" = betterproto.message_field(2)
     heading: int = betterproto.uint32_field(3)
 
@@ -444,7 +444,7 @@ class MoveToLocationResponse(betterproto.Message):
 
 @dataclass(eq=False, repr=False)
 class DeleteUeRequest(betterproto.Message):
-    imsi: int = betterproto.uint32_field(1)
+    imsi: int = betterproto.uint64_field(1)
 
     def __post_init__(self) -> None:
         super().__post_init__()
@@ -666,10 +666,10 @@ class CellModelStub(betterproto.ServiceStub):
             "/onos.ransim.model.CellModel/CreateCell", request, CreateCellResponse
         )
 
-    async def delete_cell(self, *, enbid: int = 0) -> "DeleteCellResponse":
+    async def delete_cell(self, *, ecgi: int = 0) -> "DeleteCellResponse":
 
         request = DeleteCellRequest()
-        request.enbid = enbid
+        request.ecgi = ecgi
 
         return await self._unary_unary(
             "/onos.ransim.model.CellModel/DeleteCell", request, DeleteCellResponse
@@ -741,10 +741,10 @@ class RouteModelStub(betterproto.ServiceStub):
             "/onos.ransim.model.RouteModel/CreateRoute", request, CreateRouteResponse
         )
 
-    async def delete_route(self, *, enbid: int = 0) -> "DeleteRouteResponse":
+    async def delete_route(self, *, imsi: int = 0) -> "DeleteRouteResponse":
 
         request = DeleteRouteRequest()
-        request.enbid = enbid
+        request.imsi = imsi
 
         return await self._unary_unary(
             "/onos.ransim.model.RouteModel/DeleteRoute", request, DeleteRouteResponse
