@@ -273,6 +273,7 @@
 | five_qi | [int32](#int32) |  |  |
 | ueid | [UeIdentity](#onos-ransim-types-UeIdentity) |  |  |
 | serving_tower_geometry | [double](#double) |  |  |
+| serving_tower_sinr | [double](#double) | repeated |  |
 
 
 

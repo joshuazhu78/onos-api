@@ -80,6 +80,8 @@ message Ue {
     UeIdentity ueid = 20;
 
     double serving_tower_geometry = 21;
+
+    repeated double serving_tower_sinr = 22;
 }
 
 message UeIdentity {
