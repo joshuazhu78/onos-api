@@ -71,6 +71,7 @@ class Ue(betterproto.Message):
     ueid: "UeIdentity" = betterproto.message_field(20)
     serving_tower_geometry: float = betterproto.double_field(21)
     serving_tower_sinr: List[float] = betterproto.double_field(22)
+    prbs: List[int] = betterproto.uint32_field(23)
 
     def __post_init__(self) -> None:
         super().__post_init__()

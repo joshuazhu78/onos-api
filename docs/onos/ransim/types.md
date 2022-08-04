@@ -274,6 +274,7 @@
 | ueid | [UeIdentity](#onos-ransim-types-UeIdentity) |  |  |
 | serving_tower_geometry | [double](#double) |  |  |
 | serving_tower_sinr | [double](#double) | repeated |  |
+| prbs | [uint32](#uint32) | repeated |  |
 
 
 

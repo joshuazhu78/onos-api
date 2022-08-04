@@ -82,6 +82,8 @@ message Ue {
     double serving_tower_geometry = 21;
 
     repeated double serving_tower_sinr = 22;
+
+    repeated uint32 prbs = 23;
 }
 
 message UeIdentity {
