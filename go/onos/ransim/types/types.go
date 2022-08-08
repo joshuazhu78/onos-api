@@ -73,7 +73,7 @@ func DecodePlmnID(plmnID string) (mcc string, mnc string) {
 // ToPlmnID encodes the specified MCC and MNC strings into a numeric PLMNID
 func ToPlmnID(mcc string, mnc string) PlmnID {
 	s := EncodePlmnID(mcc, mnc)
-	n, err := strconv.ParseUint(s, 16, 32)
+	n, err := strconv.ParseUint(s, 10, 32)
 	if err != nil {
 		return 0
 	}
