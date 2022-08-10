@@ -49,6 +49,8 @@
     - [MoveToLocationResponse](#onos-ransim-model-MoveToLocationResponse)
     - [PlmnIDRequest](#onos-ransim-model-PlmnIDRequest)
     - [PlmnIDResponse](#onos-ransim-model-PlmnIDResponse)
+    - [SendPacketsRequest](#onos-ransim-model-SendPacketsRequest)
+    - [SendPacketsResponse](#onos-ransim-model-SendPacketsResponse)
     - [SetUECountRequest](#onos-ransim-model-SetUECountRequest)
     - [SetUECountResponse](#onos-ransim-model-SetUECountResponse)
     - [UpdateCellRequest](#onos-ransim-model-UpdateCellRequest)
@@ -680,6 +682,41 @@ GetNodeResponse get a node response
 
 
 
+<a name="onos-ransim-model-SendPacketsRequest"></a>
+
+### SendPacketsRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| ecgi | [uint64](#uint64) |  |  |
+| crnti | [uint32](#uint32) |  |  |
+| downlink | [bool](#bool) |  |  |
+| payloads | [uint32](#uint32) | repeated |  |
+
+
+
+
+
+
+<a name="onos-ransim-model-SendPacketsResponse"></a>
+
+### SendPacketsResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| ecgi | [uint64](#uint64) |  |  |
+| crnti | [uint32](#uint32) |  |  |
+| status | [bool](#bool) | repeated |  |
+
+
+
+
+
+
 <a name="onos-ransim-model-SetUECountRequest"></a>
 
 ### SetUECountRequest
@@ -916,6 +953,7 @@ CellModel provides means to create, delete and read simulated RAN cells.
 | GetCell | [GetCellRequest](#onos-ransim-model-GetCellRequest) | [GetCellResponse](#onos-ransim-model-GetCellResponse) |  |
 | WatchCells | [WatchCellsRequest](#onos-ransim-model-WatchCellsRequest) | [WatchCellsResponse](#onos-ransim-model-WatchCellsResponse) stream |  |
 | ListCells | [ListCellsRequest](#onos-ransim-model-ListCellsRequest) | [ListCellsResponse](#onos-ransim-model-ListCellsResponse) stream |  |
+| SendPackets | [SendPacketsRequest](#onos-ransim-model-SendPacketsRequest) | [SendPacketsResponse](#onos-ransim-model-SendPacketsResponse) |  |
 
 
 <a name="onos-ransim-model-ModelService"></a>

@@ -310,6 +310,27 @@ class ListCellsResponse(betterproto.Message):
 
 
 @dataclass(eq=False, repr=False)
+class SendPacketsRequest(betterproto.Message):
+    ecgi: int = betterproto.uint64_field(1)
+    crnti: int = betterproto.uint32_field(2)
+    downlink: bool = betterproto.bool_field(3)
+    payloads: List[int] = betterproto.uint32_field(4)
+
+    def __post_init__(self) -> None:
+        super().__post_init__()
+
+
+@dataclass(eq=False, repr=False)
+class SendPacketsResponse(betterproto.Message):
+    ecgi: int = betterproto.uint64_field(1)
+    crnti: int = betterproto.uint32_field(2)
+    status: List[bool] = betterproto.bool_field(3)
+
+    def __post_init__(self) -> None:
+        super().__post_init__()
+
+
+@dataclass(eq=False, repr=False)
 class CreateRouteRequest(betterproto.Message):
     route: "_types__.Route" = betterproto.message_field(1)
 
@@ -721,6 +742,26 @@ class CellModelStub(betterproto.ServiceStub):
             ListCellsResponse,
         ):
             yield response
+
+    async def send_packets(
+        self,
+        *,
+        ecgi: int = 0,
+        crnti: int = 0,
+        downlink: bool = False,
+        payloads: Optional[List[int]] = None,
+    ) -> "SendPacketsResponse":
+        payloads = payloads or []
+
+        request = SendPacketsRequest()
+        request.ecgi = ecgi
+        request.crnti = crnti
+        request.downlink = downlink
+        request.payloads = payloads
+
+        return await self._unary_unary(
+            "/onos.ransim.model.CellModel/SendPackets", request, SendPacketsResponse
+        )
 
 
 class RouteModelStub(betterproto.ServiceStub):
