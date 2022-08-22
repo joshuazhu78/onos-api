@@ -49,8 +49,8 @@
     - [MoveToLocationResponse](#onos-ransim-model-MoveToLocationResponse)
     - [PlmnIDRequest](#onos-ransim-model-PlmnIDRequest)
     - [PlmnIDResponse](#onos-ransim-model-PlmnIDResponse)
-    - [SendPacketsRequest](#onos-ransim-model-SendPacketsRequest)
-    - [SendPacketsResponse](#onos-ransim-model-SendPacketsResponse)
+    - [SendPacketRequest](#onos-ransim-model-SendPacketRequest)
+    - [SendPacketResponse](#onos-ransim-model-SendPacketResponse)
     - [SetUECountRequest](#onos-ransim-model-SetUECountRequest)
     - [SetUECountResponse](#onos-ransim-model-SetUECountResponse)
     - [UpdateCellRequest](#onos-ransim-model-UpdateCellRequest)
@@ -682,35 +682,38 @@ GetNodeResponse get a node response
 
 
 
-<a name="onos-ransim-model-SendPacketsRequest"></a>
+<a name="onos-ransim-model-SendPacketRequest"></a>
 
-### SendPacketsRequest
+### SendPacketRequest
 
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| ecgi | [uint64](#uint64) |  |  |
+| ncgi | [uint64](#uint64) |  |  |
 | crnti | [uint32](#uint32) |  |  |
 | downlink | [bool](#bool) |  |  |
-| payloads | [uint32](#uint32) | repeated |  |
+| payload | [uint32](#uint32) |  |  |
+| five_qi | [uint32](#uint32) |  |  |
 
 
 
 
 
 
-<a name="onos-ransim-model-SendPacketsResponse"></a>
+<a name="onos-ransim-model-SendPacketResponse"></a>
 
-### SendPacketsResponse
+### SendPacketResponse
 
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| ecgi | [uint64](#uint64) |  |  |
+| ncgi | [uint64](#uint64) |  |  |
 | crnti | [uint32](#uint32) |  |  |
-| status | [bool](#bool) | repeated |  |
+| downlink | [bool](#bool) |  |  |
+| status | [bool](#bool) |  |  |
+| latency | [uint32](#uint32) |  |  |
 
 
 
@@ -953,7 +956,7 @@ CellModel provides means to create, delete and read simulated RAN cells.
 | GetCell | [GetCellRequest](#onos-ransim-model-GetCellRequest) | [GetCellResponse](#onos-ransim-model-GetCellResponse) |  |
 | WatchCells | [WatchCellsRequest](#onos-ransim-model-WatchCellsRequest) | [WatchCellsResponse](#onos-ransim-model-WatchCellsResponse) stream |  |
 | ListCells | [ListCellsRequest](#onos-ransim-model-ListCellsRequest) | [ListCellsResponse](#onos-ransim-model-ListCellsResponse) stream |  |
-| SendPackets | [SendPacketsRequest](#onos-ransim-model-SendPacketsRequest) | [SendPacketsResponse](#onos-ransim-model-SendPacketsResponse) |  |
+| SendPacket | [SendPacketRequest](#onos-ransim-model-SendPacketRequest) | [SendPacketResponse](#onos-ransim-model-SendPacketResponse) |  |
 
 
 <a name="onos-ransim-model-ModelService"></a>

@@ -310,21 +310,24 @@ class ListCellsResponse(betterproto.Message):
 
 
 @dataclass(eq=False, repr=False)
-class SendPacketsRequest(betterproto.Message):
-    ecgi: int = betterproto.uint64_field(1)
+class SendPacketRequest(betterproto.Message):
+    ncgi: int = betterproto.uint64_field(1)
     crnti: int = betterproto.uint32_field(2)
     downlink: bool = betterproto.bool_field(3)
-    payloads: List[int] = betterproto.uint32_field(4)
+    payload: int = betterproto.uint32_field(4)
+    five_qi: int = betterproto.uint32_field(5)
 
     def __post_init__(self) -> None:
         super().__post_init__()
 
 
 @dataclass(eq=False, repr=False)
-class SendPacketsResponse(betterproto.Message):
-    ecgi: int = betterproto.uint64_field(1)
+class SendPacketResponse(betterproto.Message):
+    ncgi: int = betterproto.uint64_field(1)
     crnti: int = betterproto.uint32_field(2)
-    status: List[bool] = betterproto.bool_field(3)
+    downlink: bool = betterproto.bool_field(3)
+    status: bool = betterproto.bool_field(4)
+    latency: int = betterproto.uint32_field(5)
 
     def __post_init__(self) -> None:
         super().__post_init__()
@@ -743,24 +746,25 @@ class CellModelStub(betterproto.ServiceStub):
         ):
             yield response
 
-    async def send_packets(
+    async def send_packet(
         self,
         *,
-        ecgi: int = 0,
+        ncgi: int = 0,
         crnti: int = 0,
         downlink: bool = False,
-        payloads: Optional[List[int]] = None,
-    ) -> "SendPacketsResponse":
-        payloads = payloads or []
+        payload: int = 0,
+        five_qi: int = 0,
+    ) -> "SendPacketResponse":
 
-        request = SendPacketsRequest()
-        request.ecgi = ecgi
+        request = SendPacketRequest()
+        request.ncgi = ncgi
         request.crnti = crnti
         request.downlink = downlink
-        request.payloads = payloads
+        request.payload = payload
+        request.five_qi = five_qi
 
         return await self._unary_unary(
-            "/onos.ransim.model.CellModel/SendPackets", request, SendPacketsResponse
+            "/onos.ransim.model.CellModel/SendPacket", request, SendPacketResponse
         )
 
 

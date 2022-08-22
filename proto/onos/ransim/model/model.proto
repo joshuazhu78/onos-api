@@ -133,7 +133,7 @@ service CellModel {
     rpc GetCell(GetCellRequest) returns (GetCellResponse);
     rpc WatchCells(WatchCellsRequest) returns (stream WatchCellsResponse);
     rpc ListCells(ListCellsRequest) returns (stream ListCellsResponse);
-    rpc SendPackets(SendPacketsRequest) returns (SendPacketsResponse);
+    rpc SendPacket(SendPacketRequest) returns (SendPacketResponse);
 }
 
 
@@ -183,17 +183,20 @@ message ListCellsResponse {
     ransim.types.Cell Cell = 1;
 }
 
-message SendPacketsRequest {
-    uint64 ecgi = 1 [(gogoproto.customname) = "NCGI", (gogoproto.casttype) = "github.com/onosproject/onos-api/go/onos/ransim/types.NCGI"];
+message SendPacketRequest {
+    uint64 ncgi = 1 [(gogoproto.customname) = "NCGI", (gogoproto.casttype) = "github.com/onosproject/onos-api/go/onos/ransim/types.NCGI"];
     uint32 crnti = 2 [(gogoproto.customname) = "CRNTI", (gogoproto.casttype) = "github.com/onosproject/onos-api/go/onos/ransim/types.CRNTI"];
     bool downlink = 3;
-    repeated uint32 payloads = 4;
+    uint32 payload = 4;
+    uint32 five_qi = 5;
 }
 
-message SendPacketsResponse {
-    uint64 ecgi = 1 [(gogoproto.customname) = "NCGI", (gogoproto.casttype) = "github.com/onosproject/onos-api/go/onos/ransim/types.NCGI"];
+message SendPacketResponse {
+    uint64 ncgi = 1 [(gogoproto.customname) = "NCGI", (gogoproto.casttype) = "github.com/onosproject/onos-api/go/onos/ransim/types.NCGI"];
     uint32 crnti = 2 [(gogoproto.customname) = "CRNTI", (gogoproto.casttype) = "github.com/onosproject/onos-api/go/onos/ransim/types.CRNTI"];
-    repeated bool status = 3;
+    bool downlink = 3;
+    bool status = 4;
+    uint32 latency = 5;
 }
 
 // RouteModel provides means to create, delete and read simulated mobile UE routes.
