@@ -84,6 +84,12 @@ message Ue {
     repeated double serving_tower_sinr = 22;
 
     repeated uint32 prbs = 23;
+
+    double effective_sinr = 24;
+
+    uint32 tb_size = 25;
+
+    double downlink_tput = 26;
 }
 
 message UeIdentity {
@@ -151,6 +157,9 @@ message Cell {
 
     uint32 rrc_connected_count = 17;
 
+    repeated uint64 scheduled_ues = 18 [(gogoproto.casttype) = "IMSI"];
+
+    repeated uint32 scheduled_prbs = 19;
 }
 
 message MeasurementParams {

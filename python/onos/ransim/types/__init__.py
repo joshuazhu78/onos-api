@@ -72,6 +72,9 @@ class Ue(betterproto.Message):
     serving_tower_geometry: float = betterproto.double_field(21)
     serving_tower_sinr: List[float] = betterproto.double_field(22)
     prbs: List[int] = betterproto.uint32_field(23)
+    effective_sinr: float = betterproto.double_field(24)
+    tb_size: int = betterproto.uint32_field(25)
+    downlink_tput: float = betterproto.double_field(26)
 
     def __post_init__(self) -> None:
         super().__post_init__()
@@ -132,6 +135,8 @@ class Cell(betterproto.Message):
     cell_type: "CellType" = betterproto.enum_field(15)
     rrc_idle_count: int = betterproto.uint32_field(16)
     rrc_connected_count: int = betterproto.uint32_field(17)
+    scheduled_ues: List[int] = betterproto.uint64_field(18)
+    scheduled_prbs: List[int] = betterproto.uint32_field(19)
 
     def __post_init__(self) -> None:
         super().__post_init__()

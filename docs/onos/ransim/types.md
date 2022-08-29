@@ -56,6 +56,8 @@
 | cell_type | [CellType](#onos-ransim-types-CellType) |  |  |
 | rrc_idle_count | [uint32](#uint32) |  |  |
 | rrc_connected_count | [uint32](#uint32) |  |  |
+| scheduled_ues | [uint64](#uint64) | repeated |  |
+| scheduled_prbs | [uint32](#uint32) | repeated |  |
 
 
 
@@ -275,6 +277,9 @@
 | serving_tower_geometry | [double](#double) |  |  |
 | serving_tower_sinr | [double](#double) | repeated |  |
 | prbs | [uint32](#uint32) | repeated |  |
+| effective_sinr | [double](#double) |  |  |
+| tb_size | [uint32](#uint32) |  |  |
+| downlink_tput | [double](#double) |  |  |
 
 
 
