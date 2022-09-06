@@ -280,6 +280,7 @@
 | effective_sinr | [double](#double) |  |  |
 | tb_size | [uint32](#uint32) |  |  |
 | downlink_tput | [double](#double) |  |  |
+| downlink_inst_tput | [double](#double) |  |  |
 
 
 

@@ -90,6 +90,8 @@ message Ue {
     uint32 tb_size = 25;
 
     double downlink_tput = 26;
+
+    double downlink_inst_tput = 27;
 }
 
 message UeIdentity {

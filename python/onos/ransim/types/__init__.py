@@ -75,6 +75,7 @@ class Ue(betterproto.Message):
     effective_sinr: float = betterproto.double_field(24)
     tb_size: int = betterproto.uint32_field(25)
     downlink_tput: float = betterproto.double_field(26)
+    downlink_inst_tput: float = betterproto.double_field(27)
 
     def __post_init__(self) -> None:
         super().__post_init__()
