@@ -51,6 +51,7 @@ protos:
 		-w /onos-api \
 		--entrypoint build/bin/compile-protos.sh \
 		onosproject/protoc-go:${ONOS_PROTOC_VERSION}
+	sudo chown -R ${USER}:${USER} python
 
 mocks:
 	./build/bin/generate-mocks.sh
