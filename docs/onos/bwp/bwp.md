@@ -5,6 +5,7 @@
 
 - [onos/bwp/bwp.proto](#onos_bwp_bwp-proto)
     - [BwpCell](#onos-bwp-BwpCell)
+    - [BwpUe](#onos-bwp-BwpUe)
     - [CellResolution](#onos-bwp-CellResolution)
     - [GetCellRequest](#onos-bwp-GetCellRequest)
     - [GetCellResponse](#onos-bwp-GetCellResponse)
@@ -14,6 +15,10 @@
     - [GetConflictsResponse](#onos-bwp-GetConflictsResponse)
     - [GetResolvedConflictsRequest](#onos-bwp-GetResolvedConflictsRequest)
     - [GetResolvedConflictsResponse](#onos-bwp-GetResolvedConflictsResponse)
+    - [GetUeRequest](#onos-bwp-GetUeRequest)
+    - [GetUeResponse](#onos-bwp-GetUeResponse)
+    - [GetUesRequest](#onos-bwp-GetUesRequest)
+    - [GetUesResponse](#onos-bwp-GetUesResponse)
   
     - [CellType](#onos-bwp-CellType)
   
@@ -44,6 +49,22 @@
 | cell_type | [CellType](#onos-bwp-CellType) |  |  |
 | bwps | [int32](#int32) | repeated |  |
 | neighbor_ids | [uint64](#uint64) | repeated |  |
+
+
+
+
+
+
+<a name="onos-bwp-BwpUe"></a>
+
+### BwpUe
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| ue_id | [string](#string) |  |  |
+| dl_tputs | [int32](#int32) |  |  |
 
 
 
@@ -177,6 +198,61 @@ returns all the resolved conflicts in the store
 
 
 
+
+<a name="onos-bwp-GetUeRequest"></a>
+
+### GetUeRequest
+ue id required
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| ue_id | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="onos-bwp-GetUeResponse"></a>
+
+### GetUeResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| ue | [BwpUe](#onos-bwp-BwpUe) |  |  |
+
+
+
+
+
+
+<a name="onos-bwp-GetUesRequest"></a>
+
+### GetUesRequest
+
+
+
+
+
+
+
+<a name="onos-bwp-GetUesResponse"></a>
+
+### GetUesResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| ues | [BwpUe](#onos-bwp-BwpUe) | repeated |  |
+
+
+
+
+
  
 
 
@@ -209,6 +285,8 @@ returns all the resolved conflicts in the store
 | GetResolvedConflicts | [GetResolvedConflictsRequest](#onos-bwp-GetResolvedConflictsRequest) | [GetResolvedConflictsResponse](#onos-bwp-GetResolvedConflictsResponse) |  |
 | GetCell | [GetCellRequest](#onos-bwp-GetCellRequest) | [GetCellResponse](#onos-bwp-GetCellResponse) |  |
 | GetCells | [GetCellsRequest](#onos-bwp-GetCellsRequest) | [GetCellsResponse](#onos-bwp-GetCellsResponse) |  |
+| GetUe | [GetUeRequest](#onos-bwp-GetUeRequest) | [GetUeResponse](#onos-bwp-GetUeResponse) |  |
+| GetUes | [GetUesRequest](#onos-bwp-GetUesRequest) | [GetUesResponse](#onos-bwp-GetUesResponse) |  |
 
  
 

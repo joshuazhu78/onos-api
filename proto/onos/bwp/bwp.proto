@@ -12,6 +12,8 @@ service Bwp {
   rpc GetResolvedConflicts(GetResolvedConflictsRequest) returns (GetResolvedConflictsResponse) {}
   rpc GetCell(GetCellRequest) returns (GetCellResponse) {}
   rpc GetCells(GetCellsRequest) returns (GetCellsResponse) {}
+  rpc GetUe(GetUeRequest) returns (GetUeResponse) {}
+  rpc GetUes(GetUesRequest) returns (GetUesResponse) {}
 }
 
 // if cell id is not specified, will return all cells with conflicts
@@ -70,3 +72,23 @@ enum CellType {
   MACRO = 3;
 }
 
+// ue id required
+message GetUeRequest {
+  string ue_id = 1;
+}
+
+message GetUeResponse {
+  BwpUe ue = 1;
+}
+
+message GetUesRequest {
+}
+
+message GetUesResponse {
+  repeated BwpUe ues = 1;
+}
+
+message BwpUe {
+  string ue_id = 1;
+  int32  dl_tputs = 2;
+}

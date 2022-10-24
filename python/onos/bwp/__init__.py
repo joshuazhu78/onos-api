@@ -109,6 +109,49 @@ class BwpCell(betterproto.Message):
         super().__post_init__()
 
 
+@dataclass(eq=False, repr=False)
+class GetUeRequest(betterproto.Message):
+    """ue id required"""
+
+    ue_id: str = betterproto.string_field(1)
+
+    def __post_init__(self) -> None:
+        super().__post_init__()
+
+
+@dataclass(eq=False, repr=False)
+class GetUeResponse(betterproto.Message):
+    ue: "BwpUe" = betterproto.message_field(1)
+
+    def __post_init__(self) -> None:
+        super().__post_init__()
+
+
+@dataclass(eq=False, repr=False)
+class GetUesRequest(betterproto.Message):
+    pass
+
+    def __post_init__(self) -> None:
+        super().__post_init__()
+
+
+@dataclass(eq=False, repr=False)
+class GetUesResponse(betterproto.Message):
+    ues: List["BwpUe"] = betterproto.message_field(1)
+
+    def __post_init__(self) -> None:
+        super().__post_init__()
+
+
+@dataclass(eq=False, repr=False)
+class BwpUe(betterproto.Message):
+    ue_id: str = betterproto.string_field(1)
+    dl_tputs: int = betterproto.int32_field(2)
+
+    def __post_init__(self) -> None:
+        super().__post_init__()
+
+
 class BwpStub(betterproto.ServiceStub):
     async def get_conflicts(self, *, cell_id: int = 0) -> "GetConflictsResponse":
 
@@ -143,3 +186,16 @@ class BwpStub(betterproto.ServiceStub):
         return await self._unary_unary(
             "/onos.bwp.Bwp/GetCells", request, GetCellsResponse
         )
+
+    async def get_ue(self, *, ue_id: str = "") -> "GetUeResponse":
+
+        request = GetUeRequest()
+        request.ue_id = ue_id
+
+        return await self._unary_unary("/onos.bwp.Bwp/GetUe", request, GetUeResponse)
+
+    async def get_ues(self) -> "GetUesResponse":
+
+        request = GetUesRequest()
+
+        return await self._unary_unary("/onos.bwp.Bwp/GetUes", request, GetUesResponse)
