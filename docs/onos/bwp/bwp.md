@@ -248,6 +248,7 @@ ue id required
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | ues | [BwpUe](#onos-bwp-BwpUe) | repeated |  |
+| reward | [float](#float) |  |  |
 
 
 

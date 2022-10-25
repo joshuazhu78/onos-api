@@ -138,6 +138,7 @@ class GetUesRequest(betterproto.Message):
 @dataclass(eq=False, repr=False)
 class GetUesResponse(betterproto.Message):
     ues: List["BwpUe"] = betterproto.message_field(1)
+    reward: float = betterproto.float_field(2)
 
     def __post_init__(self) -> None:
         super().__post_init__()

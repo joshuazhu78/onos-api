@@ -86,6 +86,7 @@ message GetUesRequest {
 
 message GetUesResponse {
   repeated BwpUe ues = 1;
+  float reward = 2;
 }
 
 message BwpUe {
